@@ -7,7 +7,7 @@ class Guru_model extends CI_Model
     {
         return $this->db->get('t_guru')->result();
     }
-    public function simpanGuru()
+    public function simpanGuru() 
     {
         $data = [
             'kode_guru' => $this->input->post('kode_guru'),
