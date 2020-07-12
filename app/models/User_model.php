@@ -5,8 +5,9 @@ class User_model extends CI_Model
 {
     public function userLogin($username)
     {
-        return $this->db->get_where('t_user', ['username' => $username])->row_array();
+        return $this->db->get_where('view_login', ['username' => $username])->row_array();
     }
+
     public function userSession($id)
     {
         $this->db->select('*');
@@ -15,6 +16,7 @@ class User_model extends CI_Model
         $this->db->where('t_user.id_user', $id);
         return $this->db->get()->row();
     }
+
     public function getUser()
     {
         return $this->db->get('t_user')->result_array();
