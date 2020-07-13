@@ -2,13 +2,7 @@
     <div class="app-title">
         <div>
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
-            <!-- <p>Table to display analytical data effectively</p> -->
         </div>
-        <!-- <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">Tables</li>
-            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
-        </ul> -->
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -33,15 +27,21 @@
                             ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <td><?php echo $sw->nisn; ?></td>
+                                    <td><?php echo $sw->nis; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detsiswa/') . $sw->id_siswa; ?>"><?php echo $sw->nama; ?></a>
+                                        <a href="<?php echo base_url('detsiswa/') . $sw->id; ?>"><?php echo $sw->nama; ?></a>
                                     </td>
                                     <td><?php echo $sw->nama_kelas; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detsiswa/') . $sw->id_siswa; ?>" class="btn btn-outline-secondary btn-sm">Detail <i class="fa fa-info-circle"></i></a>
-                                        <a href="<?php echo base_url('editsiswa/') . $sw->id_siswa; ?>" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="<?php echo base_url('hapus.siswa/') . $sw->id_siswa; ?>" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <a href="<?php echo base_url('detsiswa/') . $sw->id; ?>" class="btn btn-outline-secondary btn-sm">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                        <a href="<?php echo base_url('editsiswa/') . $sw->id; ?>" class="btn btn-outline-success btn-sm">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="<?php echo base_url('hapus.siswa/') . $sw->id; ?>" class="btn btn-outline-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

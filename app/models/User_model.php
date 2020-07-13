@@ -12,7 +12,7 @@ class User_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('t_user');
-        $this->db->join('t_guru', 't_guru.user_id = t_user.id_user');
+        $this->db->join('t_guru', 't_guru.user_id_guru = t_user.id_user','left');
         $this->db->where('t_user.id_user', $id);
         return $this->db->get()->row();
     }

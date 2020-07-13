@@ -32,25 +32,36 @@ class Siswa extends CI_Controller
         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
         $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required|trim');
+
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
-            $data = [
-                'id_kls' => $this->input->post('kls', true),
-                'nisn' => $this->input->post('nisn', true),
-                'nama' => $this->input->post('nama_siswa', true),
-                'tempat_lahir' => $this->input->post('tempat_lhr', true),
-                'tgl_lahir' => $det,
-                'jk' => $this->input->post('jk', true),
-                'alamat' => $this->input->post('alamat', true),
-                'foto' => 'default.jpg'
-            ];
-            $this->siswa->insert_siswa($data);
-            if ($this->db->affected_rows() > 0) {
-                redirect('siswa');
+
+            $config['upload_path']          = './assets/foto/siswa/';
+            $config['allowed_types']        = 'jpg|png|jpeg';
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload('foto')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->session->set_flashdata('warning', $error);
+                redirect('add-siswa');
             } else {
-                redirect('siswa');
+                $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
+                $data = [
+                    'kelas_id'        => $this->input->post('kls', true),
+                    'nis'          => $this->input->post('nisn', true),
+                    'nama'          => $this->input->post('nama_siswa', true),
+                    'tempat_lahir'  => $this->input->post('tempat_lhr', true),
+                    'tgl_lahir'     => $det,
+                    'jk'            => $this->input->post('jk', true),
+                    'alamat'        => $this->input->post('alamat', true),
+                    'foto'          => $this->upload->data('file_name')
+                ];
+                $this->siswa->insert_siswa($data);
+                if ($this->db->affected_rows() > 0) {
+                    redirect('siswa');
+                } else {
+                    redirect('siswa');
+                }
             }
         }
     }
@@ -60,7 +71,7 @@ class Siswa extends CI_Controller
             'title' => 'Edit Siswa',
             'kelas' => $this->admin->getAllKelas(),
             'siswa' => $this->siswa->getAllSiswaById($id),
-            'jkl'    => ['1' => 'Pria', '2' => 'Wanita'],
+            'jkl'   => ['1' => 'Pria', '2' => 'Wanita'],
             'isi'   => 'siswa/edit'
         );
 

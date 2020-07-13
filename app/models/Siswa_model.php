@@ -8,7 +8,7 @@ class Siswa_model extends CI_Model
         // return $this->db->get('t_siswa')->result();
         $this->db->select('*');
         $this->db->from('t_siswa');
-        $this->db->join('t_kelas', 't_kelas.id_kelas = t_siswa.kelas_id');
+        $this->db->join('t_kelas', 't_kelas.id_kelas = t_siswa.kelas_id', 'left');
         // $this->db->where('t_siswa.id_siswa');
         return $this->db->get()->result();
     }
