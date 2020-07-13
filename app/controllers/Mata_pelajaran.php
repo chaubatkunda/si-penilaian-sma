@@ -33,4 +33,29 @@ class Mata_pelajaran extends CI_Controller
             redirect('mata.pelajaran');
         }
     }
+    public function edit($id)
+    {
+        $data = array(
+            'title'     => 'Mata Pelajaran',
+            'mapel'     => $this->mpelajaran->getAllMapelById($id),
+            'isi'       => 'mata_pelajaran/edit'
+        );
+        $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required');
+        $this->form_validation->set_rules('namamp', 'Mata Pelajaran', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $datam = [
+                'kode_mapel'    => $this->input->post('kodemp', true),
+                'nama_mapel'    => $this->input->post('namamp', true)
+            ];
+            $this->mpelajaran->update_data($id, $datam);
+            redirect('mata.pelajaran');
+        }
+    }
+    public function delete($id)
+    {
+        $this->mpelajaran->delete_data($id);
+        redirect('mata.pelajaran');
+    }
 }

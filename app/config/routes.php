@@ -80,6 +80,8 @@ $route['nilai']     = 'nilai';
 // !Mata Pelajaran
 $route['mata.pelajaran']        = 'mata_pelajaran';
 $route['add.mapel']             = 'mata_pelajaran/add';
+$route['edit.mapel/(:num)']     = 'mata_pelajaran/edit/$1';
+$route['hapus.mapel/(:num)']     = 'mata_pelajaran/delete/$1';
 
 // !Waka
 $route['waka.kurikulum']        = 'waka';

@@ -23,6 +23,7 @@ class Admin_model extends CI_Model
 
     public function getAllKelas()
     {
+        $this->db->order_by('nama_kelas', 'asc');
         return $this->db->get('t_kelas')->result();
     }
     public function simpanKelas()
@@ -32,5 +33,22 @@ class Admin_model extends CI_Model
             'nama_kelas' => $this->input->post('kelas', true)
         ];
         return $this->db->insert('t_kelas', $data);
+    }
+
+    public function countSiswa()
+    {
+        return $this->db->get('t_siswa')->num_rows();
+    }
+    public function countGuru()
+    {
+        return $this->db->get('t_guru')->num_rows();
+    }
+    public function countWaka()
+    {
+        return $this->db->get('t_waka')->num_rows();
+    }
+    public function countKelas()
+    {
+        return $this->db->get('t_kelas')->num_rows();
     }
 }

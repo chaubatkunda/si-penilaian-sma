@@ -13,14 +13,14 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">Kode Mapel</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="kodemp" value="<?php echo set_value('kodemp'); ?>" placeholder="Kode Mapel">
+                                <input class="form-control" type="text" name="kodemp" value="<?php echo $mapel->kode_mapel; ?>" readonly>
                                 <small class="text-danger"><?php echo form_error('kodemp'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Mata Pelajaran</label>
                             <div class="col-md-8">
-                                <input class="form-control" name="namamp" type="text" value="<?php echo set_value('namamp'); ?>" placeholder="Mata Pelajaran">
+                                <input class="form-control" name="namamp" type="text" placeholder="Mata Pelajaran" value="<?php echo $mapel->nama_mapel; ?>">
                                 <small class="text-danger"><?php echo form_error('namamp'); ?></small>
                             </div>
                         </div>

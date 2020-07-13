@@ -33,8 +33,12 @@
                                     <td><?php echo $m->kode_mapel; ?></td>
                                     <td><?php echo $m->nama_mapel; ?></td>
                                     <td>
-                                        <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <a href="<?php echo base_url('edit.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-success btn-sm">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="<?php echo base_url('hapus.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-danger btn-sm">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

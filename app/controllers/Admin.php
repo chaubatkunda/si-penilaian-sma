@@ -12,7 +12,11 @@ class Admin extends CI_Controller
     {
         $data = array(
             'title' => 'Dashboard',
-            'isi'   => 'admin/home'
+            'count_siswa'  => $this->admin->countSiswa(),
+            'count_guru'   => $this->admin->countGuru(),
+            'count_waka'   => $this->admin->countWaka(),
+            'count_kelas'   => $this->admin->countKelas(),
+            'isi'           => 'admin/home'
         );
         $this->load->view('template/wrap', $data, false);
     }
