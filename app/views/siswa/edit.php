@@ -19,7 +19,7 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">NISN</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="nisn" value="<?php echo $siswa->nisn; ?>" placeholder="NISN">
+                                <input class="form-control" type="text" name="nisn" value="<?php echo $siswa->nis; ?>" placeholder="NISN">
                                 <small class="text-danger"><?php echo form_error('nisn'); ?></small>
                             </div>
                         </div>

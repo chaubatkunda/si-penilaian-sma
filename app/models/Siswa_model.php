@@ -17,7 +17,7 @@ class Siswa_model extends CI_Model
         $this->db->select('*');
         $this->db->from('t_siswa');
         $this->db->join('t_kelas', 't_kelas.id_kelas = t_siswa.kelas_id');
-        $this->db->where('id_siswa', $id);
+        $this->db->where('t_siswa.id', $id);
         return $this->db->get()->row();
         // return $this->db->get_where('t_siswa', ['id_siswa' => $id])->row();
     }

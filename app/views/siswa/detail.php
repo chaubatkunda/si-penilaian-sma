@@ -11,7 +11,7 @@
                 <table class="table">
                     <tr>
                         <th>NISN</th>
-                        <td><?php echo $siswa->nisn; ?></td>
+                        <td><?php echo $siswa->nis; ?></td>
                     </tr>
                     <tr>
                         <th>Nama</th>

@@ -38,7 +38,7 @@
                                     <td>
                                         <?php
                                         $id_kls = $kls->kode_kelas;
-                                        $query = $this->db->get_where('t_siswa', ['id_kls' => $id_kls])->num_rows();
+                                        $query = $this->db->get_where('t_siswa', ['kelas_id' => $id_kls])->num_rows();
                                         // print_r($query);
                                         ?>
                                         <span class="badge badge-dark"><?php echo $query; ?></span>
