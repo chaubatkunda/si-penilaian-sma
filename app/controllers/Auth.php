@@ -3,15 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
-
     public function index()
     {
         $username = $this->input->post("username", true);
         $password = $this->input->post("password", true);
 
-        var_dump($username);
         $user = $this->user->userLogin($username);
-        // die
 
         $this->form_validation->set_rules('username', 'Username', 'required|trim', ['required' => 'Username Tidak Boleh Kosong']);
         $this->form_validation->set_rules('password', 'Password', 'required|trim', ['required' => 'Password Tidak Boleh Kosong']);
