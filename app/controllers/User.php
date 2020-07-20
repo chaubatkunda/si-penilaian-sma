@@ -23,6 +23,7 @@ class User extends CI_Controller
     {
         $data = array(
             'title' => 'Data Kelas',
+            'guru'  => $this->user->getAllUserGuru(),
             'isi'   => 'user/add'
         );
 

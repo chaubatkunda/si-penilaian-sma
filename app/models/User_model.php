@@ -12,7 +12,7 @@ class User_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('t_user');
-        $this->db->join('t_guru', 't_guru.user_id_guru = t_user.id_user','left');
+        $this->db->join('t_guru', 't_guru.user_id_guru = t_user.id_user', 'left');
         $this->db->where('t_user.id_user', $id);
         return $this->db->get()->row();
     }
@@ -29,5 +29,13 @@ class User_model extends CI_Model
             'level' => $this->input->post('level', true)
         ];
         return $this->db->insert('t_user', $data);
+    }
+
+    public function getAllUserGuru()
+    {
+        $this->db->select('*');
+        $this->db->from('t_guru');
+        $this->db->join('t_user', 't_user.id_user = t_guru.user_id_guru', 'left');
+        return $this->db->get()->result();
     }
 }

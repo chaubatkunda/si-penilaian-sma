@@ -2,13 +2,8 @@
     <div class="app-title">
         <div>
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
-            <!-- <p>Table to display analytical data effectively</p> -->
+            <p><?php echo $this->session->flashdata('warning'); ?></p>
         </div>
-        <!-- <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">Tables</li>
-            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
-        </ul> -->
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -19,12 +14,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Foto</th>
-                                <th>Kode Guru</th>
+                                <th>NIP</th>
                                 <th>Nama</th>
                                 <th>Jabatan</th>
-                                <th>No Telpon/Hp</th>
-                                <th>Alamat</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -34,11 +26,8 @@
                             foreach ($guru as $gr) : ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <td>
-                                        <img src="<?php echo base_url('assets/foto/guru/') . $gr->foto; ?>" width="60">
-                                    </td>
-                                    <td><?php echo $gr->kode_guru; ?></td>
-                                    <td><?php echo $gr->nama; ?></td>
+                                    <td><?php echo $gr->nip; ?></td>
+                                    <td><?php echo $gr->nama_guru; ?></td>
                                     <td>
                                         <?php if ($gr->jabatan == 1) : ?>
                                             <small class="text-primary">Kepala Sekolah</small>
@@ -48,14 +37,13 @@
                                             <small class="text-primary">Guru</small>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo $gr->no_tlp; ?></td>
-                                    <td><?php echo $gr->alamat; ?></td>
                                     <td>
-                                        <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <a href="<?php echo base_url('detail-guru/' . $gr->id_guru); ?>" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i></i></a>
+                                        <a href="<?php echo base_url('edit-guru/' . $gr->id_guru); ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                                        <a href="<?php echo base_url('hapus-guru/' . $gr->id_guru); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
-                            <?php endforeach;; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

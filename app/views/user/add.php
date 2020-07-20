@@ -17,6 +17,16 @@
                     <!-- <h3 class="tile-title">Vertical Form</h3> -->
                     <div class="tile-body">
                         <div class="form-group">
+                            <label class="control-label">Guru</label>
+                            <select name="level" id="" class="form-control">
+                                <option value="">--Pilih Level--</option>
+                                <?php foreach ($guru as $g) : ?>
+                                    <option value="1"><?php echo $g->nama; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <small class="text-danger"><?php echo form_error('level'); ?></small>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Username</label>
                             <input class="form-control" type="text" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>">
                             <small class="text-danger"><?php echo form_error('username'); ?></small>

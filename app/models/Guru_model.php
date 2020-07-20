@@ -7,17 +7,20 @@ class Guru_model extends CI_Model
     {
         return $this->db->get('t_guru')->result();
     }
-    public function simpanGuru() 
+    public function getAllGuruById($id)
     {
-        $data = [
-            'kode_guru' => $this->input->post('kode_guru'),
-            'nama_guru' => $this->input->post('nama_guru'),
-            'jk' => $this->input->post('jk'),
-            'no_tlp' => $this->input->post('no_tlp'),
-            'alamat' => $this->input->post('alamat'),
-            'jabatan' => $this->input->post('jabatan'),
-            'foto' => 'default.jpg'
-        ];
+        return $this->db->get_where('t_guru', ['id_guru' => $id])->row();
+    }
+    public function simpanGuru($data)
+    {
         return $this->db->insert('t_guru', $data);
+    }
+    public function updateGuru($id, $data)
+    {
+        return $this->db->update('t_guru', $data, ['id_guru' => $id]);
+    }
+    public function hapusGuru($id)
+    {
+        return $this->db->delete('t_guru', ['id_guru' => $id]);
     }
 }

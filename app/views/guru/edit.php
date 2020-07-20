@@ -15,34 +15,27 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">NIP</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="kode_guru" placeholder="NIP">
+                                <input class="form-control" type="text" name="kode_guru" value="<?php echo $guru->nip; ?>" readonly>
                                 <small class="text-danger"><?php echo form_error('kode_guru'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Name</label>
                             <div class="col-md-8">
-                                <input class="form-control" name="nama_guru" type="text" placeholder="Nama Guru">
+                                <input class="form-control" name="nama_guru" type="text" value="<?php echo $guru->nama_guru; ?>">
                                 <small class="text-danger"><?php echo form_error('nama_guru'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">No Tlp/Hp</label>
                             <div class="col-md-8">
-                                <input class="form-control" name="no_tlp" type="text" placeholder="No Tlp/Hp">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Jabatan</label>
-                            <div class="col-md-8">
-                                <input class="form-control" name="" type="text" value="Guru" readonly>
-                                <input class="form-control" name="jabatan" type="hidden" value="1" readonly>
+                                <input class="form-control" name="no_tlp" type="text" value="<?php echo $guru->no_tlp; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Alamat</label>
                             <div class="col-md-8">
-                                <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"></textarea>
+                                <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"><?php echo $guru->alamat_guru; ?></textarea>
                             </div>
                         </div>
 

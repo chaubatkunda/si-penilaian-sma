@@ -64,8 +64,11 @@ $route['editsiswa/(:num)']  = 'siswa/edit/$1';
 $route['hapus.siswa/(:num)']  = 'siswa/delete/$1';
 
 // !Guru
-$route['guru']          = 'admin/guru';
-$route['add-guru']      = 'admin/addguru';
+$route['guru']          = 'guru/guru';
+$route['add-guru']      = 'guru/addguru';
+$route['detail-guru/(:num)']    = 'guru/detail/$1';
+$route['edit-guru/(:num)']      = 'guru/edit/$1';
+$route['hapus-guru/(:num)']      = 'guru/hapus/$1';
 
 // !Kelas
 $route['kelas']         = 'admin/kelas';
