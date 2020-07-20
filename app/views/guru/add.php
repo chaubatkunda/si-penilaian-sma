@@ -36,7 +36,6 @@
                             <label class="control-label col-md-3">Jabatan</label>
                             <div class="col-md-8">
                                 <input class="form-control" name="" type="text" value="Guru" readonly>
-                                <input class="form-control" name="jabatan" type="hidden" value="1" readonly>
                             </div>
                         </div>
                         <div class="form-group row">

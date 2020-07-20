@@ -49,7 +49,7 @@ class Guru extends CI_Controller
                 'nama_guru'     => $this->input->post('nama_guru', true),
                 'no_tlp'        => $this->input->post('no_tlp', true),
                 'alamat_guru'        => $this->input->post('alamat', true),
-                'jabatan'       => $this->input->post('jabatan', true),
+                'jabatan'       => 3,
                 'foto'          => 'default.jpg'
             ];
             $this->guru->simpanGuru($data);

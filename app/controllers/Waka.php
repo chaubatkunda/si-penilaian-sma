@@ -19,20 +19,33 @@ class Waka extends CI_Controller
         $data = array(
             'title'     => 'Add Waka Kurikulum',
             'waka'      => $this->guru->getAllGuru(),
-            'mapel'     => $this->mpelajaran->getAllMapel(),
             'isi'       => 'waka/add'
         );
         $this->form_validation->set_rules('nama_waka', 'Nama Waka', 'required|trim');
-        $this->form_validation->set_rules('id_mapel', 'id_mapel', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            $dataw = [
-                'mapel_id'  => $this->input->post('id_mapel', true),
+            $idg = $this->input->post('nama_waka', true);
+            $datag = [
+                'jabatan'   => 2,
+            ];
+            $data = [
                 'guru_id'   => $this->input->post('nama_waka', true),
             ];
-            $this->waka->insert_waka($dataw);
+            $this->waka->update_wakaguru($idg, $datag);
+            $this->waka->insert_waka($data);
             redirect('waka.kurikulum');
         }
+    }
+
+    public function hapus($id)
+    {
+        $idg = $this->input->get('id', true);
+        $datag = [
+            'jabatan'   => 3,
+        ];
+        $this->waka->update_wakaguru($idg, $datag);
+        $this->waka->hapus_waka($id);
+        redirect('waka.kurikulum');
     }
 }

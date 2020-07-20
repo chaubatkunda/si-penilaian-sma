@@ -89,6 +89,7 @@ $route['hapus.mapel/(:num)']     = 'mata_pelajaran/delete/$1';
 // !Waka
 $route['waka.kurikulum']        = 'waka';
 $route['add.waka']              = 'waka/add';
+$route['hapus-waka/(:num)']     = 'waka/hapus/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
