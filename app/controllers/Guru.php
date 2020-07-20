@@ -136,4 +136,12 @@ class Guru extends CI_Controller
             redirect('kelas');
         }
     }
+    public function hapuskelas($id)
+    {
+        $this->guru->hapusKelas($id);
+        $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menghapus Data
+                    </div>');
+        redirect('kelas');
+    }
 }

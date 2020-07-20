@@ -51,7 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['default_controller'] = 'auth';
 
-$route['dashboard']     = 'admin';
+$route['dashboard']     = 'guru';
 $route['user']          = 'user';
 $route['add-user']      = 'user/addakun';
 $route['logout']        = 'auth/logout';
@@ -71,8 +71,9 @@ $route['edit-guru/(:num)']      = 'guru/edit/$1';
 $route['hapus-guru/(:num)']      = 'guru/hapus/$1';
 
 // !Kelas
-$route['kelas']         = 'admin/kelas';
-$route['add-kelas']     = 'admin/addkelas';
+$route['kelas']         = 'guru/kelas';
+$route['add-kelas']     = 'guru/addkelas';
+$route['hapus-kelas/(:num)']     = 'guru/hapuskelas/$1';
 
 // !Kd
 $route['kompetensi.dasar']  = 'kd';

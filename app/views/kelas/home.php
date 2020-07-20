@@ -44,8 +44,11 @@
                                         <span class="badge badge-dark"><?php echo $query; ?></span>
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <?php if ($query > 0) : ?>
+                                            <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <?php else : ?>
+                                            <a href="<?php echo base_url('hapus-kelas/' . $kls->id_kelas); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach;; ?>

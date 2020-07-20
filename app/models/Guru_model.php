@@ -23,4 +23,8 @@ class Guru_model extends CI_Model
     {
         return $this->db->delete('t_guru', ['id_guru' => $id]);
     }
+    public function hapusKelas($id)
+    {
+        return $this->db->delete('t_kelas', ['id_kelas' => $id]);
+    }
 }
