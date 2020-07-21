@@ -31,7 +31,6 @@ class Siswa extends CI_Controller
 
         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
-        $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
@@ -52,7 +51,6 @@ class Siswa extends CI_Controller
                     'nama'          => $this->input->post('nama_siswa', true),
                     'tempat_lahir'  => $this->input->post('tempat_lhr', true),
                     'tgl_lahir'     => $det,
-                    'jk'            => $this->input->post('jk', true),
                     'alamat'        => $this->input->post('alamat', true),
                     'foto'          => $this->upload->data('file_name')
                 ];

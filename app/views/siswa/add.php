@@ -26,22 +26,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Jenis Kelamin</label>
-                            <div class="col-md-9">
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="jk" value="1">Pria
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="jk" value="2">Wanita
-                                    </label>
-                                </div>
-                                <small class="text-danger"><?php echo form_error('jk'); ?></small>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="control-label col-md-3">Tempat Lahir</label>
                             <div class="col-md-8">
                                 <input class="form-control" name="tempat_lhr" type="text" placeholder="Tempat Lahir">

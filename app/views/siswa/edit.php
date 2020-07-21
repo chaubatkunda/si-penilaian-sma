@@ -4,11 +4,6 @@
             <h1><i class="fa fa-user-plus"></i> <?php echo $title; ?></h1>
             <!-- <p>Sample forms</p> -->
         </div>
-        <!-- <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">Forms</li>
-            <li class="breadcrumb-item"><a href="#">Sample Forms</a></li>
-        </ul> -->
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -28,21 +23,6 @@
                             <div class="col-md-8">
                                 <input class="form-control" name="nama_siswa" type="text" value="<?php echo $siswa->nama; ?>" placeholder="Nama Siswa">
                                 <small class="text-danger"><?php echo form_error('nama_siswa'); ?></small>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Jenis Kelamin</label>
-                            <div class="col-md-8">
-                                <select name="jk" class="form-control" id="demoSelect">
-                                    <?php foreach ($jkl as $jk) : ?>
-                                        <?php if ($siswa->jk == $jk) : ?>
-                                            <option value="" selected><?php echo $jk; ?></option>
-                                        <?php else : ?>
-                                            <option value=""><?php echo $jk; ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                                <small class="text-danger"><?php echo form_error('jk'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">

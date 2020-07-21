@@ -26,21 +26,7 @@
                         <td><?php echo date('d-m-Y', strtotime($siswa->tgl_lahir)); ?></td>
                     </tr>
                     <tr>
-                        <th>Jenis Kelamin</th>
-                        <td>
-                            <?php
-                            $jk = $siswa->jk;
-                            if ($jk == 1) {
-                                echo "Pria";
-                            } elseif ($jk == 2) {
-                                echo "Wanita";
-                            } else {
-                                echo "";
-                            }
-                            ?>
-                        </td>
-                    <tr>
-                        <th>Tanggal Lahir</th>
+                        <th>Alamat</th>
                         <td><?php echo $siswa->alamat; ?></td>
                     </tr>
                     <tr>

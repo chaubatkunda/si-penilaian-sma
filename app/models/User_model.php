@@ -5,7 +5,14 @@ class User_model extends CI_Model
 {
     public function userLogin($username)
     {
-        return $this->db->get_where('view_login', ['username' => $username])->row_array();
+        $this->db->select('*');
+        $this->db->from('t_user');
+        $this->db->join('t_tu', 't_tu.user_id = t_user.id_user', 'left');
+        $this->db->join('t_guru', 't_guru.user_id_guru = t_user.id_user', 'left');
+        $this->db->where('username', $username);
+        return $this->db->get()->row_array();
+
+        // return $this->db->get_where('view_login', ['username' => $username])->row_array();
     }
 
     public function userSession($id)
