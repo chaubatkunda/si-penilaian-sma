@@ -40,7 +40,7 @@
                                     <td>
                                         <a href="<?php echo base_url('detail-guru/' . $gr->id_guru); ?>" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i></i></a>
                                         <a href="<?php echo base_url('edit-guru/' . $gr->id_guru); ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                        <a href="<?php echo base_url('hapus-guru/' . $gr->id_guru); ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <a href="<?php echo base_url('hapus-guru/' . $gr->id_guru); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
