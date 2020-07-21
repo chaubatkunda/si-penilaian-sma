@@ -27,11 +27,10 @@ class Siswa_model extends CI_Model
     }
     public function update_siswa($id, $data)
     {
-        return $this->db->update('t_siswa', $data, ['id_siswa' => $id]);
+        return $this->db->update('t_siswa', $data, ['id' => $id]);
     }
-
     public function delete_siswa($id)
     {
-        return $this->db->delete('t_siswa', ['id_siswa' => $id]);
+        return $this->db->delete('t_siswa', ['id' => $id]);
     }
 }

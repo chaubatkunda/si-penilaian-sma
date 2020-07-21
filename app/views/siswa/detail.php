@@ -23,7 +23,7 @@
                     </tr>
                     <tr>
                         <th>Tanggal Lahir</th>
-                        <td><?php echo date('d-m-Y', strtotime($siswa->tgl_lahir)); ?></td>
+                        <td><?php echo indoDate($siswa->tgl_lahir); ?></td>
                     </tr>
                     <tr>
                         <th>Alamat</th>
@@ -41,11 +41,14 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="<?php echo base_url('siswa'); ?>" class="btn btn-danger">Kembali</a>
+                            <a href="<?php echo base_url('editsiswa/' . $siswa->id); ?>" class="btn btn-success" title="Edit Siswa">
+                                Edit <i class="fa fa-pencil"></i>
+                            </a>
+                            <a href="<?php echo base_url('siswa'); ?>" class="btn btn-danger">
+                                Kembali <i class="fa fa-arrow-circle-left"></i>
+                            </a>
                         </td>
                     </tr>
-
                 </table>
             </div>
         </div>

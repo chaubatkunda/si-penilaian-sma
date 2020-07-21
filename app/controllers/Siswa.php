@@ -75,10 +75,43 @@ class Siswa extends CI_Controller
 
         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
-        $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
+            $config['upload_path']          = './assets/foto/siswa/';
+            $config['allowed_types']        = 'jpg|png|jpeg';
+            $config['overwrite']            = true;
+
+            if (!$this->upload->do_upload('foto')) {
+                $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
+                $data = [
+                    'kelas_id'      => $this->input->post('kls', true),
+                    'nis'           => $this->input->post('nisn', true),
+                    'nama'          => $this->input->post('nama_siswa', true),
+                    'tempat_lahir'  => $this->input->post('tempat_lhr', true),
+                    'tgl_lahir'     => $det,
+                    'alamat'        => $this->input->post('alamat', true)
+                ];
+                $this->siswa->update_siswa($id, $data);
+                redirect('siswa');
+            } else {
+                $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
+                $data = [
+                    'kelas_id'        => $this->input->post('kls', true),
+                    'nis'          => $this->input->post('nisn', true),
+                    'nama'          => $this->input->post('nama_siswa', true),
+                    'tempat_lahir'  => $this->input->post('tempat_lhr', true),
+                    'tgl_lahir'     => $det,
+                    'alamat'        => $this->input->post('alamat', true),
+                    'foto'          => $this->upload->data('file_name')
+                ];
+                $this->siswa->update_siswa($id, $data);
+                redirect('siswa');
+            }
+
+
+
+            $this->upload->initialize($config);
             $det = indoDate($this->input->post('tgl_lahir', true));
             $data = [
                 'id_kls' => $this->input->post('kls', true),
