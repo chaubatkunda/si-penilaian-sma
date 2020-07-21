@@ -29,7 +29,7 @@
                                     <td><?php echo $w->nip; ?></td>
                                     <td><?php echo $w->nama_guru; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('hapus-waka/' . $w->id_waka . "?&id=" . $w->guru_id); ?>" class="btn btn-outline-danger btn-sm">
+                                        <a href="<?php echo base_url('hapus-waka/' . $w->id_waka . "?&id=" . $w->guru_id); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
