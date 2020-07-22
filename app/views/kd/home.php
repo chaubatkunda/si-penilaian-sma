@@ -29,7 +29,7 @@
                                     <td><?php echo $k->nama_mapel; ?></td>
                                     <td><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></td>
                                     <td>
-                                        <a href="" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i> Detail</i></a>
+                                        <a href="<?php echo base_url('detail-kd/' . $k->id_kd); ?>" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Detail</i></a>
                                         <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
                                         <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
                                     </td>
