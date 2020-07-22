@@ -77,7 +77,11 @@ $route['hapus-kelas/(:num)']     = 'guru/hapuskelas/$1';
 
 // !Kd
 $route['kompetensi.dasar']  = 'kd';
-$route['add-kd']  = 'kd/add';
+$route['add-kd/(:num)']  = 'kd/add/$1';
+$route['detail-kd/(:num)']  = 'kd/detail/$1';
+$route['edit-kd/(:num)']  = 'kd/edit/$1';
+$route['hapus-kd/(:num)']  = 'kd/delete/$1';
+$route['tambah-detai-kd/(:num)']  = 'kd/detailkd/$1';
 
 // !Nilai
 $route['nilai']     = 'nilai';

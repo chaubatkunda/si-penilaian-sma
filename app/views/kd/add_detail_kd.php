@@ -15,24 +15,15 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">Guru</label>
                             <div class="col-md-8">
-                                <select name="guru" id="" class="form-control">
-                                    <option value="">--Pilih--</option>
-                                    <?php foreach ($guru as $g) : ?>
-                                        <option value="<?php echo $g->id_guru; ?>"><?php echo $g->nama_guru; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <small class="text-danger"><?php echo form_error('guru'); ?></small>
+                                <input type="text" name="" class="form-control" value="<?php echo $kd->nama_guru; ?>" readonly>
+                                <input type="hidden" name="guru" class="form-control" value="<?php echo $kd->id_guru; ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Mata Pelajaran</label>
                             <div class="col-md-8">
-                                <select name="mp" id="" class="form-control" readonly>
-                                    <option value="<?php echo $pelajaran->id_mapel; ?>">
-                                        <?php echo $pelajaran->nama_mapel; ?>
-                                    </option>
-                                </select>
-                                <small class="text-danger"><?php echo form_error('mp'); ?></small>
+                                <input type="text" name="" class="form-control" value="<?php echo $kd->nama_mapel; ?>" readonly>
+                                <input type="hidden" name="mp" class="form-control" value="<?php echo $kd->id_mapel; ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -63,7 +54,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-paper-plane-o"></i> Simpan
                                 </button>
-                                <a href="<?php echo base_url('kompetensi.dasar'); ?>" class="btn btn-danger">
+                                <a href="<?php echo base_url('detail-kd/' . $kd->mapel_id); ?>" class="btn btn-danger">
                                     <i class="fa fa-ban"></i> Batal
                                 </a>
                             </div>
