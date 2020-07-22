@@ -2,25 +2,20 @@
     <div class="app-title">
         <div>
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
-            <!-- <p>Table to display analytical data effectively</p> -->
         </div>
-        <!-- <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">Tables</li>
-            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
-        </ul> -->
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add-guru'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a href="<?php echo base_url('add-kd'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kd</th>
-                                <th>Sub Kd</th>
+                                <th>Guru</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Kompetensi Dasar</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -30,9 +25,11 @@
                             foreach ($kd as $k) : ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <td><?php echo $k->sub_kd; ?></td>
-                                    <td><?php echo $k->ket_kd; ?></td>
+                                    <td><?php echo $k->nama_guru; ?></td>
+                                    <td><?php echo $k->nama_mapel; ?></td>
+                                    <td><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></td>
                                     <td>
+                                        <a href="" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i> Detail</i></a>
                                         <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
                                         <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
                                     </td>
