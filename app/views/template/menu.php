@@ -75,7 +75,7 @@
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('kompetensi.dasar'); ?>">
                     <i class="app-menu__icon fa fa-book"></i>
-                    <span class="app-menu__label">KD</span>
+                    <span class="app-menu__label">Kompetensi Dasar</span>
                 </a>
             </li>
             <li>

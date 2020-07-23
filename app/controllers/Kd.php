@@ -9,7 +9,7 @@ class Kd extends CI_Controller
         $data = array(
             'title' => 'Kompetensi Dasar',
             // 'kd'    => $this->kd->getAllKd(),
-            'mapel' => $this->mpelajaran->getAllMapel(),
+            'mapel' => $this->kd->getAllMapel(),
             'isi'   => 'kd/home'
         );
         $this->load->view('template/wrap', $data, false);
@@ -59,11 +59,11 @@ class Kd extends CI_Controller
     public function edit($id)
     {
         $data = array(
-            'title' => 'Kompetensi Dasar',
-            'kd'    => $this->kd->getAllKdById($id),
+            'title'         => 'Kompetensi Dasar',
+            'kd'            => $this->kd->getAllKdById($id),
             'pelajaran'     => $this->mpelajaran->getAllMapel(),
             'guru'          => $this->guru->getAllGuru(),
-            'isi'   => 'kd/edit'
+            'isi'           => 'kd/edit'
         );
         $this->form_validation->set_rules('guru', 'Nama Guru', 'trim|required');
         $this->form_validation->set_rules('mp', 'Mata Pelajaran', 'trim|required');

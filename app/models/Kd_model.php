@@ -12,6 +12,15 @@ class Kd_model extends CI_Model
         $this->db->join('t_mapel', 't_mapel.id_mapel = t_kd.mapel_id');
         return $this->db->get()->result();
     }
+    public function getAllMapel()
+    {
+        $this->db->select('*');
+        $this->db->from('t_mapel');
+        $this->db->join('t_detail_mapel', 't_mapel.kode_mapel = t_detail_mapel.mapel_id');
+        $this->db->join('t_kelas', 't_kelas.id_kelas = t_detail_mapel.kelas_id');
+        $this->db->order_by('nama_kelas', 'asc');
+        return $this->db->get()->result();
+    }
     public function getAllKdById($id)
     {
         // return $this->db->get('t_kd')->result();

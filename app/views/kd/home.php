@@ -14,7 +14,7 @@
                                 <th>No</th>
                                 <!-- <th>Guru</th> -->
                                 <th>Mata Pelajaran</th>
-                                <!-- <th>Kompetensi Dasar</th> -->
+                                <th>Kelas</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -29,6 +29,7 @@
                                             <?php echo $k->nama_mapel; ?>
                                         </a>
                                     </td>
+                                    <td><?php echo $k->nama_kelas; ?></td>
                                     <td>
                                         <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Detail</i></a>
                                         <!-- <a href="<?php echo base_url('edit-kd/' . $k->id_mapel); ?>" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>

@@ -22,4 +22,35 @@ class Nilai extends CI_Controller
         );
         $this->load->view('template/wrap', $data, false);
     }
+    public function detail_siswa($id)
+    {
+        $kode = $this->input->get('mapel', true);
+        $data = array(
+            'title'     => 'Nilai',
+            'nilai'     => $this->nilai->getAllNilaiSIswa($id),
+            'kd'         => $this->kd->getAllKdByIdd($kode),
+            'mapel'     => $kode,
+            'isi'       => 'guru/detail_siswa'
+        );
+        $this->load->view('template/wrap', $data, false);
+    }
+    public function nilai_siswa($id)
+    {
+        $nis = $this->input->get('siswa', true);
+        $mapel = $this->input->get('mapel', true);
+        $data = array(
+            'title'     => 'Penilaian Siswa',
+            'mapel'     => $mapel,
+            'siswa'     => $nis,
+            'kd'         => $this->kd->getAllKdById($id),
+            'isi'       => 'guru/nilai_siswa'
+        );
+        $this->load->view('template/wrap', $data, false);
+    }
+
+    public function simpanNilai()
+    {
+        $this->nilai->insert_nilai();
+        redirect('guru/nilai');
+    }
 }

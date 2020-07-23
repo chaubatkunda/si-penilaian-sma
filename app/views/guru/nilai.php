@@ -26,7 +26,7 @@
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td>
-                                        <a href="<?php echo $n->id_mapel; ?>"><?php echo $n->nama_mapel; ?></a>
+                                        <a href="<?php echo base_url('guru/nilai/siswa/' . $n->id_kelas . "?mapel=" . $n->id_mapel); ?>"><?php echo $n->nama_mapel; ?></a>
                                     </td>
                                     <td><?php echo $n->nama_kelas; ?></td>
                                     <td>
