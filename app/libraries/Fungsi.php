@@ -13,4 +13,10 @@ class Fungsi
         $id = $this->lb->session->userdata('id');
         return $this->lb->user->userSession($id);
     }
+
+    function getSumIdUser()
+    {
+        $this->lb->db->select_max('id_user');
+        return $this->lb->db->get('t_user')->row()->id_user + 1;
+    }
 }

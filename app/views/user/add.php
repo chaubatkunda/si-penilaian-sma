@@ -18,14 +18,15 @@
                     <div class="tile-body">
                         <div class="form-group">
                             <label class="control-label">Guru</label>
-                            <select name="level" id="" class="form-control">
-                                <option value="">--Pilih Level--</option>
+                            <select name="guru" class="form-control" id="guru-user">
+                                <option value="">--Pilih--</option>
                                 <?php foreach ($guru as $g) : ?>
-                                    <option value="1"><?php echo $g->nama; ?></option>
+                                    <option value="<?php echo $g->id_guru; ?>"><?php echo $g->nama_guru; ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <small class="text-danger"><?php echo form_error('level'); ?></small>
+                            <small class="text-danger"><?php echo form_error('guru'); ?></small>
                         </div>
+                        <input type="hidden" name="nama_guru" class="form-control" id="nama_guru" readonly>
                         <div class="form-group">
                             <label class="control-label">Username</label>
                             <input class="form-control" type="text" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>">

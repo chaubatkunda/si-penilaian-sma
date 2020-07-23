@@ -11,6 +11,30 @@
                 <div class="tile-body">
                     <form method="post" action="" class="form-horizontal">
                         <div class="form-group row">
+                            <label class="control-label col-md-3">Guru</label>
+                            <div class="col-md-8">
+                                <select name="guru" id="" class="form-control">
+                                    <option value="">--Pilih--</option>
+                                    <?php foreach ($guru as $g) : ?>
+                                        <option value="<?php echo $g->id_guru; ?>"><?php echo $g->nama_guru; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <small class="text-danger"><?php echo form_error('guru'); ?></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Kelas</label>
+                            <div class="col-md-8">
+                                <select name="kelas" id="" class="form-control">
+                                    <option value="">--Pilih--</option>
+                                    <?php foreach ($kelas as $k) : ?>
+                                        <option value="<?php echo $k->id_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <small class="text-danger"><?php echo form_error('kelas'); ?></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="control-label col-md-3">Kode Mapel</label>
                             <div class="col-md-8">
                                 <input class="form-control" type="text" name="kodemp" value="<?php echo set_value('kodemp'); ?>" placeholder="Kode Mapel">

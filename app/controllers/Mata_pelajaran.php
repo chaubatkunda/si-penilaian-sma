@@ -17,19 +17,32 @@ class Mata_pelajaran extends CI_Controller
     {
         $data = array(
             'title'     => 'Mata Pelajaran',
-            'mapel'     => $this->mpelajaran->getAllMapel(),
+            'kelas'     => $this->admin->getAllKelas(),
+            'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/add'
         );
+        $this->form_validation->set_rules('guru', 'Guru', 'trim|required');
+        $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
         $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required|is_unique[t_mapel.kode_mapel]');
         $this->form_validation->set_rules('namamp', 'Mata Pelajaran', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
+            $detmapel = [
+                'guru_id'    => $this->input->post('guru', true),
+                'kelas_id'   => $this->input->post('kelas', true),
+                'mapel_id'   => $this->input->post('kodemp', true)
+            ];
             $datam = [
                 'kode_mapel'    => $this->input->post('kodemp', true),
                 'nama_mapel'    => $this->input->post('namamp', true)
             ];
+
             $this->mpelajaran->insert_data($datam);
+            $this->mpelajaran->insert_detmapel($detmapel);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+               Data Berhasil Ditambahkan
+                </div>');
             redirect('mata.pelajaran');
         }
     }

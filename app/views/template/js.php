@@ -88,5 +88,27 @@
                 }
             })
         });
+
+        $("#guru-user").on("change", function() {
+            const guru = $(this).val();
+            // const nama_guru
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('user/getMapelGuru'); ?>",
+                dataType: "json",
+                data: {
+                    guru: guru
+                },
+                success: function(data) {
+                    // for (let i = 0; i < data.length; i++) {
+                    //     const element = data[i].nama_guru;
+                    //     console.log(element);
+                    // }
+                    // console.log(data.nama_guru);
+                    $("#nama_guru").val(data.nama_guru);
+
+                }
+            });
+        });
     });
 </script>

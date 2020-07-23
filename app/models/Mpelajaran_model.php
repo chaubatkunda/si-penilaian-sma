@@ -16,6 +16,10 @@ class Mpelajaran_model extends CI_Model
     {
         return $this->db->insert('t_mapel', $datam);
     }
+    public function insert_detmapel($detmapel)
+    {
+        return $this->db->insert('t_detail_mapel', $detmapel);
+    }
     public function update_data($id, $datam)
     {
         return $this->db->update('t_mapel', $datam, ['id_mapel' => $id]);

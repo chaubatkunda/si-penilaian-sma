@@ -28,14 +28,9 @@ class User_model extends CI_Model
     {
         return $this->db->get('t_user')->result_array();
     }
-    public function simpanAkun()
+    public function simpanAkun($datau)
     {
-        $data = [
-            'username' => $this->input->post('username', true),
-            'password' => password_hash($this->input->post('password1', true), PASSWORD_DEFAULT),
-            'level' => $this->input->post('level', true)
-        ];
-        return $this->db->insert('t_user', $data);
+        return $this->db->insert('t_user', $datau);
     }
 
     public function getAllUserGuru()
@@ -44,5 +39,18 @@ class User_model extends CI_Model
         $this->db->from('t_guru');
         $this->db->join('t_user', 't_user.id_user = t_guru.user_id_guru', 'left');
         return $this->db->get()->result();
+    }
+
+    public function getAllMapelGuru($guru)
+    {
+        return $this->db->get_where('t_guru', ['id_guru' => $guru])->row();
+
+        // $this->db->select('*');
+        // $this->db->from('t_detail_mapel');
+        // $this->db->join('t_guru', 't_guru.id_guru = t_detail_mapel.guru_id');
+        // $this->db->join('t_kelas', 't_kelas.id_kelas = t_detail_mapel.kelas_id');
+        // $this->db->join('t_mapel', 't_mapel.kode_mapel = t_detail_mapel.mapel_id');
+        // $this->db->where('guru_id', $guru);
+        // return $this->db->get()->result();
     }
 }

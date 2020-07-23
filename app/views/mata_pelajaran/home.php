@@ -4,14 +4,10 @@
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
             <!-- <p>Table to display analytical data effectively</p> -->
         </div>
-        <!-- <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">Tables</li>
-            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
-        </ul> -->
     </div>
     <div class="row">
         <div class="col-md-12">
+            <?php echo $this->session->flashdata('warning'); ?>
             <a href="<?php echo base_url('add.mapel'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
             <div class="tile">
                 <div class="tile-body">
