@@ -4,9 +4,8 @@
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <a href="<?php echo base_url('add-kd'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -25,13 +24,15 @@
                             foreach ($mapel as $k) : ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <!-- <td><?php echo $k->nama_guru; ?></td> -->
-                                    <td><?php echo $k->nama_mapel; ?></td>
-                                    <!-- <td><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></td> -->
+                                    <td>
+                                        <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>">
+                                            <?php echo $k->nama_mapel; ?>
+                                        </a>
+                                    </td>
                                     <td>
                                         <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Detail</i></a>
-                                        <a href="<?php echo base_url('edit-kd/' . $k->id_mapel); ?>" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="<?php echo base_url('hapus-kd/' . $k->id_mapel); ?>" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <!-- <a href="<?php echo base_url('edit-kd/' . $k->id_mapel); ?>" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
+                                        <a href="<?php echo base_url('hapus-kd/' . $k->id_mapel); ?>" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a> -->
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

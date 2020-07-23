@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="tile">
                 <div class="mb-2">
                     <a href="<?php echo base_url('kompetensi.dasar'); ?>" class="btn btn-success btn-sm">
@@ -18,7 +18,7 @@
                     <?php endif; ?>
                 </div>
                 <?php echo $this->session->flashdata('warning'); ?>
-                <table class="table">
+                <table class="table" id="sampleTable">
                     <thead>
                         <tr>
                             <th>#</th>
