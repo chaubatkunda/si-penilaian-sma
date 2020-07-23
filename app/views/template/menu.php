@@ -35,62 +35,77 @@
         </div>
     </div>
     <ul class="app-menu">
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('dashboard'); ?>">
-                <i class="app-menu__icon fa fa-dashboard"></i>
-                <span class="app-menu__label">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('siswa'); ?>">
-                <i class="app-menu__icon fa fa-users"></i>
-                <span class="app-menu__label">Siswa</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('guru'); ?>">
-                <i class="app-menu__icon fa fa-users"></i>
-                <span class="app-menu__label">Guru</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('mata.pelajaran'); ?>">
-                <i class="app-menu__icon fa fa-book"></i>
-                <span class="app-menu__label">Mata Pelajaran</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('waka.kurikulum'); ?>">
-                <i class="app-menu__icon fa fa-book"></i>
-                <span class="app-menu__label">Waka Kurikulum</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('kelas'); ?>">
-                <i class="app-menu__icon fa fa-home"></i>
-                <span class="app-menu__label">Kelas</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('kompetensi.dasar'); ?>">
-                <i class="app-menu__icon fa fa-book"></i>
-                <span class="app-menu__label">KD</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('nilai'); ?>">
-                <i class="app-menu__icon fa fa-book"></i>
-                <span class="app-menu__label">Nilai</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item" href="<?php echo base_url('user'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">User</span></a>
-        </li>
-        <!-- <li class="treeview">
+        <?php if ($this->fungsi->user_login()->level == 1) : ?>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('dashboard'); ?>">
+                    <i class="app-menu__icon fa fa-dashboard"></i>
+                    <span class="app-menu__label">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('siswa'); ?>">
+                    <i class="app-menu__icon fa fa-users"></i>
+                    <span class="app-menu__label">Siswa</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('guru'); ?>">
+                    <i class="app-menu__icon fa fa-users"></i>
+                    <span class="app-menu__label">Guru</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('mata.pelajaran'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Mata Pelajaran</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('waka.kurikulum'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Waka Kurikulum</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('kelas'); ?>">
+                    <i class="app-menu__icon fa fa-home"></i>
+                    <span class="app-menu__label">Kelas</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('kompetensi.dasar'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">KD</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('nilai'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Nilai</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('user'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">User</span></a>
+            </li>
+            <!-- <li class="treeview">
             <a class="app-menu__item" href="#" data-toggle="treeview"><i class="fa fa-fw fa-home"></i><span class="app-menu__label">Kelas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
                 <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
             </ul>
         </li> -->
+        <?php else : ?>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('user'); ?>">
+                    <i class="app-menu__icon fa fa-home"></i>
+                    <span class="app-menu__label">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('guru/nilai'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Nilai</span>
+                </a>
+            </li>
+        <?php endif; ?>
     </ul>
 </aside>

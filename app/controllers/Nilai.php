@@ -13,4 +13,13 @@ class Nilai extends CI_Controller
         );
         $this->load->view('template/wrap', $data, false);
     }
+    public function guru_nilai()
+    {
+        $data = array(
+            'title'     => 'Nilai',
+            'nilai'     => $this->user->guruPelajaran(),
+            'isi'       => 'guru/nilai'
+        );
+        $this->load->view('template/wrap', $data, false);
+    }
 }

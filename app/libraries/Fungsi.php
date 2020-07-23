@@ -5,7 +5,6 @@ class Fungsi
     protected $lb;
     function __construct()
     {
-        // parent::__construct();
         $this->lb = &get_instance();
     }
     function user_login()
@@ -19,4 +18,8 @@ class Fungsi
         $this->lb->db->select_max('id_user');
         return $this->lb->db->get('t_user')->row()->id_user + 1;
     }
+    // function guruMapel($pelajaran)
+    // {
+    //     return $this->lb->user->guruPelajaran($pelajaran)->id_guru;
+    // }
 }

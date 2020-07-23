@@ -85,6 +85,7 @@ $route['tambah-detai-kd/(:num)']  = 'kd/detailkd/$1';
 
 // !Nilai
 $route['nilai']     = 'nilai';
+$route['guru/nilai']     = 'nilai/guru_nilai';
 
 // !Mata Pelajaran
 $route['mata.pelajaran']        = 'mata_pelajaran';
