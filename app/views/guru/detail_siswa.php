@@ -29,15 +29,12 @@
                                     <td><?php echo $n->nama; ?></td>
                                     <td>
                                         <?php
-                                        $query = $this->db->get_where("t_nilai", ['siswa_id' => $n->nis])->select_sum('nilai')->result();
-                                        // $query = $this->db->query("SELECT AVG(nilai) as nilai FROM t_nilai  WHERE 'siswa_id = $n->nis'")->result();
+                                        $query = $this->db->query("SELECT AVG(nilai) as rata2 FROM t_nilai WHERE siswa_id = '$n->nis' AND mapel_id = '$mapel' ")->result();
                                         foreach ($query as $q) : ?>
                                             <span class="badge badge-primary">
-                                                <?php echo $q->nilai; ?>
-                                                <!-- <?php echo round($q->nilai); ?> -->
+                                                <?php echo round($q->rata2); ?>
                                             </span>
                                         <?php endforeach; ?>
-
                                     </td>
                                     <td>
                                         <?php if (empty($kd)) : ?>
