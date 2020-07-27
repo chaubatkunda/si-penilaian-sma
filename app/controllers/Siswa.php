@@ -10,6 +10,8 @@ class Siswa extends CI_Controller
             'siswa' => $this->siswa->getAllSiswa(),
             'isi'   => 'siswa/home'
         );
+        // var_dump($data['siswa']);
+        // die;
         $this->load->view('template/wrap', $data, false);
     }
     public function detailsiswa($id)
@@ -31,6 +33,7 @@ class Siswa extends CI_Controller
 
         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
+        $this->form_validation->set_rules('kls', 'Kelas', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
@@ -56,8 +59,14 @@ class Siswa extends CI_Controller
                 ];
                 $this->siswa->insert_siswa($data);
                 if ($this->db->affected_rows() > 0) {
+                    $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menambahkan Data
+                    </div>');
                     redirect('siswa');
                 } else {
+                    $this->session->set_flashdata('warning', '<div class="alert alert-danger" role="alert">
+                    Gagal Menambahkan Data
+                    </div>');
                     redirect('siswa');
                 }
             }
@@ -75,16 +84,17 @@ class Siswa extends CI_Controller
 
         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
+        // $this->form_validation->set_rules('kls', 'Kelas', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
             $config['upload_path']          = './assets/foto/siswa/';
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['overwrite']            = true;
-
+            $this->upload->initialize($config);
             if (!$this->upload->do_upload('foto')) {
                 $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
-                $data = [
+                $datas = [
                     'kelas_id'      => $this->input->post('kls', true),
                     'nis'           => $this->input->post('nisn', true),
                     'nama'          => $this->input->post('nama_siswa', true),
@@ -92,11 +102,14 @@ class Siswa extends CI_Controller
                     'tgl_lahir'     => $det,
                     'alamat'        => $this->input->post('alamat', true)
                 ];
-                $this->siswa->update_siswa($id, $data);
+                $this->siswa->update_siswa($id, $datas);
+                $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Mengubah Data
+                    </div>');
                 redirect('siswa');
             } else {
                 $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
-                $data = [
+                $datas = [
                     'kelas_id'        => $this->input->post('kls', true),
                     'nis'          => $this->input->post('nisn', true),
                     'nama'          => $this->input->post('nama_siswa', true),
@@ -105,26 +118,29 @@ class Siswa extends CI_Controller
                     'alamat'        => $this->input->post('alamat', true),
                     'foto'          => $this->upload->data('file_name')
                 ];
-                $this->siswa->update_siswa($id, $data);
+                $this->siswa->update_siswa($id, $datas);
+                $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Mengubah Data
+                    </div>');
                 redirect('siswa');
             }
 
 
 
-            $this->upload->initialize($config);
-            $det = indoDate($this->input->post('tgl_lahir', true));
-            $data = [
-                'id_kls' => $this->input->post('kls', true),
-                'nisn' => $this->input->post('nisn', true),
-                'nama' => $this->input->post('nama_siswa', true),
-                'tempat_lahir' => $this->input->post('tempat_lhr', true),
-                'tgl_lahir' => $det,
-                'jk' => $this->input->post('jk', true),
-                'alamat' => $this->input->post('alamat', true),
-                'foto' => 'default.jpg'
-            ];
-            $this->admin->update_siswa($id, $data);
-            redirect('siswa');
+            // $this->upload->initialize($config);
+            // $det = indoDate($this->input->post('tgl_lahir', true));
+            // $data = [
+            //     'id_kls' => $this->input->post('kls', true),
+            //     'nisn' => $this->input->post('nisn', true),
+            //     'nama' => $this->input->post('nama_siswa', true),
+            //     'tempat_lahir' => $this->input->post('tempat_lhr', true),
+            //     'tgl_lahir' => $det,
+            //     'jk' => $this->input->post('jk', true),
+            //     'alamat' => $this->input->post('alamat', true),
+            //     'foto' => 'default.jpg'
+            // ];
+            // $this->admin->update_siswa($id, $data);
+            // redirect('siswa');
         }
     }
 

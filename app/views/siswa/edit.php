@@ -46,19 +46,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Foto</label>
-                            <div class="col-md-8">
-                                <input class="form-control" name="foto" type="file">
-                            </div>
-
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3"></label>
-                            <div class="col-md-8">
-                                <img src="<?php echo base_url('assets/foto/siswa/') . $siswa->foto; ?>" class="img-thumbnail" width="40%">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="control-label col-md-3">Kelas</label>
                             <div class="col-md-8">
                                 <select name="kls" class="form-control" id="demoSelect">
@@ -70,6 +57,19 @@
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Foto</label>
+                            <div class="col-md-8">
+                                <input class="form-control" name="foto" type="file">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3"></label>
+                            <div class="col-md-8">
+                                <img src="<?php echo base_url('assets/foto/siswa/') . $siswa->foto; ?>" class="img-thumbnail" width="40%">
                             </div>
                         </div>
                         <div class="form-group row">

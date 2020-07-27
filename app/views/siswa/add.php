@@ -14,15 +14,21 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">NISN</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="nisn" placeholder="NISN">
+                                <input class="form-control" type="text" name="nisn" placeholder="NISN" autocomplete="off">
                                 <small class="text-danger"><?php echo form_error('nisn'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Nama</label>
                             <div class="col-md-8">
-                                <input class="form-control" name="nama_siswa" type="text" placeholder="Nama Siswa">
+                                <input class="form-control" name="nama_siswa" type="text" placeholder="Nama Siswa" autocomplete="off">
                                 <small class="text-danger"><?php echo form_error('nama_siswa'); ?></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Alamat</label>
+                            <div class="col-md-8">
+                                <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -32,23 +38,11 @@
                                 <small class="text-danger"><?php echo form_error('tempat_lhr'); ?></small>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label class="control-label col-md-3">Tanggal Lahir</label>
                             <div class="col-md-8">
                                 <input class="form-control" name="tgl_lahir" id="demoDate" type="text" placeholder="Select Tanggal" autocomplete="off" />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Alamat</label>
-                            <div class="col-md-8">
-                                <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Foto</label>
-                            <div class="col-md-8">
-                                <input class="form-control" name="foto" type="file">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -60,6 +54,13 @@
                                         <option value="<?php echo $kls->kode_kelas; ?>"><?php echo $kls->nama_kelas; ?></option>
                                     <?php endforeach; ?>
                                 </select>
+                                <small class="text-danger"><?php echo form_error('kls'); ?></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Foto</label>
+                            <div class="col-md-8">
+                                <input class="form-control" name="foto" type="file">
                             </div>
                         </div>
                         <div class="form-group row">

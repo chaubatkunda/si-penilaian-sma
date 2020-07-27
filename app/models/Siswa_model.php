@@ -8,7 +8,7 @@ class Siswa_model extends CI_Model
         // return $this->db->get('t_siswa')->result();
         $this->db->select('*');
         $this->db->from('t_siswa');
-        $this->db->join('t_kelas', 't_kelas.id_kelas = t_siswa.kelas_id', 'left');
+        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_siswa.kelas_id', 'left');
         // $this->db->where('t_siswa.id_siswa');
         return $this->db->get()->result();
     }
@@ -16,7 +16,7 @@ class Siswa_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('t_siswa');
-        $this->db->join('t_kelas', 't_kelas.id_kelas = t_siswa.kelas_id');
+        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_siswa.kelas_id', 'left');
         $this->db->where('t_siswa.id', $id);
         return $this->db->get()->row();
         // return $this->db->get_where('t_siswa', ['id_siswa' => $id])->row();
@@ -25,9 +25,9 @@ class Siswa_model extends CI_Model
     {
         return $this->db->insert('t_siswa', $data);
     }
-    public function update_siswa($id, $data)
+    public function update_siswa($id, $datas)
     {
-        return $this->db->update('t_siswa', $data, ['id' => $id]);
+        return $this->db->update('t_siswa', $datas, ['id' => $id]);
     }
     public function delete_siswa($id)
     {

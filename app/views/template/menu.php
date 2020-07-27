@@ -78,21 +78,19 @@
                     <span class="app-menu__label">Kompetensi Dasar</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a class="app-menu__item" href="<?php echo base_url('nilai'); ?>">
                     <i class="app-menu__icon fa fa-book"></i>
                     <span class="app-menu__label">Nilai</span>
                 </a>
+            </li> -->
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('tata_usaha'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Tata Usaha</span></a>
             </li>
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('user'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">User</span></a>
             </li>
-            <!-- <li class="treeview">
-            <a class="app-menu__item" href="#" data-toggle="treeview"><i class="fa fa-fw fa-home"></i><span class="app-menu__label">Kelas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
-            </ul>
-        </li> -->
+
         <?php else : ?>
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('user'); ?>">

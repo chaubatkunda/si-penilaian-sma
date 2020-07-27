@@ -100,5 +100,8 @@ $route['waka.kurikulum']        = 'waka';
 $route['add.waka']              = 'waka/add';
 $route['hapus-waka/(:num)']     = 'waka/hapus/$1';
 
+$route['tata_usaha']        = 'tu';
+$route['add_tu']            = 'tu/add';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

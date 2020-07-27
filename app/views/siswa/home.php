@@ -34,7 +34,7 @@
                                     <td><?php echo $sw->nama_kelas; ?></td>
                                     <td>
                                         <a href="<?php echo base_url('detsiswa/') . $sw->id; ?>" class="btn btn-outline-secondary btn-sm">
-                                            <i class="fa fa-info-circle"></i>
+                                            <i class="fa fa-eye"></i>
                                         </a>
                                         <a href="<?php echo base_url('editsiswa/') . $sw->id; ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fa fa-pencil"></i>
