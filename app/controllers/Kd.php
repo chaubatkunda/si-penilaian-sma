@@ -3,7 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Kd extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        is_login();
+    }
     public function index()
     {
         $data = array(
@@ -18,7 +22,7 @@ class Kd extends CI_Controller
     {
         $data = array(
             'title'         => 'Kompetensi Dasar',
-            'pelajaran'     => $this->mpelajaran->getAllMapelById($id),
+            'pelajaran'     => $this->mpelajaran->getAllMapelGuru($id),
             'guru'          => $this->guru->getAllGuru(),
             'isi'           => 'kd/add'
         );

@@ -13,15 +13,14 @@
                 <div class="tile-body">
                     <form method="post" action="" class="form-horizontal">
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Guru</label>
+                            <label class="control-label col-md-3">Mata Pelajaran</label>
                             <div class="col-md-8">
-                                <select name="guru" id="" class="form-control">
-                                    <option value="">--Pilih--</option>
-                                    <?php foreach ($guru as $g) : ?>
-                                        <option value="<?php echo $g->id_guru; ?>"><?php echo $g->nama_guru; ?></option>
-                                    <?php endforeach; ?>
+                                <select name="guru" id="" class="form-control" readonly>
+                                    <option value="<?php echo $pelajaran->id_guru; ?>">
+                                        <?php echo $pelajaran->nama_guru; ?>
+                                    </option>
                                 </select>
-                                <small class="text-danger"><?php echo form_error('guru'); ?></small>
+                                <small class="text-danger"><?php echo form_error('mp'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">

@@ -6,6 +6,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            <?php echo $this->session->flashdata('warning'); ?>
             <a href="<?php echo base_url('add.waka'); ?>" class="btn btn-primary mb-3">Tambah
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </a>

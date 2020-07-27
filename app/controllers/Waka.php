@@ -3,7 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Waka extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        is_login();
+    }
 
     public function index()
     {
@@ -34,6 +38,9 @@ class Waka extends CI_Controller
             ];
             $this->waka->update_wakaguru($idg, $datag);
             $this->waka->insert_waka($data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                Data Berhasil Ditambahkan
+                </div>');
             redirect('waka.kurikulum');
         }
     }
@@ -46,6 +53,9 @@ class Waka extends CI_Controller
         ];
         $this->waka->update_wakaguru($idg, $datag);
         $this->waka->hapus_waka($id);
+        $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                Data Berhasil Dihapus
+                </div>');
         redirect('waka.kurikulum');
     }
 }

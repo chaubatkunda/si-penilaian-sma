@@ -3,6 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Mata_pelajaran extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        is_login();
+    }
 
     public function index()
     {
@@ -49,8 +54,10 @@ class Mata_pelajaran extends CI_Controller
     public function edit($id)
     {
         $data = array(
-            'title'     => 'Mata Pelajaran',
+            'title'     => 'Edit Mata Pelajaran',
             'mapel'     => $this->mpelajaran->getAllMapelById($id),
+            'kelas'     => $this->admin->getAllKelas(),
+            'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/edit'
         );
         $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required');
@@ -70,5 +77,15 @@ class Mata_pelajaran extends CI_Controller
     {
         $this->mpelajaran->delete_data($id);
         redirect('mata.pelajaran');
+    }
+
+    public function detail($id)
+    {
+        $data = array(
+            'title'     => 'Detail Mata Pelajaran',
+            'mapel'     => $this->mpelajaran->getAllMapelGuru($id),
+            'isi'       => 'mata_pelajaran/detail'
+        );
+        $this->load->view('template/wrap', $data, false);
     }
 }

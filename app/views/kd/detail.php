@@ -18,6 +18,7 @@
                     <?php endif; ?>
                 </div>
                 <?php echo $this->session->flashdata('warning'); ?>
+
                 <table class="table" id="sampleTable">
                     <thead>
                         <tr>
@@ -35,7 +36,7 @@
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></td>
-                                <td><?php echo $k->ket_kd; ?></td>
+                                <td><?php echo $k->sub_kd; ?></td>
                                 <td>
                                     <a href="<?php echo base_url('hapus-kd/' . $k->id_kd . "?id=" . $k->mapel_id); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
                                         <i class="fa fa-trash"></i>

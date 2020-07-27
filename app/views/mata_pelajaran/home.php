@@ -8,7 +8,9 @@
     <div class="row">
         <div class="col-md-12">
             <?php echo $this->session->flashdata('warning'); ?>
-            <a href="<?php echo base_url('add.mapel'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a href="<?php echo base_url('add.mapel'); ?>" class="btn btn-primary mb-3">Tambah
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </a>
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -29,6 +31,9 @@
                                     <td><?php echo $m->kode_mapel; ?></td>
                                     <td><?php echo $m->nama_mapel; ?></td>
                                     <td>
+                                        <a href="<?php echo base_url('detail.mapel/' . $m->id_mapel); ?>" class="btn btn-info btn-sm">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                         <a href="<?php echo base_url('edit.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
