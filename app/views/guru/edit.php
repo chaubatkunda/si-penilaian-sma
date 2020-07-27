@@ -27,6 +27,20 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="control-label col-md-3">Jabatan</label>
+                            <div class="col-md-8">
+                                <strong class="badge badge-primary text-white">
+                                    <?php
+                                    if ($guru->jabatan == 1) {
+                                        echo "Wakil Kurikulum";
+                                    } elseif ($guru->jabatan == 3) {
+                                        echo "Guru";
+                                    }
+                                    ?>
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="control-label col-md-3">No Tlp/Hp</label>
                             <div class="col-md-8">
                                 <input class="form-control" name="no_tlp" type="text" value="<?php echo $guru->no_tlp; ?>">

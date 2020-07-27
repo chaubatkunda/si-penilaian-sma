@@ -35,11 +35,11 @@ class Guru extends CI_Controller
     {
 
         $data = array(
-            'title' => 'Add',
+            'title' => 'Tambah Guru',
             'guru'  => $this->guru->getAllGuru(),
             'isi'   => 'guru/add'
         );
-        $this->form_validation->set_rules('kode_guru', 'Kode Guru', 'required|trim');
+        $this->form_validation->set_rules('kode_guru', 'Kode Guru', 'required|trim|is_unique[t_guru.nip]');
         $this->form_validation->set_rules('nama_guru', 'Nama Guru', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);

@@ -31,9 +31,9 @@
                                     </td>
                                     <td><?php echo $k->nama_kelas; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Detail</i></a>
-                                        <!-- <a href="<?php echo base_url('edit-kd/' . $k->id_mapel); ?>" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="<?php echo base_url('hapus-kd/' . $k->id_mapel); ?>" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a> -->
+                                        <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>" class="btn btn-outline-info btn-sm">
+                                            <i class="fa fa-eye"></i> Detail</i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -15,7 +15,7 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">NIP</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="kode_guru" placeholder="NIP">
+                                <input class="form-control" type="text" name="kode_guru" placeholder="NIP" value="<?php echo set_value('kode_guru'); ?>">
                                 <small class="text-danger"><?php echo form_error('kode_guru'); ?></small>
                             </div>
                         </div>

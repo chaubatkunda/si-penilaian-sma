@@ -26,7 +26,7 @@ class Siswa extends CI_Controller
     public function addsiswa()
     {
         $data = array(
-            'title' => 'Add Siswa',
+            'title' => 'Tambah Siswa',
             'kelas' => $this->admin->getAllKelas(),
             'isi'   => 'siswa/add'
         );

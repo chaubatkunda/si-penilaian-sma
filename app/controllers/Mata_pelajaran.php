@@ -16,7 +16,7 @@ class Mata_pelajaran extends CI_Controller
     public function add()
     {
         $data = array(
-            'title'     => 'Mata Pelajaran',
+            'title'     => 'Tambah Mata Pelajaran',
             'kelas'     => $this->admin->getAllKelas(),
             'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/add'

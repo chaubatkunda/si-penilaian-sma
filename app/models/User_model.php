@@ -66,4 +66,9 @@ class User_model extends CI_Model
         return $this->db->get()->result();
         // return $this->db->get_where('t_detail_mapel', ['guru_id' => $pelajaran])->result();
     }
+
+    public function update_profil($id, $data)
+    {
+        return $this->db->update('t_user', $data, ['id_user' => $id]);
+    }
 }

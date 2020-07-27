@@ -15,7 +15,7 @@
             </a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
                 <li>
-                    <a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a>
+                    <a class="dropdown-item" href="<?php echo base_url('edit_profil/' . $this->fungsi->user_login()->id_user); ?>"><i class="fa fa-user fa-lg"></i> Profile</a>
                 </li>
                 <li>
                     <a class="dropdown-item" href="<?php echo base_url('logout'); ?>"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
@@ -28,7 +28,7 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
     <div class="app-sidebar__user">
-        <img class="app-sidebar__user-avatar" src="<?php echo base_url('assets/foto/guru/') . $this->fungsi->user_login()->foto; ?>" width="60">
+        <img class="app-sidebar__user-avatar" src="<?php echo base_url('assets/foto/guru/') . $this->fungsi->user_login()->fotou; ?>" width="60">
         <div>
             <p class="app-sidebar__user-name"><?php echo $this->fungsi->user_login()->nama; ?></p>
             <!-- <p class="app-sidebar__user-designation">Frontend Developer</p> -->
@@ -78,12 +78,6 @@
                     <span class="app-menu__label">Kompetensi Dasar</span>
                 </a>
             </li>
-            <!-- <li>
-                <a class="app-menu__item" href="<?php echo base_url('nilai'); ?>">
-                    <i class="app-menu__icon fa fa-book"></i>
-                    <span class="app-menu__label">Nilai</span>
-                </a>
-            </li> -->
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('tata_usaha'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Tata Usaha</span></a>
             </li>
@@ -93,7 +87,7 @@
 
         <?php else : ?>
             <li>
-                <a class="app-menu__item" href="<?php echo base_url('user'); ?>">
+                <a class="app-menu__item" href="<?php echo base_url('user/guru'); ?>">
                     <i class="app-menu__icon fa fa-home"></i>
                     <span class="app-menu__label">Dashboard</span>
                 </a>

@@ -18,10 +18,12 @@
     </section>
     <section class="login-content">
         <div class="logo">
-            <h1>Vali</h1>
+            <!-- <h1>SMA <br>Bahrul Maghfiroh</h1> -->
         </div>
         <div class="login-box">
             <form class="login-form" action="" method="POST">
+                <h4 class="text-center">SMA Bahrul Maghfiroh</h4>
+                <!-- <h5>SMA <br>Bahrul Maghfiroh</h5> -->
                 <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOGIN</h3>
                 <?php echo $this->session->flashdata('login'); ?>
                 <div class="form-group">

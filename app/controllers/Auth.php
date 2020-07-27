@@ -26,7 +26,7 @@ class Auth extends CI_Controller
                     if ($user['level'] == 1) {
                         redirect('dashboard');
                     } elseif ($user['level'] == 2) {
-                        redirect('user');
+                        redirect('user/guru');
                     }
                 } else {
                     $this->session->set_flashdata('login', '<div class="alert alert-danger" role="alert">

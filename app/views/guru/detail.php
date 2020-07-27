@@ -41,8 +41,11 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="<?php echo base_url('guru'); ?>" class="btn btn-success">
-                                <i class="fa fa-arrow-left"></i>
+                            <a href="<?php echo base_url('guru'); ?>" class="btn btn-success btn-sm">
+                                <i class="fa fa-arrow-left"></i> Kembali
+                            </a>
+                            <a href="<?php echo base_url('edit-guru/' . $guru->id_guru); ?>" class="btn btn-primary btn-sm">
+                                <i class="fa fa-pencil"></i> Edit
                             </a>
                         </td>
                     </tr>
