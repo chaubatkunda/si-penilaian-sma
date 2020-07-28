@@ -74,8 +74,11 @@ class Mata_pelajaran extends CI_Controller
         $data = array(
             'title'     => 'Detail Mata Pelajaran',
             'mapel'     => $this->mpelajaran->getAllMapelGuru($id),
+            // 'mapeld'     => $this->mpelajaran->getAllMapelGuruDet($id),
             'isi'       => 'mata_pelajaran/detail'
         );
+        // var_dump($data['mapel']);
+        // die;
         $this->load->view('template/wrap', $data, false);
     }
 

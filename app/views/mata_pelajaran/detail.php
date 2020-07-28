@@ -19,15 +19,26 @@
                     </tr>
                     <tr>
                         <th>Kelas</th>
-                        <td><?php echo $mapel->nama_kelas; ?></td>
+                        <td>
+                            <?php
+                            $sql = "SELECT * FROM t_detail_mapel LEFT JOIN t_kelas ON t_kelas.kode_kelas = t_detail_mapel.kelas_id WHERE mapel_id = '$mapel->mapel_id'";
+                            $query = $this->db->query($sql)->result();
+
+                            ?>
+                            <?php foreach ($query as $q) : ?>
+                                <li><?php echo $q->nama_kelas; ?></li>
+                            <?php endforeach; ?>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <a href="<?php echo base_url('edit.mapel/' . $mapel->id_mapel); ?>" class="btn btn-success" title="Edit Siswa">
-                                Edit <i class="fa fa-pencil"></i>
+                                Edit
+                                <i class="fa fa-pencil"></i>
                             </a>
                             <a href="<?php echo base_url('mata.pelajaran'); ?>" class="btn btn-danger">
-                                Kembali <i class="fa fa-arrow-circle-left"></i>
+                                Kembali
+                                <i class="fa fa-arrow-circle-left"></i>
                             </a>
                         </td>
                     </tr>

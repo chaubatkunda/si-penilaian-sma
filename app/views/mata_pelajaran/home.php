@@ -31,7 +31,7 @@
                                     <td><?php echo $m->kode_mapel; ?></td>
                                     <td><?php echo $m->nama_mapel; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detail.mapel/' . $m->id_mapel); ?>" class="btn btn-info btn-sm">
+                                        <a href="<?php echo base_url('detail.mapel/' . $m->kode_mapel); ?>" class="btn btn-info btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a href="<?php echo base_url('edit.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-success btn-sm">
