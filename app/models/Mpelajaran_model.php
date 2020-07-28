@@ -12,9 +12,22 @@ class Mpelajaran_model extends CI_Model
         return $this->db->get_where('t_mapel', ['id_mapel' => $id])->row();
     }
 
-    public function insert_data($datam)
+    public function insert_data()
     {
-        return $this->db->insert('t_mapel', $datam);
+        $datam = [
+            'kode_mapel'    => $this->input->post('kodemp', true),
+            'nama_mapel'    => $this->input->post('namamp', true)
+        ];
+        $kelas = $this->input->post('kelas_sub', true);
+        for ($i = 0; $i < count($kelas); $i++) {
+            $detmapel = [
+                'guru_id'    => $this->input->post('guru', true),
+                'kelas_id'   => $this->input->post('kelas_sub', true)[$i],
+                'mapel_id'   => $this->input->post('kodemp', true)
+            ];
+            $this->db->insert('t_detail_mapel', $detmapel);
+        }
+        $this->db->insert('t_mapel', $datam);
     }
     public function insert_detmapel($detmapel)
     {
@@ -37,5 +50,19 @@ class Mpelajaran_model extends CI_Model
         $this->db->join('t_kelas', 't_kelas.id_kelas = t_detail_mapel.kelas_id');
         $this->db->where('id_mapel', $id);
         return $this->db->get()->row();
+    }
+
+
+    public function get_kelas_tree($id)
+    {
+        // $sql = " SELECT MainKelas.id_kelas, MainKelas.nama_kelas, MainKelas.sub_kelas, MainKelas.kode_kelas AS Kelas, MainKelas.sub_kelas AS ParentKelas, COUNT(ChildKelas.id_kelas) as Child
+        // FROM t_kelas AS MainKelas
+        //  JOIN t_kelas AS ChildKelas ON ChildKelas.sub_kelas = MainKelas.id_kelas
+        // WHERE MainKelas.sub_kelas = '$id'
+        // GROUP BY MainKelas.id_kelas, MainKelas.nama_kelas
+        // ORDER BY MainKelas.id_kelas ASC";
+
+        // return $this->db->query($sql)->result();
+        return $this->db->get_where('t_kelas', ['sub_kelas' => $id])->result();
     }
 }

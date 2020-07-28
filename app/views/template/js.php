@@ -110,3 +110,33 @@
         });
     });
 </script>
+<script>
+    // Tampil Menu
+    $(document).ready(function() {
+        $(document).on('change', '.kelas', function() {
+            var id = $(this).val();
+            var Sid = $(this).attr('id');
+            var tes = ++Sid;
+            $.ajax({
+                type: 'post',
+                url: "<?php echo base_url('mata_pelajaran/ajax_kelas') ?>",
+                data: {
+                    'id': id,
+                    'tes': Sid
+                },
+                success: function(data) {
+                    if (document.getElementById(tes) == null) {
+                        // console.log(id);
+                        $('#kelas_dropdown').append(data);
+                    } else {
+                        document.getElementById(tes).innerHTML = data;
+                    }
+                    var elems = document.querySelectorAll(".kelas");
+                    var len = elems.length;
+                    var lastelement = len < 1 ? "" : elems[len - 1];
+                }
+            })
+            // console.log(tes);
+        });
+    });
+</script>

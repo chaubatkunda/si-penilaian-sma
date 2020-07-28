@@ -22,7 +22,7 @@ class Mata_pelajaran extends CI_Controller
     {
         $data = array(
             'title'     => 'Tambah Mata Pelajaran',
-            'kelas'     => $this->admin->getAllKelas(),
+            'kelas'     => $this->get_kelas_option(0),
             'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/add'
         );
@@ -33,18 +33,8 @@ class Mata_pelajaran extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            $detmapel = [
-                'guru_id'    => $this->input->post('guru', true),
-                'kelas_id'   => $this->input->post('kelas', true),
-                'mapel_id'   => $this->input->post('kodemp', true)
-            ];
-            $datam = [
-                'kode_mapel'    => $this->input->post('kodemp', true),
-                'nama_mapel'    => $this->input->post('namamp', true)
-            ];
-
-            $this->mpelajaran->insert_data($datam);
-            $this->mpelajaran->insert_detmapel($detmapel);
+            $this->mpelajaran->insert_data();
+            // $this->mpelajaran->insert_detmapel();
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
                Data Berhasil Ditambahkan
                 </div>');
@@ -87,5 +77,29 @@ class Mata_pelajaran extends CI_Controller
             'isi'       => 'mata_pelajaran/detail'
         );
         $this->load->view('template/wrap', $data, false);
+    }
+
+
+
+    public function ajax_kelas()
+    {
+        // $querykelas = $this->admin->getAllKelas();
+        $id      = $this->input->post('id');
+        // $tes     = $this->input->post('tes');
+        $querykelas    = $this->get_kelas_option($id);
+        $output = "";
+        $output .= '
+		<select name="kelas_sub[]" class="form-control kelas mb-3" id="">
+		<option value="">Select</option>';
+        foreach ($querykelas as $kelas) {
+            $output .= '<option value="' . $kelas->sub_kelas . '">' . $kelas->nama_kelas . '</option>';
+        }
+        $output .= '</select>';
+        echo $output;
+    }
+
+    public function get_kelas_option($id)
+    {
+        return $this->mpelajaran->get_kelas_tree($id);
     }
 }
