@@ -27,7 +27,7 @@
                             <label class="control-label col-md-3">Mata Pelajaran</label>
                             <div class="col-md-8">
                                 <select name="mp" id="" class="form-control" readonly>
-                                    <option value="<?php echo $pelajaran->id_mapel; ?>">
+                                    <option value="<?php echo $pelajaran->kode_mapel; ?>">
                                         <?php echo $pelajaran->nama_mapel; ?>
                                     </option>
                                 </select>

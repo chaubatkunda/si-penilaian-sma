@@ -36,11 +36,11 @@ class Kd extends CI_Controller
         } else {
             // $id = $this->input->post('mp', true);
             $data = [
-                'guru_id' => $this->input->post('guru', true),
-                'mapel_id' => $this->input->post('mp', true),
-                'kd' => $this->input->post('kd', true),
-                'sub_kd' => $this->input->post('kds', true),
-                'ket_kd' => $this->input->post('ket', true)
+                'guru_id'   => $this->input->post('guru', true),
+                'mapel_id'  => $this->input->post('mp', true),
+                'kd'        => $this->input->post('kd', true),
+                'sub_kd'    => $this->input->post('kds', true),
+                'ket_kd'    => $this->input->post('ket', true)
             ];
             $this->kd->insert_kd($data);
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
@@ -55,7 +55,7 @@ class Kd extends CI_Controller
         $data = array(
             'title' => 'Kompetensi Dasar',
             'kd'    => $this->kd->getAllKdById($id),
-            'mapel'     => $this->mpelajaran->getAllMapelById($id),
+            'mapel' => $this->mpelajaran->getAllMapelById($id),
             'isi'   => 'kd/detail'
         );
         $this->load->view('template/wrap', $data, false);

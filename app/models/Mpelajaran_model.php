@@ -9,7 +9,7 @@ class Mpelajaran_model extends CI_Model
     }
     public function getAllMapelById($id)
     {
-        return $this->db->get_where('t_mapel', ['id_mapel' => $id])->row();
+        return $this->db->get_where('t_mapel', ['kode_mapel' => $id])->row();
     }
 
     public function insert_data()

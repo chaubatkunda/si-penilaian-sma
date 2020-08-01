@@ -12,9 +12,9 @@
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
                     <?php if (empty($kd)) : ?>
-                        <a href="<?php echo base_url('add-kd/' . $mapel->id_mapel); ?>" class="btn btn-primary btn-sm">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="<?php echo base_url('add-kd/' . $mapel->kode_mapel); ?>" class="btn btn-primary btn-sm">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
                     <?php else : ?>
-                        <a href="<?php echo base_url('tambah-detai-kd/' . $mapel->id_mapel); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Tambah</a>
+                        <a href="<?php echo base_url('tambah-detai-kd/' . $mapel->kode_mapel); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Tambah</a>
                     <?php endif; ?>
                 </div>
                 <?php echo $this->session->flashdata('warning'); ?>

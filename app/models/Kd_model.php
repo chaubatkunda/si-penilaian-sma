@@ -27,7 +27,7 @@ class Kd_model extends CI_Model
         $this->db->select('*');
         $this->db->from('t_kd');
         $this->db->join('t_guru', 't_guru.id_guru = t_kd.guru_id');
-        $this->db->join('t_mapel', 't_mapel.id_mapel = t_kd.mapel_id');
+        $this->db->join('t_mapel', 't_mapel.kode_mapel = t_kd.mapel_id');
         $this->db->where('mapel_id', $id);
         return $this->db->get()->result();
     }
@@ -37,7 +37,7 @@ class Kd_model extends CI_Model
         $this->db->select('*');
         $this->db->from('t_kd');
         $this->db->join('t_guru', 't_guru.id_guru = t_kd.guru_id');
-        $this->db->join('t_mapel', 't_mapel.id_mapel = t_kd.mapel_id');
+        $this->db->join('t_mapel', 't_mapel.kode_mapel = t_kd.mapel_id');
         $this->db->where('mapel_id', $id);
         return $this->db->get()->row();
     }

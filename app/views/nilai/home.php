@@ -7,7 +7,6 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add-nilai'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -26,10 +25,16 @@
                             foreach ($nilai as $n) : ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <td><?php echo $n->nisi; ?></td>
+                                    <td><?php echo $n->nis; ?></td>
                                     <td><?php echo $n->nama; ?></td>
                                     <td>
-                                        80
+                                       <?php
+                                        $query = $this->db->query("SELECT AVG(nilai) as rata2 FROM t_nilai WHERE siswa_id = '$n->nis'")->result();
+                                        foreach ($query as $q) : ?>
+                                            <span class="badge badge-primary">
+                                                <?php echo round($q->rata2); ?>
+                                            </span>
+                                        <?php endforeach; ?>
                                     </td>
                                     <td>
                                         <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>

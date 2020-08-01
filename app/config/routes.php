@@ -79,24 +79,24 @@ $route['hapus-kelas/(:num)']     = 'guru/hapuskelas/$1';
 
 // !Kd
 $route['kompetensi.dasar']  = 'kd';
-$route['add-kd/(:num)']  = 'kd/add/$1';
-$route['detail-kd/(:num)']  = 'kd/detail/$1';
+$route['add-kd/(:any)']  = 'kd/add/$1';
+$route['detail-kd/(:any)']  = 'kd/detail/$1';
 $route['edit-kd/(:num)']  = 'kd/edit/$1';
 $route['hapus-kd/(:num)']  = 'kd/delete/$1';
-$route['tambah-detai-kd/(:num)']  = 'kd/detailkd/$1';
+$route['tambah-detai-kd/(:any)']  = 'kd/detailkd/$1';
 
 // !Nilai
-$route['nilai']     = 'nilai';
-$route['guru/nilai']     = 'nilai/guru_nilai';
+$route['nilai']             = 'nilai';
+$route['guru/nilai']        = 'nilai/guru_nilai';
 $route['guru/nilai/siswa/(:num)']     = 'nilai/detail_siswa/$1';
-$route['guru/nilai_siswa/(:num)']     = 'nilai/nilai_siswa/$1';
+$route['guru/nilai_siswa/(:any)']     = 'nilai/nilai_siswa/$1';
 
 // !Mata Pelajaran
 $route['mata.pelajaran']        = 'mata_pelajaran';
 $route['add.mapel']             = 'mata_pelajaran/add';
 $route['edit.mapel/(:num)']     = 'mata_pelajaran/edit/$1';
-$route['hapus.mapel/(:num)']     = 'mata_pelajaran/delete/$1';
-$route['detail.mapel/(:any)']     = 'mata_pelajaran/detail/$1';
+$route['hapus.mapel/(:num)']    = 'mata_pelajaran/delete/$1';
+$route['detail.mapel/(:any)']   = 'mata_pelajaran/detail/$1';
 
 // !Waka
 $route['waka.kurikulum']        = 'waka';

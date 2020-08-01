@@ -21,7 +21,7 @@ class Nilai extends CI_Controller
     public function guru_nilai()
     {
         $data = array(
-            'title'     => 'Nilai',
+            'title'     => 'Guru Nilai',
             'nilai'     => $this->user->guruPelajaran(),
             'isi'       => 'guru/nilai'
         );
@@ -31,7 +31,7 @@ class Nilai extends CI_Controller
     {
         $kode = $this->input->get('mapel', true);
         $data = array(
-            'title'     => 'Nilai',
+            'title'     => 'Nilai Siswa',
             'nilai'     => $this->nilai->getAllNilaiSIswa($id),
             'kd'         => $this->kd->getAllKdByIdd($kode),
             'mapel'     => $kode,

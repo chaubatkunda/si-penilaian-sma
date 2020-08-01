@@ -23,7 +23,7 @@
                             <label class="control-label col-md-3">Mata Pelajaran</label>
                             <div class="col-md-8">
                                 <input type="text" name="" class="form-control" value="<?php echo $kd->nama_mapel; ?>" readonly>
-                                <input type="hidden" name="mp" class="form-control" value="<?php echo $kd->id_mapel; ?>" readonly>
+                                <input type="hidden" name="mp" class="form-control" value="<?php echo $kd->kode_mapel; ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">

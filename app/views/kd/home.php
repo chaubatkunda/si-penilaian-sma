@@ -25,13 +25,13 @@
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>">
+                                        <a href="<?php echo base_url('detail-kd/' . $k->kode_mapel); ?>">
                                             <?php echo $k->nama_mapel; ?>
                                         </a>
                                     </td>
                                     <td><?php echo $k->nama_kelas; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detail-kd/' . $k->id_mapel); ?>" class="btn btn-outline-info btn-sm">
+                                        <a href="<?php echo base_url('detail-kd/' . $k->kode_mapel); ?>" class="btn btn-outline-info btn-sm">
                                             <i class="fa fa-eye"></i> Detail</i>
                                         </a>
                                     </td>

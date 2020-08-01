@@ -5,12 +5,12 @@ class Nilai_model extends CI_Model
 {
     public function getAllNilai()
     {
-        $this->db->select('*');
-        $this->db->from('t_nilai');
-        $this->db->join('t_mapel', 't_mapel.id_mapel = t_nilai.mapel_id');
-        $this->db->join('t_siswa', 't_siswa.id = t_nilai.siswa_id');
-        // $this->db->order_by('t_mapel.nama_kelas', 'asc');
-        return $this->db->get()->result();
+        // $this->db->select('*');
+        // $this->db->from('t_nilai');
+        // // $this->db->join('t_mapel', 't_mapel.id_mapel = t_nilai.mapel_id');
+        // $this->db->join('t_siswa', 't_siswa.nis = t_nilai.siswa_id');
+        // // $this->db->order_by('t_mapel.nama_kelas', 'asc');
+        return $this->db->get('t_siswa')->result();
     }
     public function getAllNilaiSIswa($id)
     {

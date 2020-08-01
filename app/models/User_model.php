@@ -60,7 +60,7 @@ class User_model extends CI_Model
         $this->db->select('*');
         $this->db->from('t_detail_mapel');
         $this->db->join('t_mapel', 't_mapel.kode_mapel = t_detail_mapel.mapel_id');
-        $this->db->join('t_kelas', 't_kelas.id_kelas = t_detail_mapel.kelas_id');
+        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_mapel.kelas_id');
         $this->db->order_by('nama_kelas', 'asc');
         $this->db->where('guru_id', $pelajaran);
         return $this->db->get()->result();
