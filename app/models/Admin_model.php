@@ -11,9 +11,10 @@ class Admin_model extends CI_Model
     public function simpanKelas()
     {
         $data = [
+            // 'id_kelas'      => $this->fungsi->getIdKelas(),
             'kode_kelas'    => $this->input->post('kode_kls', true),
             'nama_kelas'    => $this->input->post('kelas', true),
-            'sub_kelas'     => $this->input->post('kode_kls', true)
+            'sub_kelas'     => $this->input->post('kelas_x', true)
         ];
         return $this->db->insert('t_kelas', $data);
     }

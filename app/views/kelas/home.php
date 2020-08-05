@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-outline-primary mb-3">Tambah
+            <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-primary mb-3">Tambah
                 <i class="fa fa-plus" aria-hidden="true"></i>
             </a>
             <div class="tile">

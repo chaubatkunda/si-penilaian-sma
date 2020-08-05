@@ -28,7 +28,7 @@
                                 <select name="kelas" id="kelas" class="form-control kelas" id="0">
                                     <option value="">--Pilih--</option>
                                     <?php foreach ($kelas as $k) : ?>
-                                        <option value="<?php echo $k->id_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
+                                        <option value="<?php echo $k->kode_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <small class="text-danger"><?php echo form_error('kelas'); ?></small>

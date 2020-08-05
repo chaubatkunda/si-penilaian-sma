@@ -12,18 +12,22 @@
                     <tr>
                         <th>Nama Guru</th>
                         <td><?php echo $mapel->nama_guru; ?></td>
+                        <!-- <td><?php echo $mapel->mapel_id; ?></td> -->
                     </tr>
                     <tr>
                         <th>Mata Pelajaran</th>
-                        <td><?php echo $mapel->nama_mapel; ?> / <small class="text-primary"><?php echo $mapel->kode_mapel; ?></small></td>
+                        <td>
+                            <?php echo $mapel->nama_mapel; ?> /
+                            <small class="text-primary"><?php echo $mapel->kode_mapel; ?></small>
+                        </td>
                     </tr>
                     <tr>
                         <th>Kelas</th>
                         <td>
                             <?php
-                            $sql = "SELECT * FROM t_detail_mapel LEFT JOIN t_kelas ON t_kelas.kode_kelas = t_detail_mapel.kelas_id WHERE mapel_id = '$mapel->mapel_id'";
+                            $sql = "SELECT * FROM t_detail_mapel LEFT JOIN t_kelas ON t_kelas.kode_kelas = t_detail_mapel.kelas_id WHERE t_detail_mapel.mapel_id = '$mapel->mapel_id'";
                             $query = $this->db->query($sql)->result();
-
+                            // var_dump($query);
                             ?>
                             <?php foreach ($query as $q) : ?>
                                 <li><?php echo $q->nama_kelas; ?></li>

@@ -16,17 +16,39 @@
                 <!-- <h3 class="tile-title">Register</h3> -->
                 <div class="tile-body">
                     <form method="post" action="" enctype="multipart/form-data" class="form-horizontal">
+
+                        <div class="row mb-4">
+                            <div class="col-md-3"></div>
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" type="radio" name="kelas_x" value="11">
+                                <label class="form-check-label">
+                                    Kelas X
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" type="radio" name="kelas_x" value="22">
+                                <label class="form-check-label">
+                                    Kelas XI
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" type="radio" name="kelas_x" value="33">
+                                <label class="form-check-label">
+                                    Kelas XI
+                                </label>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">Kode Kelas</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="kode_kls" placeholder="Kode Kelas">
+                                <input class="form-control" type="text" name="kode_kls" placeholder="Kode Kelas" autocomplete="off" autofocus>
                                 <small class="text-danger"><?php echo form_error('kode_kls'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Name</label>
+                            <label class="control-label col-md-3">Kelas</label>
                             <div class="col-md-8">
-                                <input class="form-control" name="kelas" type="text" placeholder="Kelas">
+                                <input class="form-control" name="kelas" type="text" placeholder="Kelas" autocomplete="off">
                                 <small class="text-danger"><?php echo form_error('kelas'); ?></small>
                             </div>
                         </div>

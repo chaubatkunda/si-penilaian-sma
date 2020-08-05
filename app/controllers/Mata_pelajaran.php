@@ -22,7 +22,7 @@ class Mata_pelajaran extends CI_Controller
     {
         $data = array(
             'title'     => 'Tambah Mata Pelajaran',
-            'kelas'     => $this->get_kelas_option(0),
+            'kelas'     => $this->admin->getAllKelas(),
             'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/add'
         );

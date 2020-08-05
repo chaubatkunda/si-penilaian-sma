@@ -18,6 +18,11 @@ class Fungsi
         $this->lb->db->select_max('id_user');
         return $this->lb->db->get('t_user')->row()->id_user + 1;
     }
+    function getIdKelas()
+    {
+        $this->lb->db->select_max('id_kelas');
+        return $this->lb->db->get('t_kelas')->row()->id_kelas + 1;
+    }
     // function guruMapel($pelajaran)
     // {
     //     return $this->lb->user->guruPelajaran($pelajaran)->id_guru;
