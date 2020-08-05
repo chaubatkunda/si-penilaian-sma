@@ -10,13 +10,25 @@ class Admin_model extends CI_Model
     }
     public function simpanKelas()
     {
-        $data = [
-            // 'id_kelas'      => $this->fungsi->getIdKelas(),
-            'kode_kelas'    => $this->input->post('kode_kls', true),
-            'nama_kelas'    => $this->input->post('kelas', true),
-            'sub_kelas'     => $this->input->post('kelas_x', true)
-        ];
-        return $this->db->insert('t_kelas', $data);
+        $pil = $this->input->post('pilih_kelas', true);
+        // $query = $this->db->get_where('t_kelas', ['kode_kelas' => $kodekolas])->num_rows();
+        if ($pil) {
+            $data = [
+                'id_kelas'      => $this->fungsi->getIdKelas(),
+                'kode_kelas'    => $this->input->post('kode_kls', true),
+                'nama_kelas'    => $this->input->post('kelas', true),
+                'sub_kelas'     => $pil
+            ];
+            return $this->db->insert('t_kelas', $data);
+        } else {
+            $data = [
+                'id_kelas'      => $this->fungsi->getIdKelas(),
+                'kode_kelas'    => $this->input->post('kode_kls', true),
+                'nama_kelas'    => $this->input->post('kelas', true),
+                'sub_kelas'     => ""
+            ];
+            return $this->db->insert('t_kelas', $data);
+        }
     }
 
     public function countSiswa()

@@ -48,7 +48,7 @@ class Mpelajaran_model extends CI_Model
         $this->db->from('t_mapel');
         $this->db->join('t_detail_mapel', 't_detail_mapel.mapel_id = t_mapel.kode_mapel');
         $this->db->join('t_guru', 't_guru.id_guru = t_detail_mapel.guru_id');
-        $this->db->join('t_kelas', 't_kelas.sub_kelas = t_detail_mapel.kelas_id');
+        $this->db->join('t_kelas', 't_kelas.id_kelas = t_detail_mapel.kelas_id');
         $this->db->where('t_mapel.kode_mapel', $id);
 
         return $this->db->get()->row();

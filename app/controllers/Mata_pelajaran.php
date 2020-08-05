@@ -22,13 +22,13 @@ class Mata_pelajaran extends CI_Controller
     {
         $data = array(
             'title'     => 'Tambah Mata Pelajaran',
-            'kelas'     => $this->admin->getAllKelas(),
+            'kelas'     => $this->db->get('t_kelas')->result(),
             'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/add'
         );
         $this->form_validation->set_rules('guru', 'Guru', 'trim|required');
-        $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
-        $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required|is_unique[t_mapel.kode_mapel]');
+        // $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
+        $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required');
         $this->form_validation->set_rules('namamp', 'Mata Pelajaran', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
@@ -95,7 +95,7 @@ class Mata_pelajaran extends CI_Controller
 		<select name="kelas_sub[]" class="form-control kelas mb-3" id="">
 		<option value="">Select</option>';
         foreach ($querykelas as $kelas) {
-            $output .= '<option value="' . $kelas->sub_kelas . '">' . $kelas->nama_kelas . '</option>';
+            $output .= '<option value="' . $kelas->id_kelas . '">' . $kelas->nama_kelas . '</option>';
         }
         $output .= '</select>';
         echo $output;

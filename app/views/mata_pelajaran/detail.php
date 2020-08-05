@@ -12,12 +12,11 @@
                     <tr>
                         <th>Nama Guru</th>
                         <td><?php echo $mapel->nama_guru; ?></td>
-                        <!-- <td><?php echo $mapel->mapel_id; ?></td> -->
                     </tr>
                     <tr>
                         <th>Mata Pelajaran</th>
                         <td>
-                            <?php echo $mapel->nama_mapel; ?> /
+                            <?php echo $mapel->nama_mapel; ?>
                             <small class="text-primary"><?php echo $mapel->kode_mapel; ?></small>
                         </td>
                     </tr>
@@ -25,13 +24,15 @@
                         <th>Kelas</th>
                         <td>
                             <?php
-                            $sql = "SELECT * FROM t_detail_mapel LEFT JOIN t_kelas ON t_kelas.kode_kelas = t_detail_mapel.kelas_id WHERE t_detail_mapel.mapel_id = '$mapel->mapel_id'";
+                            $sql = "SELECT * FROM t_mapel INNER JOIN t_detail_mapel ON t_mapel.kode_mapel = t_detail_mapel.mapel_id INNER JOIN t_kelas ON t_kelas.id_kelas = t_detail_mapel.kelas_id WHERE kode_mapel = '$mapel->mapel_id' ";
                             $query = $this->db->query($sql)->result();
-                            // var_dump($query);
+                            // die;
                             ?>
-                            <?php foreach ($query as $q) : ?>
-                                <li><?php echo $q->nama_kelas; ?></li>
-                            <?php endforeach; ?>
+                            <ul>
+                                <?php foreach ($query as $q) : ?>
+                                    <li><?php echo $q->nama_kelas; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
                         </td>
                     </tr>
                     <tr>

@@ -17,7 +17,7 @@
                 <div class="tile-body">
                     <form method="post" action="" enctype="multipart/form-data" class="form-horizontal">
 
-                        <div class="row mb-4">
+                        <!-- <div class="row mb-4">
                             <div class="col-md-3"></div>
                             <div class="form-check col-md-3">
                                 <input class="form-check-input" type="radio" name="kelas_x" value="11">
@@ -37,7 +37,7 @@
                                     Kelas XI
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label class="control-label col-md-3">Kode Kelas</label>
                             <div class="col-md-8">
@@ -50,6 +50,17 @@
                             <div class="col-md-8">
                                 <input class="form-control" name="kelas" type="text" placeholder="Kelas" autocomplete="off">
                                 <small class="text-danger"><?php echo form_error('kelas'); ?></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-3">Pilih Kelas</label>
+                            <div class="col-md-8">
+                                <select name="pilih_kelas" id="pilih_kelas" class="form-control">
+                                    <option value="">--Pilih--</option>
+                                    <?php foreach ($pil_kelas as $k) : ?>
+                                        <option value="<?php echo $k->id_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">

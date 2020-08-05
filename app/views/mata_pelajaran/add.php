@@ -25,13 +25,13 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">Kelas</label>
                             <div class="col-md-8">
-                                <select name="kelas" id="kelas" class="form-control kelas" id="0">
+                                <select name="kelas_sub[]" id="kelas" class="form-control kelas" id="0">
                                     <option value="">--Pilih--</option>
                                     <?php foreach ($kelas as $k) : ?>
-                                        <option value="<?php echo $k->kode_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
+                                        <option value="<?php echo $k->id_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <small class="text-danger"><?php echo form_error('kelas'); ?></small>
+                                <!-- <small class="text-danger"><?php echo form_error('kelas'); ?></small> -->
                             </div>
                         </div>
                         <div class="form-group row">

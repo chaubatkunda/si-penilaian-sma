@@ -123,9 +123,10 @@ class Guru extends CI_Controller
     public function addkelas()
     {
         $data = array(
-            'title' => 'Add Kelas',
-            'kelas' => $this->admin->getAllKelas(),
-            'isi'   => 'kelas/add'
+            'title'     => 'Add Kelas',
+            'kelas'     => $this->admin->getAllKelas(),
+            'pil_kelas' => $this->admin->getAllKelas(),
+            'isi'       => 'kelas/add'
         );
         $this->form_validation->set_rules('kode_kls', 'Kode Kelas', 'required|trim');
         $this->form_validation->set_rules('kelas', 'Kelas', 'required|trim');
