@@ -25,6 +25,8 @@ class Nilai extends CI_Controller
             'nilai'     => $this->user->guruPelajaran(),
             'isi'       => 'guru/nilai'
         );
+        // var_dump($data['nilai']);
+        // die;
         $this->load->view('template/wrap', $data, false);
     }
     public function detail_siswa($id)
@@ -43,6 +45,7 @@ class Nilai extends CI_Controller
     {
         $nis = $this->input->get('siswa', true);
         $mapel = $this->input->get('mapel', true);
+
         $data = array(
             'title'     => 'Penilaian Siswa',
             'mapel'     => $mapel,

@@ -51,44 +51,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['default_controller'] = 'auth';
 
-$route['dashboard']     = 'guru';
-$route['user/guru']     = 'guru';
-$route['user']          = 'user';
-$route['add-user']      = 'user/addakun';
-$route['edit_profil/(:num)']   = 'user/editprofil/$1';
-$route['logout']        = 'auth/logout';
+$route['dashboard']             = 'guru';
+$route['user/guru']             = 'guru';
+$route['user']                  = 'user';
+$route['add-user']              = 'user/addakun';
+$route['edit_profil/(:num)']    = 'user/editprofil/$1';
+$route['logout']                = 'auth/logout';
 
 // !Siswa
-$route['siswa']             = 'siswa';
-$route['add-siswa']         = 'siswa/addsiswa';
-$route['detsiswa/(:num)']   = 'siswa/detailsiswa/$1';
-$route['editsiswa/(:num)']  = 'siswa/edit/$1';
-$route['hapus.siswa/(:num)']  = 'siswa/delete/$1';
+$route['siswa']                     = 'siswa';
+$route['add-siswa']                 = 'siswa/addsiswa';
+$route['detsiswa/(:num)']           = 'siswa/detailsiswa/$1';
+$route['editsiswa/(:num)']          = 'siswa/edit/$1';
+$route['hapus.siswa/(:num)']        = 'siswa/delete/$1';
 
 // !Guru
-$route['guru']          = 'guru/guru';
-$route['add-guru']      = 'guru/addguru';
+$route['guru']                  = 'guru/guru';
+$route['add-guru']              = 'guru/addguru';
 $route['detail-guru/(:num)']    = 'guru/detail/$1';
 $route['edit-guru/(:num)']      = 'guru/edit/$1';
-$route['hapus-guru/(:num)']      = 'guru/hapus/$1';
+$route['hapus-guru/(:num)']     = 'guru/hapus/$1';
 
 // !Kelas
-$route['kelas']         = 'guru/kelas';
-$route['add-kelas']     = 'guru/addkelas';
+$route['kelas']                  = 'guru/kelas';
+$route['add-kelas']              = 'guru/addkelas';
 $route['hapus-kelas/(:num)']     = 'guru/hapuskelas/$1';
 
 // !Kd
-$route['kompetensi.dasar']  = 'kd';
-$route['add-kd/(:any)']  = 'kd/add/$1';
-$route['detail-kd/(:any)']  = 'kd/detail/$1';
-$route['edit-kd/(:num)']  = 'kd/edit/$1';
-$route['hapus-kd/(:num)']  = 'kd/delete/$1';
-$route['tambah-detai-kd/(:any)']  = 'kd/detailkd/$1';
+$route['kompetensi.dasar']          = 'kd';
+$route['add-kd/(:any)']             = 'kd/add/$1';
+$route['detail-kd/(:any)']          = 'kd/detail/$1';
+$route['edit-kd/(:num)']            = 'kd/edit/$1';
+$route['hapus-kd/(:num)']           = 'kd/delete/$1';
+$route['tambah-detai-kd/(:any)']    = 'kd/detailkd/$1';
 
 // !Nilai
 $route['nilai']             = 'nilai';
 $route['guru/nilai']        = 'nilai/guru_nilai';
-$route['guru/nilai/siswa/(:num)']     = 'nilai/detail_siswa/$1';
+$route['guru/nilai/siswa/(:any)']     = 'nilai/detail_siswa/$1';
 $route['guru/nilai_siswa/(:any)']     = 'nilai/nilai_siswa/$1';
 
 // !Mata Pelajaran
