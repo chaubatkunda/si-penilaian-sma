@@ -34,4 +34,8 @@ class Admin_model extends CI_Model
     {
         return $this->db->get('t_kelas')->num_rows();
     }
+    public function countTu()
+    {
+        return $this->db->get('t_tu')->num_rows();
+    }
 }

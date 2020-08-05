@@ -51,7 +51,7 @@ class Tu extends CI_Controller
                 'username'  => $this->input->post('username', true),
                 'password'  => password_hash($this->input->post('password1', true), PASSWORD_DEFAULT),
                 'level'     => 1,
-                'foto'      => 'default.jpg'
+                'fotou'      => 'default.jpg'
             ];
 
             $this->user->simpanAkun($datau);
@@ -61,5 +61,53 @@ class Tu extends CI_Controller
                     </div>');
             redirect('tata_usaha');
         }
+    }
+    public function edit($id)
+    {
+        $data = array(
+            'title'     => 'Tambah',
+            'tu'     => $this->tu->getAllTuById($id),
+            'isi'       => 'tu/edit_tu'
+        );
+
+        $this->form_validation->set_rules('nip', 'NIP', 'trim|required|is_unique[t_tu.nip]');
+        $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+        $this->form_validation->set_rules('no_tlp', 'Telp', 'trim|required|numeric');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|trim|matches[password1]');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $nip = $this->input->post('nip', true);
+            $data = [
+                'nip'      => $this->input->post('nip', true),
+                'telp'      => $this->input->post('no_tlp', true),
+                'alamat'    => $this->input->post('alamat', true)
+            ];
+
+            $datau = [
+                'nama'      => $this->input->post('nama', true)
+            ];
+
+            $this->tu->update_akun($datau,$id);
+            $this->tu->update_Tu($data,$nip);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menambahkan Data
+                    </div>');
+            redirect('tata_usaha');
+        }
+    }
+
+    public function detail($id){
+         $data = array(
+            'title'     => 'Detail',
+            'tu'     => $this->tu->getAllTuById($id),
+            'isi'       => 'tu/detail'
+        );
+        $this->load->view('template/wrap', $data, false);
     }
 }

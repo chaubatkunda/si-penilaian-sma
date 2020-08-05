@@ -11,11 +11,12 @@ class Guru extends CI_Controller
     public function index()
     {
         $data = array(
-            'title' => 'Dashboard',
-            'count_siswa'  => $this->admin->countSiswa(),
-            'count_guru'   => $this->admin->countGuru(),
-            'count_waka'   => $this->admin->countWaka(),
+            'title'         => 'Dashboard',
+            'count_siswa'   => $this->admin->countSiswa(),
+            'count_guru'    => $this->admin->countGuru(),
+            'count_waka'    => $this->admin->countWaka(),
             'count_kelas'   => $this->admin->countKelas(),
+            'count_tu'      => $this->admin->countTu(),
             'isi'           => 'admin/home'
         );
         $this->load->view('template/wrap', $data, false);

@@ -7,16 +7,17 @@
 <script src="<?php echo base_url('assets/'); ?>js/plugins/pace.min.js"></script>
 
 <!-- Data table plugin-->
-<script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/dataTables.bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/dataTables.bootstrap.min.js"></script> -->
+
+<script src="<?php echo base_url('assets/datatable/datatables.min.js')?>"></script>
+
 <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/select2.min.js"></script>
 <script src="<?php echo base_url('assets/sweetalert/sweetalert2.all.min.js'); ?>"></script>
 <script type="text/javascript">
     $('#sampleTable').DataTable();
 </script>
-<!-- Page specific javascripts-->
-<script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/chart.js"></script>
 <?php echo require_once('js.php'); ?>
 </body>
 

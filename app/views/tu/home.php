@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add_tu'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a href="<?php echo base_url('add_tu'); ?>" class="btn btn-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -35,7 +35,9 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
+                                        <a href="<?php echo base_url('edit_tata_usaha/'.$t->id_tu); ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                                        <a href="<?php echo base_url('detail_tata_usaha/'.$t->id_tu); ?>" class="btn btn-success btn-sm" ><i class="fa fa-eye"></i> Detail</a>
+                                        <a href="<?php echo base_url('hapus/'.$t->id_tu); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

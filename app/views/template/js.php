@@ -63,7 +63,7 @@
     $('#demoSelectm').select2();
 </script>
 <script>
-    $(document).ready(function() {
+    $(function(){
         $("#hapus-siswa").on('click', function(e) {
             e.preventDefault();
             const href = $(this).attr("href");
