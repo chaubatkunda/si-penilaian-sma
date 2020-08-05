@@ -24,6 +24,7 @@
                                 <div class="form-group row">
                                     <label class="control-label col-md-3">Nama</label>
                                     <div class="col-md-8">
+                                        <input class="form-control" name="id_user" type="hidden" value="<?php echo $tu->id_user; ?>">
                                         <input class="form-control" name="nama" type="text" placeholder="Nama" value="<?php echo $tu->nama; ?>">
                                         <small class="text-danger"><?php echo form_error('nama'); ?></small>
                                     </div>

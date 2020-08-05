@@ -37,7 +37,7 @@
                                     <td>
                                         <a href="<?php echo base_url('edit_tata_usaha/'.$t->id_tu); ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a>
                                         <a href="<?php echo base_url('detail_tata_usaha/'.$t->id_tu); ?>" class="btn btn-success btn-sm" ><i class="fa fa-eye"></i> Detail</a>
-                                        <a href="<?php echo base_url('hapus/'.$t->id_tu); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i> Hapus</a>
+                                        <a href="<?php echo base_url('hapus_tata_usaha/'.$t->id_tu)."?code=".$t->id_user; ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

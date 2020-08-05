@@ -106,7 +106,8 @@ $route['hapus-waka/(:num)']     = 'waka/hapus/$1';
 $route['tata_usaha']                        = 'tu';
 $route['add_tu']                            = 'tu/add';
 $route['edit_tata_usaha/(:num)']            = 'tu/edit/$1';
-$route['detail_tata_usaha/(:num)']            = 'tu/detail/$1';
+$route['detail_tata_usaha/(:num)']          = 'tu/detail/$1';
+$route['hapus_tata_usaha/(:num)']           = 'tu/hapus/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

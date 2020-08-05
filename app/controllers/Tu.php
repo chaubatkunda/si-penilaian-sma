@@ -70,33 +70,31 @@ class Tu extends CI_Controller
             'isi'       => 'tu/edit_tu'
         );
 
-        $this->form_validation->set_rules('nip', 'NIP', 'trim|required|is_unique[t_tu.nip]');
+        $this->form_validation->set_rules('nip', 'NIP', 'trim|required');
         $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
         $this->form_validation->set_rules('no_tlp', 'Telp', 'trim|required|numeric');
         $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-
-        $this->form_validation->set_rules('username', 'Username', 'trim|required');
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|matches[password2]');
-        $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|trim|matches[password1]');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            $nip = $this->input->post('nip', true);
+            $nip = $this->input->post('id_user', true);
             $data = [
                 'nip'      => $this->input->post('nip', true),
                 'telp'      => $this->input->post('no_tlp', true),
                 'alamat'    => $this->input->post('alamat', true)
             ];
+            // var_dump($id);
+            // die;
 
             $datau = [
                 'nama'      => $this->input->post('nama', true)
             ];
 
-            $this->tu->update_akun($datau,$id);
-            $this->tu->update_Tu($data,$nip);
+            $this->tu->update_akun($datau, $nip);
+            $this->tu->update_tu($id, $data);
+
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
-                    Berhasil Menambahkan Data
+                    Berhasil Mengubah Data
                     </div>');
             redirect('tata_usaha');
         }
@@ -109,5 +107,15 @@ class Tu extends CI_Controller
             'isi'       => 'tu/detail'
         );
         $this->load->view('template/wrap', $data, false);
+    }
+
+    public function hapus($id){
+        $user_id = $this->input->get('code',true);
+        $this->db->delete('t_tu',['id_tu'=>$id]);
+        $this->db->delete('t_user', ['id_user' => $user_id]);
+        $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+            Berhasil Menghapus Data
+            </div>');
+        redirect('tata_usaha');
     }
 }

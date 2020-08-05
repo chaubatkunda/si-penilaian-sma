@@ -16,17 +16,17 @@ class Tu_model extends CI_Model
         $this->db->from('t_tu');
         $this->db->join('t_user', 't_user.id_user = t_tu.user_id');
         $this->db->where('id_tu',$id);
-        return $this->db->get()->row();
+        return $this->db->get()->row(); 
     }
     public function insertTu($data)
     {
         return $this->db->insert('t_tu', $data);
     }
 
-    public function update_akun($datau,$id){
-        return $this->db->update('t_user',$datau,['id_user',$id]);
+    public function update_akun($datau, $nip){
+        return $this->db->update('t_user',$datau, ['id_user'=> $nip]);
     }
-    public function update_Tu($data,$nip){
-        return $this->db->update('t_tu',$data,['nip',$nip]);
+    public function update_tu($id, $data){
+        return $this->db->update('t_tu',$data, ['id_tu' => $id]);
     } 
 }
