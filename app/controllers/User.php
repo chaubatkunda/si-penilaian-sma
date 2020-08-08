@@ -41,11 +41,12 @@ class User extends CI_Controller
                 'user_id_guru' => $this->fungsi->getSumIdUser()
             ];
             $datau = [
-                'id_user'   => $this->fungsi->getSumIdUser(),
-                'nama' => $this->input->post('nama_guru', true),
-                'username' => $this->input->post('username', true),
-                'password' => password_hash($this->input->post('password1', true), PASSWORD_DEFAULT),
-                'level' => $this->input->post('level', true)
+                'id_user'       => $this->fungsi->getSumIdUser(),
+                'nama'          => $this->input->post('nama_guru', true),
+                'username'      => $this->input->post('username', true),
+                'password'      => password_hash($this->input->post('password1', true), PASSWORD_DEFAULT),
+                'level'         => $this->input->post('level', true),
+                'fotou'         => 'default.jpg'
             ];
             $this->guru->updateGuru($id, $data);
             $this->user->simpanAkun($datau);
