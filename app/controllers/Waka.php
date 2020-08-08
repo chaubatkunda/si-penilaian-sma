@@ -13,6 +13,19 @@ class Waka extends CI_Controller
     {
         $data = array(
             'title'     => 'Waka Kurikulum',
+            'count_siswa'   => $this->admin->countSiswa(),
+            'count_guru'    => $this->admin->countGuru(),
+            'count_waka'    => $this->admin->countWaka(),
+            'count_kelas'   => $this->admin->countKelas(),
+            'count_tu'      => $this->admin->countTu(),
+            'isi'       => 'admin/home'
+        );
+        $this->load->view('template/wrap', $data, false);
+    }
+    public function home()
+    {
+        $data = array(
+            'title'     => 'Waka Kurikulum',
             'waka'      => $this->waka->getAllwaka(),
             'isi'       => 'waka/home'
         );

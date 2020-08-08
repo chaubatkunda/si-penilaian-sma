@@ -7,8 +7,13 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add-guru'); ?>" class="btn btn-outline-primary mb-3">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
-            <div class="tile">
+            <a href="<?php echo base_url('add-guru'); ?>" class="btn btn-primary mb-3">Tambah
+                <i class="fa fa-plus"></i>
+            </a>
+            <a href=" <?php echo base_url('print_out/guru'); ?>" class="btn btn-primary mb-3" target="_blank">Cetak
+                <i class="fa fa-plus"></i>
+            </a>
+            <div class=" tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
@@ -38,7 +43,8 @@
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo base_url('detail-guru/' . $gr->id_guru); ?>" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i></i></a>
+                                        <a href="<?php echo base_url('detail-guru/' . $gr->id_guru); ?>" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i>
+                                            </i></a>
                                         <a href="<?php echo base_url('edit-guru/' . $gr->id_guru); ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
                                         <a href="<?php echo base_url('hapus-guru/' . $gr->id_guru); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
                                     </td>

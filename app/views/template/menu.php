@@ -1,6 +1,14 @@
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="<?php echo base_url('dashboard'); ?>">SMA Bahrul M</a>
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+<header class="app-header">
+    <?php if ($this->fungsi->user_login()->level == 1) : ?>
+        <a class="app-header__logo" href="<?php echo base_url('dashboard'); ?>">SMA Bahrul M</a>
+    <?php elseif ($this->fungsi->user_login()->level == 2) : ?>
+        <a class="app-header__logo" href="<?php echo base_url('user/guru'); ?>">SMA Bahrul M</a>
+    <?php elseif ($this->fungsi->user_login()->level == 3) : ?>
+        <a class="app-header__logo" href="<?php echo base_url('user/waka'); ?>">SMA Bahrul M</a>
+    <?php endif; ?>
+    <!-- Sidebar toggle button-->
+    <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
         <li class="app-search">
@@ -31,7 +39,6 @@
         <img class="app-sidebar__user-avatar" src="<?php echo base_url('assets/foto/guru/') . $this->fungsi->user_login()->fotou; ?>" width="60">
         <div>
             <p class="app-sidebar__user-name"><?php echo $this->fungsi->user_login()->nama; ?></p>
-            <!-- <p class="app-sidebar__user-designation">Frontend Developer</p> -->
         </div>
     </div>
     <ul class="app-menu">
@@ -91,11 +98,48 @@
                 <a class="app-menu__item" href="<?php echo base_url('user'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">User</span></a>
             </li>
 
-        <?php else : ?>
+        <?php elseif ($this->fungsi->user_login()->level == 2) : ?>
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('user/guru'); ?>">
                     <i class="app-menu__icon fa fa-home"></i>
                     <span class="app-menu__label">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('guru/nilai'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Nilai</span>
+                </a>
+            </li>
+        <?php elseif ($this->fungsi->user_login()->level == 3) : ?>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('user/waka'); ?>">
+                    <i class="app-menu__icon fa fa-home"></i>
+                    <span class="app-menu__label">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('guru'); ?>">
+                    <i class="app-menu__icon fa fa-users"></i>
+                    <span class="app-menu__label">Guru</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('siswa'); ?>">
+                    <i class="app-menu__icon fa fa-users"></i>
+                    <span class="app-menu__label">Siswa</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('mata.pelajaran'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Mata Pelajaran</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('kompetensi.dasar'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Kompetensi Dasar</span>
                 </a>
             </li>
             <li>

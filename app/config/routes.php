@@ -99,7 +99,8 @@ $route['hapus.mapel/(:num)']    = 'mata_pelajaran/delete/$1';
 $route['detail.mapel/(:any)']   = 'mata_pelajaran/detail/$1';
 
 // !Waka
-$route['waka.kurikulum']        = 'waka';
+$route['user/waka']             = 'waka';
+$route['waka.kurikulum']        = 'waka/home';
 $route['add.waka']              = 'waka/add';
 $route['hapus-waka/(:num)']     = 'waka/hapus/$1';
 
@@ -108,6 +109,10 @@ $route['add_tu']                            = 'tu/add';
 $route['edit_tata_usaha/(:num)']            = 'tu/edit/$1';
 $route['detail_tata_usaha/(:num)']          = 'tu/detail/$1';
 $route['hapus_tata_usaha/(:num)']           = 'tu/hapus/$1';
+
+
+// Print Out
+$route['cetak_guru']    = 'print_out/guru';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

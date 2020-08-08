@@ -1,0 +1,81 @@
+/* 
+Style Css Cetak
+*/
+/* Potret */
+.container {
+	width: 100%;
+}
+
+
+.cetak-header .cetak-title {
+	font-size: 14px;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+}
+
+.column {
+	float: left;
+	/* padding: 2px; */
+}
+
+/* Left and right column */
+.column.side {
+	width: 45%;
+}
+
+/* Middle column */
+.column.middle {
+	width: 45%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.title-mapel {
+	padding-bottom: 5px;
+}
+
+.column.mapel {
+	width: 40%;
+	font-size: 12px;
+}
+
+.column.ket {
+	width: 10%;
+	font-size: 12px;
+}
+
+.column.ket-mapel {
+	width: 90%;
+	font-size: 12px;
+	text-align: justify;
+}
+
+.tabel-body {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: cadetblue;
+	color: white;
+}
+
+.table td,
+.table th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
