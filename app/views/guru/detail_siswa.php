@@ -42,7 +42,7 @@
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         <?php else : ?>
-                                            <a href="<?php echo base_url('guru/nilai_siswa/' . $kd->mapel_id . "?siswa=" . $n->nis . "&mapel=" . $mapel); ?>" class="btn btn-outline-primary btn-sm">
+                                            <a href="<?php echo base_url('guru/nilai_siswa/' . $kd->mapel_id . "?siswa=" . $n->nis . "&mapel=" . $mapel . "&kelas=" . $n->kelas_id); ?>" class="btn btn-outline-primary btn-sm">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         <?php endif; ?>

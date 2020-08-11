@@ -30,8 +30,14 @@
                                     </td>
                                     <td><?php echo $n->nama_kelas; ?></td>
                                     <td>
-                                        <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
-                                        <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                            <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
+                                            <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
+                                        <?php else : ?>
+                                            <a href="<?php echo base_url('print_out/nilai_siswa/' . $n->kode_kelas); ?>" target="_blank" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-print"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

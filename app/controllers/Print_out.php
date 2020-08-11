@@ -47,4 +47,18 @@ class Print_out extends CI_Controller
         // $mpdf->AutoPrint(true);
         $mpdf->Output();
     }
+
+    public function nilai($id)
+    {
+        $title =  'Cetak Nilai';
+        // $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [100, 100]]);
+        $mpdf = new \Mpdf\Mpdf(['orientation' => 'P']);
+        $data = $this->load->view('print_out/print_nilai', [
+            'title' => $title,
+            'nilai' => $this->cetak->getAllNilai($id),
+        ], TRUE);
+        $mpdf->WriteHTML($data);
+        // $mpdf->AutoPrint(true);
+        $mpdf->Output();
+    }
 }

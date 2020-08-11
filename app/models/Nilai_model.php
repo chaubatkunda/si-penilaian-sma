@@ -18,6 +18,7 @@ class Nilai_model extends CI_Model
     }
     public function insert_nilai()
     {
+        $kelas = $this->input->post('kelas', true);
         $nilai = $this->input->post('nilai', true);
         $mapel = $this->input->post('mapel', true);
         $siswa  = $this->input->post('siswa', true);
@@ -27,6 +28,7 @@ class Nilai_model extends CI_Model
         $con = count($nilai);
         for ($i = 0; $i < $con; $i++) {
             $data = [
+                'kelas_id'  => $kelas[$i],
                 'mapel_id'  => $mapel[$i],
                 'siswa_id'  => $siswa[$i],
                 'kd_id'     => $kd[$i],

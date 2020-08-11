@@ -21,6 +21,7 @@
                                             <input type="hidden" name="kd[]" value="<?php echo $k->id_kd; ?>">
                                             <input type="hidden" name="siswa[]" value="<?php echo $siswa; ?>">
                                             <input type="hidden" name="mapel[]" value="<?php echo $mapel; ?>">
+                                            <input type="hidden" name="kelas[]" value="<?php echo $kelas; ?>">
                                             <b><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></b>
                                             <br>
                                             <span><i><?php echo $k->sub_kd; ?></i></span>

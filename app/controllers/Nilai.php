@@ -22,7 +22,7 @@ class Nilai extends CI_Controller
     {
         $data = array(
             'title'     => 'Guru Nilai',
-            'nilai'     => $this->user->guruPelajaran(),
+            'nilai'     => $this->waka->guruPelajaran(),
             'isi'       => 'guru/nilai'
         );
         // var_dump($data['nilai']);
@@ -45,11 +45,13 @@ class Nilai extends CI_Controller
     {
         $nis = $this->input->get('siswa', true);
         $mapel = $this->input->get('mapel', true);
+        $kelas = $this->input->get('kelas', true);
 
         $data = array(
             'title'     => 'Penilaian Siswa',
             'mapel'     => $mapel,
             'siswa'     => $nis,
+            'kelas'     => $kelas,
             'kd'         => $this->kd->getAllKdById($id),
             'isi'       => 'guru/nilai_siswa'
         );
