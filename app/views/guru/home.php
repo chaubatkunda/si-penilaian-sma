@@ -10,8 +10,8 @@
             <a href="<?php echo base_url('add-guru'); ?>" class="btn btn-primary mb-3">Tambah
                 <i class="fa fa-plus"></i>
             </a>
-            <a href=" <?php echo base_url('print_out/guru'); ?>" class="btn btn-primary mb-3" target="_blank">Cetak
-                <i class="fa fa-plus"></i>
+            <a href=" <?php echo base_url('print_out/guru'); ?>" class="btn btn-warning mb-3" target="_blank">Cetak
+                <i class="fa fa-print"></i>
             </a>
             <div class=" tile">
                 <div class="tile-body">

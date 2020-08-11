@@ -141,5 +141,6 @@ $autoload['model'] = array(
     'Mpelajaran_model'  => 'mpelajaran',
     'Waka_model'        => 'waka',
     'Guru_model'        => 'guru',
-    'Tu_model'                => 'tu'
+    'Tu_model'          => 'tu',
+    'Printout_model'    => 'cetak'
 );

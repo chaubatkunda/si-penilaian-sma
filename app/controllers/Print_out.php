@@ -21,4 +21,30 @@ class Print_out extends CI_Controller
         // $mpdf->AutoPrint(true);
         $mpdf->Output();
     }
+    public function siswa()
+    {
+        $title =  'Cetak Siswa';
+        // $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [100, 100]]);
+        $mpdf = new \Mpdf\Mpdf(['orientation' => 'P']);
+        $data = $this->load->view('print_out/print_siswa', [
+            'title' => $title,
+            'siswa' => $this->siswa->getAllSiswa(),
+        ], TRUE);
+        $mpdf->WriteHTML($data);
+        // $mpdf->AutoPrint(true);
+        $mpdf->Output();
+    }
+    public function kelas_x($id)
+    {
+        $title =  'Cetak Siswa ' . $id;
+        // $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [100, 100]]);
+        $mpdf = new \Mpdf\Mpdf(['orientation' => 'P']);
+        $data = $this->load->view('print_out/print_siswa', [
+            'title' => $title,
+            'siswa' => $this->cetak->getAllKategoryKelas($id),
+        ], TRUE);
+        $mpdf->WriteHTML($data);
+        // $mpdf->AutoPrint(true);
+        $mpdf->Output();
+    }
 }

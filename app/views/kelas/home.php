@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-primary mb-3">Tambah
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                <i class="fa fa-plus"></i>
             </a>
             <div class="tile">
                 <div class="tile-body">
@@ -44,6 +44,9 @@
                                         <?php else : ?>
                                             <a href="<?php echo base_url('hapus-kelas/' . $kls->id_kelas); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
                                         <?php endif; ?>
+                                        <a href=" <?php echo base_url('print_out/siswa/kelas/' . $kls->kode_kelas); ?>" class="btn btn-warning btn-sm" target="_blank">
+                                            <i class="fa fa-print"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach;; ?>
