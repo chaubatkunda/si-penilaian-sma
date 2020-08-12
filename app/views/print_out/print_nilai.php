@@ -27,7 +27,7 @@
                                     Mapel
                                 </div>
                                 <div class="column mapel">
-                                    :
+                                    : <?php echo $guru->nama_mapel; ?>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                     Kode Mapel
                                 </div>
                                 <div class="column mapel">
-                                    : X01
+                                    : <?php echo $guru->kode_mapel; ?>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                     Guru Mapel
                                 </div>
                                 <div class="column mapel">
-                                    : Lukman Hakim
+                                    : <?php echo $guru->nama_guru; ?>
                                 </div>
                             </div>
                         </div>
@@ -104,10 +104,12 @@
                                 <th rowspan="2">NIS</th>
                                 <th rowspan="2">Nama</th>
                                 <th colspan="12" align="center">Nilai</th>
+                                <th rowspan="2">NA</th>
                             </tr>
                             <tr>
                                 <th>1</th>
                                 <th>2</th>
+                                <th>3</th>
                                 <th>4</th>
                                 <th>5</th>
                                 <th>6</th>
@@ -117,15 +119,17 @@
                                 <th>10</th>
                                 <th>11</th>
                                 <th>12</th>
-                                <th>NA</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $kd = $this->db->get_where('t_kd', ['']);
+                            // $kd = $this->db->get_where('t_kd', ['']);
                             $no = 1;
                             foreach ($nilai as $n) :
                                 $query = $this->db->get_where('t_nilai', ['kelas_id' => $n->kelas_id])->result();
+                                $querynum = $this->db->get_where('t_nilai', ['kelas_id' => $n->kelas_id])->num_rows();
+                                $row = 12;
+                                $rows = $row - $querynum;
                             ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
@@ -134,6 +138,19 @@
                                     <?php foreach ($query as $q) : ?>
                                         <td><?php echo $q->nilai; ?></td>
                                     <?php endforeach; ?>
+                                    <?php for ($i = 0; $i < $rows; $i++) : ?>
+                                        <td> - <?php [$i]; ?></td>
+                                    <?php endfor; ?>
+
+                                    <td>
+                                        <?php
+                                        $query = $this->db->query("SELECT AVG(nilai) as rata2 FROM t_nilai WHERE siswa_id = '$n->nis' AND mapel_id = '$kode' ")->result();
+                                        foreach ($query as $q) : ?>
+                                            <span class="badge badge-primary">
+                                                <?php echo round($q->rata2); ?>
+                                            </span>
+                                        <?php endforeach; ?>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

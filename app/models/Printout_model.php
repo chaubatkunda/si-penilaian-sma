@@ -22,4 +22,14 @@ class Printout_model extends CI_Model
         // $this->db->where('t_nilai.kelas_id', $id);
         // return $this->db->get()->result();
     }
+
+    public function guruMapel($kode)
+    {
+        $this->db->select('*');
+        $this->db->from('t_mapel');
+        $this->db->join('t_detail_mapel', 't_detail_mapel.mapel_id = t_mapel.kode_mapel');
+        $this->db->join('t_guru', 't_guru.id_guru = t_detail_mapel.guru_id');
+        $this->db->where('kode_mapel', $kode);
+        return $this->db->get()->row();
+    }
 }
