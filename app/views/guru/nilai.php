@@ -34,9 +34,11 @@
                                             <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
                                             <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
                                         <?php else : ?>
-                                            <a href="<?php echo base_url('print_out/nilai_siswa/' . $n->kode_kelas . "?kode=" . $n->kode_mapel); ?>" target="_blank" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-print"></i>
-                                            </a>
+                                            <?php if ($this->fungsi->user_login()->level == 3) : ?>
+                                                <a href="<?php echo base_url('print_out/nilai_siswa/' . $n->kode_kelas . "?kode=" . $n->kode_mapel); ?>" target="_blank" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-print"></i>
+                                                </a>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </td>
                                 </tr>

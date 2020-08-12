@@ -44,9 +44,11 @@
                                         <?php else : ?>
                                             <a href="<?php echo base_url('hapus-kelas/' . $kls->id_kelas); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
                                         <?php endif; ?>
-                                        <a href=" <?php echo base_url('print_out/siswa/kelas/' . $kls->kode_kelas); ?>" class="btn btn-warning btn-sm" target="_blank">
-                                            <i class="fa fa-print"></i>
-                                        </a>
+                                        <?php if ($this->fungsi->user_login()->level == 3) : ?>
+                                            <a href=" <?php echo base_url('print_out/siswa/kelas/' . $kls->kode_kelas); ?>" class="btn btn-warning btn-sm" target="_blank">
+                                                <i class="fa fa-print"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach;; ?>

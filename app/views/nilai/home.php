@@ -16,7 +16,7 @@
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Nilai</th>
-                                <th>Opsi</th>
+                                <!-- <th>Opsi</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -28,7 +28,7 @@
                                     <td><?php echo $n->nis; ?></td>
                                     <td><?php echo $n->nama; ?></td>
                                     <td>
-                                       <?php
+                                        <?php
                                         $query = $this->db->query("SELECT AVG(nilai) as rata2 FROM t_nilai WHERE siswa_id = '$n->nis'")->result();
                                         foreach ($query as $q) : ?>
                                             <span class="badge badge-primary">
@@ -36,10 +36,10 @@
                                             </span>
                                         <?php endforeach; ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <a href="" class="btn btn-outline-success btn-sm">Edit <i class="fa fa-pencil"></i></a>
                                         <a href="" class="btn btn-outline-danger btn-sm">Hapus <i class="fa fa-trash"></i></a>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

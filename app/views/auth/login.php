@@ -17,6 +17,7 @@
         <div class="cover"></div>
     </section>
     <section class="login-content">
+        <?php echo $this->session->flashdata('login'); ?>
         <div class="logo">
             <!-- <h1>SMA <br>Bahrul Maghfiroh</h1> -->
         </div>
@@ -25,7 +26,6 @@
                 <h4 class="text-center">SMA Bahrul Maghfiroh</h4>
                 <!-- <h5>SMA <br>Bahrul Maghfiroh</h5> -->
                 <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOGIN</h3>
-                <?php echo $this->session->flashdata('login'); ?>
                 <div class="form-group">
                     <label class="control-label">USERNAME</label>
                     <input class="form-control" type="text" placeholder="Password" name="username" autofocus>

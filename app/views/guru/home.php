@@ -10,9 +10,11 @@
             <a href="<?php echo base_url('add-guru'); ?>" class="btn btn-primary mb-3">Tambah
                 <i class="fa fa-plus"></i>
             </a>
-            <a href=" <?php echo base_url('print_out/guru'); ?>" class="btn btn-warning mb-3" target="_blank">Cetak
-                <i class="fa fa-print"></i>
-            </a>
+            <?php if ($this->fungsi->user_login()->level == 3) : ?>
+                <a href=" <?php echo base_url('print_out/guru'); ?>" class="btn btn-warning mb-3" target="_blank">Cetak
+                    <i class="fa fa-print"></i>
+                </a>
+            <?php endif; ?>
             <div class=" tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
