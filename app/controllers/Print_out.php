@@ -64,4 +64,19 @@ class Print_out extends CI_Controller
         // $mpdf->AutoPrint(true);
         $mpdf->Output();
     }
+
+    public function cetak_nilai($id)
+    {
+        $kode = $this->input->get('kode', true);
+        $data = array(
+            'title'     => 'Detail Nilai',
+            'nilai' => $this->cetak->getAllNilai($id),
+            'kode'  => $kode,
+            'guru'  => $this->cetak->guruMapel($kode),
+            'isi'       => 'print_out/detail_cetak_nilai'
+        );
+        // var_dump($data['nilai']);
+        // die;
+        $this->load->view('template/wrap', $data, false);
+    }
 }

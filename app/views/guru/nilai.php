@@ -38,6 +38,13 @@
                                                 <a href="<?php echo base_url('print_out/nilai_siswa/' . $n->kode_kelas . "?kode=" . $n->kode_mapel); ?>" target="_blank" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-print"></i>
                                                 </a>
+                                                <a href="<?php echo base_url('print_out/cetak_siswa/' . $n->kode_kelas . "?kode=" . $n->kode_mapel); ?>" class="btn btn-success btn-sm">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            <?php elseif ($this->fungsi->user_login()->level == 2) : ?>
+                                                <a href="<?php echo base_url('print_out/cetak_siswa/' . $n->kode_kelas . "?kode=" . $n->kode_mapel); ?>" class="btn btn-success btn-sm" target="_blank">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
                                             <?php endif; ?>
                                         <?php endif; ?>
                                     </td>

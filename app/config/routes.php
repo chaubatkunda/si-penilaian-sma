@@ -118,6 +118,7 @@ $route['cetak_guru']    = 'print_out/guru';
 $route['cetak_siswa']   = 'print_out/siswa';
 $route['print_out/siswa/kelas/(:any)']   = 'print_out/kelas_x/$1';
 $route['print_out/nilai_siswa/(:any)']   = 'print_out/nilai/$1';
+$route['print_out/cetak_siswa/(:any)']   = 'print_out/cetak_nilai/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
