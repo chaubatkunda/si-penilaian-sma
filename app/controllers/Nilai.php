@@ -22,11 +22,20 @@ class Nilai extends CI_Controller
     {
         $data = array(
             'title'     => 'Guru Nilai',
-            'nilai'     => $this->waka->guruPelajaran(),
+            'nilai'     => $this->waka->guruPelajaranDet(),
             'isi'       => 'guru/nilai'
         );
         // var_dump($data['nilai']);
         // die;
+        $this->load->view('template/wrap', $data, false);
+    }
+    public function waka_nilai()
+    {
+        $data = array(
+            'title'     => 'Waka Nilai',
+            'nilai'     => $this->waka->guruPelajaran(),
+            'isi'       => 'guru/nilai'
+        );
         $this->load->view('template/wrap', $data, false);
     }
     public function detail_siswa($id)

@@ -126,8 +126,22 @@
                             // $kd = $this->db->get_where('t_kd', ['']);
                             $no = 1;
                             foreach ($nilai as $n) :
-                                $query = $this->db->get_where('t_nilai', ['kelas_id' => $n->kelas_id])->result();
-                                $querynum = $this->db->get_where('t_nilai', ['kelas_id' => $n->kelas_id])->num_rows();
+                                $query = $this->db->get_where(
+                                    't_nilai',
+                                    [
+                                        'kelas_id' => $n->kelas_id,
+                                        'mapel_id'  => $kode,
+                                        'siswa_id'  => $n->nis
+                                    ]
+                                )->result();
+                                $querynum = $this->db->get_where(
+                                    't_nilai',
+                                    [
+                                        'kelas_id' => $n->kelas_id,
+                                        'mapel_id'  => $kode,
+                                        'siswa_id'  => $n->nis
+                                    ]
+                                )->num_rows();
                                 $row = 12;
                                 $rows = $row - $querynum;
                             ?>

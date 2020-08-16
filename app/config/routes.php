@@ -94,7 +94,7 @@ $route['guru/nilai_siswa/(:any)']     = 'nilai/nilai_siswa/$1';
 // !Mata Pelajaran
 $route['mata.pelajaran']        = 'mata_pelajaran';
 $route['add.mapel']             = 'mata_pelajaran/add';
-$route['edit.mapel/(:num)']     = 'mata_pelajaran/edit/$1';
+$route['edit.mapel/(:any)']     = 'mata_pelajaran/edit/$1';
 $route['hapus.mapel/(:num)']    = 'mata_pelajaran/delete/$1';
 $route['detail.mapel/(:any)']   = 'mata_pelajaran/detail/$1';
 
@@ -103,6 +103,8 @@ $route['user/waka']             = 'waka';
 $route['waka.kurikulum']        = 'waka/home';
 $route['add.waka']              = 'waka/add';
 $route['hapus-waka/(:num)']     = 'waka/hapus/$1';
+
+$route['waka/nilai']        = 'nilai/waka_nilai';
 
 $route['tata_usaha']                        = 'tu';
 $route['add_tu']                            = 'tu/add';
