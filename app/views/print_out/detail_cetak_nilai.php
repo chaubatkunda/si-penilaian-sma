@@ -18,9 +18,9 @@
                         <span>Guru Mapel</span>
                     </div>
                     <div class="col-md-4 text-left">
-                        <span><?php echo $guru->nama_guru; ?></span> <br>
+                        <span><?php echo $guru->nama_mapel; ?></span> <br>
                         <span><?php echo $guru->kode_mapel; ?></span> <br>
-                        <span><?php echo $guru->nama_mapel; ?></span>
+                        <span><?php echo $guru->nama_guru; ?></span>
                     </div>
                 </div>
 

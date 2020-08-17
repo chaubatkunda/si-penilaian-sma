@@ -54,6 +54,8 @@ $route['default_controller'] = 'auth';
 $route['dashboard']             = 'guru';
 $route['user/guru']             = 'guru';
 $route['user']                  = 'user';
+$route['user/hapus/(:num)']     = 'user/delete/$1';
+
 $route['add-user']              = 'user/addakun';
 $route['edit_profil/(:num)']    = 'user/editprofil/$1';
 $route['logout']                = 'auth/logout';

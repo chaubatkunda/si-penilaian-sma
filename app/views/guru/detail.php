@@ -20,8 +20,12 @@
                     <tr>
                         <th>Jabatan</th>
                         <td>
-                            <?php if ($guru->jabatan == 3) : ?>
-                                <small>Guru</small>
+                            <?php if ($guru->jabatan == 1) : ?>
+                                <small class="text-primary">Kepala Sekolah</small>
+                            <?php elseif ($guru->jabatan == 2) : ?>
+                                <small class="text-primary">Waka</small>
+                            <?php else : ?>
+                                <small class="text-primary">Guru</small>
                             <?php endif; ?>
                         </td>
                     </tr>

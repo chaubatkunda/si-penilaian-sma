@@ -8,9 +8,11 @@
     <div class="row">
         <div class="col-md-12">
             <?php echo $this->session->flashdata('warning'); ?>
-            <a href="<?php echo base_url('add.mapel'); ?>" class="btn btn-primary mb-3">Tambah
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </a>
+            <?php if (!$this->fungsi->user_login()->level == 1) : ?>
+                <a href="<?php echo base_url('add.mapel'); ?>" class="btn btn-primary mb-3">Tambah
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </a>
+            <?php endif; ?>
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -34,12 +36,14 @@
                                         <a href="<?php echo base_url('detail.mapel/' . $m->kode_mapel); ?>" class="btn btn-info btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="<?php echo base_url('edit.mapel/' . $m->kode_mapel); ?>" class="btn btn-outline-success btn-sm">
-                                            <i class="fa fa-pencil"></i>
-                                        </a>
-                                        <a href="<?php echo base_url('hapus.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
+                                        <?php if (!$this->fungsi->user_login()->level == 1) : ?>
+                                            <a href="<?php echo base_url('edit.mapel/' . $m->kode_mapel); ?>" class="btn btn-outline-success btn-sm">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="<?php echo base_url('hapus.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -11,10 +11,12 @@
                     <a href="<?php echo base_url('kompetensi.dasar'); ?>" class="btn btn-success btn-sm">
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
-                    <?php if (empty($kd)) : ?>
-                        <a href="<?php echo base_url('add-kd/' . $mapel->kode_mapel); ?>" class="btn btn-primary btn-sm">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
-                    <?php else : ?>
-                        <a href="<?php echo base_url('tambah-detai-kd/' . $mapel->kode_mapel); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Tambah</a>
+                    <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                        <?php if (empty($kd)) : ?>
+                            <a href="<?php echo base_url('add-kd/' . $mapel->kode_mapel); ?>" class="btn btn-primary btn-sm">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <?php else : ?>
+                            <a href="<?php echo base_url('tambah-detai-kd/' . $mapel->kode_mapel); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Tambah</a>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
                 <?php echo $this->session->flashdata('warning'); ?>
@@ -25,7 +27,9 @@
                             <th>#</th>
                             <th>Kompetensi Dasar</th>
                             <th>Materi Pembelajaran</th>
-                            <th>Opsi</th>
+                            <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                <th>Opsi</th>
+                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,11 +41,13 @@
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></td>
                                 <td><?php echo $k->sub_kd; ?></td>
-                                <td>
-                                    <a href="<?php echo base_url('hapus-kd/' . $k->id_kd . "?id=" . $k->mapel_id); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
+                                <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                    <td>
+                                        <a href="<?php echo base_url('hapus-kd/' . $k->id_kd . "?id=" . $k->mapel_id); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

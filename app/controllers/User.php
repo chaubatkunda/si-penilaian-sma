@@ -126,4 +126,13 @@ class User extends CI_Controller
             }
         }
     }
+
+    public function delete($id)
+    {
+        $this->db->delete('t_user', ['id_user' => $id]);
+        $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                        Akun Berhasil Dihapus
+                        </div>');
+        redirect('user');
+    }
 }

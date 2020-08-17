@@ -26,7 +26,11 @@
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('guru/nilai/siswa/' . $n->kode_kelas . "?mapel=" . $n->kode_mapel); ?>"><?php echo $n->nama_mapel; ?></a>
+                                        <?php if ($this->fungsi->user_login()->level == 2) : ?>
+                                            <a href="<?php echo base_url('guru/nilai/siswa/' . $n->kode_kelas . "?mapel=" . $n->kode_mapel); ?>"><?php echo $n->nama_mapel; ?></a>
+                                        <?php else : ?>
+                                            <?php echo $n->nama_mapel; ?>
+                                        <?php endif; ?>
                                     </td>
                                     <td><?php echo $n->nama_kelas; ?></td>
                                     <td>

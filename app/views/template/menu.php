@@ -12,8 +12,8 @@
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
         <li class="app-search">
-            <input class="app-search__input" type="search" placeholder="Search">
-            <button class="app-search__button"><i class="fa fa-search"></i></button>
+            <!-- <input class="app-search__input" type="search" placeholder="Search">
+            <button class="app-search__button"><i class="fa fa-search"></i></button> -->
         </li>
 
         <!-- User Menu-->
@@ -85,12 +85,12 @@
                     <span class="app-menu__label">Kompetensi Dasar</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a class="app-menu__item" href="<?php echo base_url('nilai'); ?>">
                     <i class="app-menu__icon fa fa-book"></i>
                     <span class="app-menu__label">Nilai</span>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('tata_usaha'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Tata Usaha</span></a>
             </li>
@@ -128,6 +128,12 @@
                 <a class="app-menu__item" href="<?php echo base_url('siswa'); ?>">
                     <i class="app-menu__icon fa fa-users"></i>
                     <span class="app-menu__label">Siswa</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('kelas'); ?>">
+                    <i class="app-menu__icon fa fa-home"></i>
+                    <span class="app-menu__label">Kelas</span>
                 </a>
             </li>
             <li>
