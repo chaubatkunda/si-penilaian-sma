@@ -28,7 +28,7 @@
                 <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOGIN</h3>
                 <div class="form-group">
                     <label class="control-label">USERNAME</label>
-                    <input class="form-control" type="text" placeholder="Password" name="username" autofocus>
+                    <input class="form-control" type="text" placeholder="Username" name="username" autofocus>
                     <small class="text-danger"><?php echo form_error('username'); ?></small>
                 </div>
                 <div class="form-group">
