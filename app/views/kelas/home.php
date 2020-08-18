@@ -7,9 +7,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-primary mb-3">Tambah
-                <i class="fa fa-plus"></i>
-            </a>
+            <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-primary mb-3">Tambah
+                    <i class="fa fa-plus"></i>
+                </a>
+            <?php endif; ?>
             <div class="tile">
                 <div class="tile-body">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -40,9 +42,13 @@
                                     </td>
                                     <td>
                                         <?php if ($query > 0) : ?>
-                                            <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            <?php endif; ?>
                                         <?php else : ?>
-                                            <a href="<?php echo base_url('hapus-kelas/' . $kls->id_kelas); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
+                                            <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                                <a href="<?php echo base_url('hapus-kelas/' . $kls->id_kelas); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                         <?php if ($this->fungsi->user_login()->level == 3) : ?>
                                             <a href=" <?php echo base_url('print_out/siswa/kelas/' . $kls->kode_kelas); ?>" class="btn btn-warning btn-sm" target="_blank">

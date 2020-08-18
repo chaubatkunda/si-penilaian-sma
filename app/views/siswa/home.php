@@ -6,10 +6,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="<?php echo base_url('add-siswa'); ?>" class="btn btn-primary mb-3">Tambah
-                <i class="fa fa-plus"></i>
-            </a>
-            <?php if ($this->fungsi->user_login()->level == 3) : ?>
+            <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                <a href="<?php echo base_url('add-siswa'); ?>" class="btn btn-primary mb-3">Tambah
+                    <i class="fa fa-plus"></i>
+                </a>
+            <?php else : ?>
                 <a href=" <?php echo base_url('print_out/siswa'); ?>" class="btn btn-warning mb-3" target="_blank">Cetak
                     <i class="fa fa-print"></i>
                 </a>
@@ -43,12 +44,14 @@
                                         <a href="<?php echo base_url('detsiswa/') . $sw->id; ?>" class="btn btn-outline-secondary btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="<?php echo base_url('editsiswa/') . $sw->id; ?>" class="btn btn-outline-success btn-sm">
-                                            <i class="fa fa-pencil"></i>
-                                        </a>
-                                        <a href="<?php echo base_url('hapus.siswa/') . $sw->id; ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
+                                        <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                            <a href="<?php echo base_url('editsiswa/') . $sw->id; ?>" class="btn btn-outline-success btn-sm">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="<?php echo base_url('hapus.siswa/') . $sw->id; ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
