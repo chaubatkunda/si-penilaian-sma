@@ -23,13 +23,17 @@ class Kd_model extends CI_Model
     }
     public function getAllKdById($id)
     {
-        // return $this->db->get('t_kd')->result();
+        // return $this->db->get_where('t_kd', ['id_kd' => $id])->row();
         $this->db->select('*');
         $this->db->from('t_kd');
         $this->db->join('t_guru', 't_guru.id_guru = t_kd.guru_id');
         $this->db->join('t_mapel', 't_mapel.kode_mapel = t_kd.mapel_id');
         $this->db->where('mapel_id', $id);
         return $this->db->get()->result();
+    }
+    public function getAllKdByIdKd($id)
+    {
+        return $this->db->get_where('t_kd', ['id_kd' => $id])->row();;
     }
     public function getAllKdByIdd($id)
     {

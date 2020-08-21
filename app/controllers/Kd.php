@@ -64,29 +64,27 @@ class Kd extends CI_Controller
     {
         $data = array(
             'title'         => 'Kompetensi Dasar',
-            'kd'            => $this->kd->getAllKdById($id),
+            'kd'            => $this->kd->getAllKdByIdKd($id),
             'pelajaran'     => $this->mpelajaran->getAllMapel(),
             'guru'          => $this->guru->getAllGuru(),
             'isi'           => 'kd/edit'
         );
-        $this->form_validation->set_rules('guru', 'Nama Guru', 'trim|required');
-        $this->form_validation->set_rules('mp', 'Mata Pelajaran', 'trim|required');
+        // var_dump($data['kd']);
+        // die;
         $this->form_validation->set_rules('kd', 'Kompetensi Dasar', 'trim|required');
         $this->form_validation->set_rules('ket', 'Kompetensi Dasar', 'trim|required');
         $this->form_validation->set_rules('kds', 'Kompetensi Dasar', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            $id = $this->input->post('mp', true);
+            $idkode = $this->input->get('kode', true);
             $data = [
-                'guru_id' => $this->input->post('guru', true),
-                'mapel_id' => $this->input->post('mp', true),
                 'kd' => $this->input->post('kd', true),
                 'sub_kd' => $this->input->post('kds', true),
                 'ket_kd' => $this->input->post('ket', true)
             ];
             $this->kd->update_kd($id, $data);
-            redirect('detail-kd/', $id);
+            redirect('detail-kd/' . $idkode);
         }
     }
     public function detailkd($id)

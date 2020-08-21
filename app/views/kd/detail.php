@@ -43,6 +43,9 @@
                                 <td><?php echo $k->sub_kd; ?></td>
                                 <?php if ($this->fungsi->user_login()->level == 1) : ?>
                                     <td>
+                                        <a href="<?php echo base_url('edit-kd/' . $k->id_kd . "?kode=" . $k->kode_mapel); ?>" class="btn btn-info btn-sm">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
                                         <a href="<?php echo base_url('hapus-kd/' . $k->id_kd . "?id=" . $k->mapel_id); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">
                                             <i class="fa fa-trash"></i>
                                         </a>

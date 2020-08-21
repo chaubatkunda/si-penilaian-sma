@@ -45,8 +45,9 @@ class Mata_pelajaran extends CI_Controller
     {
         $data = array(
             'title'     => 'Edit Mata Pelajaran',
-            'mapel'     => $this->mpelajaran->getAllMapelById($id),
+            'mapel'     => $this->mpelajaran->getAllMapelByKode($id),
             'kelas'     => $this->admin->getAllKelas(),
+            'mapeld'    => $this->mpelajaran->getAllMapel(),
             'guru'      => $this->guru->getAllGuru(),
             'isi'       => 'mata_pelajaran/edit'
         );

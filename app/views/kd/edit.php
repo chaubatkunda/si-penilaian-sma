@@ -12,36 +12,6 @@
                 <div class="tile-body">
                     <form method="post" action="" class="form-horizontal">
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Guru</label>
-                            <div class="col-md-8">
-                                <select name="guru" id="" class="form-control">
-                                    <?php foreach ($guru as $g) : ?>
-                                        <?php if ($g->id_guru == $kd->guru_id) : ?>
-                                            <option value="<?php echo $g->id_guru; ?>" selected><?php echo $g->nama_guru; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?php echo $g->id_guru; ?>"><?php echo $g->nama_guru; ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                                <small class="text-danger"><?php echo form_error('guru'); ?></small>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Mata Pelajaran</label>
-                            <div class="col-md-8">
-                                <select name="mp" id="" class="form-control">
-                                    <?php foreach ($pelajaran as $p) : ?>
-                                        <?php if ($p->id_mapel == $kd->mapel_id) : ?>
-                                            <option value="<?php echo $p->id_mapel; ?>" selected><?php echo $p->nama_mapel; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?php echo $p->id_mapel; ?>"><?php echo $p->nama_mapel; ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                                <small class="text-danger"><?php echo form_error('mp'); ?></small>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="control-label col-md-3">Kompetensi Dasar</label>
                             <div class="col-md-8">
                                 <textarea name="kd" id="" class="form-control"><?php echo $kd->kd; ?></textarea>

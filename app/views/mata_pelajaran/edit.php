@@ -10,7 +10,7 @@
                 <!-- <h3 class="tile-title">Register</h3> -->
                 <div class="tile-body">
                     <form method="post" action="" class="form-horizontal">
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label class="control-label col-md-3">Guru</label>
                             <div class="col-md-8">
                                 <select name="guru" id="" class="form-control">
@@ -39,11 +39,11 @@
                                 </select>
                                 <small class="text-danger"><?php echo form_error('kelas'); ?></small>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label class="control-label col-md-3">Kode Mapel</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="kodemp" value="<?php echo $mapel->kode_mapel; ?>" readonly>
+                                <input class="form-control" type="text" name="kodemp" value="<?php echo $mapel->kode_mapel; ?>">
                                 <small class="text-danger"><?php echo form_error('kodemp'); ?></small>
                             </div>
                         </div>
