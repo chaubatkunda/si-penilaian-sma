@@ -10,11 +10,12 @@
 <!-- <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/dataTables.bootstrap.min.js"></script> -->
 
-<script src="<?php echo base_url('assets/datatable/datatables.min.js')?>"></script>
+<script src="<?php echo base_url('assets/datatable/datatables.min.js') ?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/select2.min.js"></script>
 <script src="<?php echo base_url('assets/sweetalert/sweetalert2.all.min.js'); ?>"></script>
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $('#sampleTable').DataTable();
 </script>

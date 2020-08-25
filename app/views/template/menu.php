@@ -85,12 +85,12 @@
                     <span class="app-menu__label">Kompetensi Dasar</span>
                 </a>
             </li>
-            <!-- <li>
-                <a class="app-menu__item" href="<?php echo base_url('nilai'); ?>">
+            <li>
+                <a class="app-menu__item" href="<?php echo base_url('tahun_ajaran'); ?>">
                     <i class="app-menu__icon fa fa-book"></i>
-                    <span class="app-menu__label">Nilai</span>
+                    <span class="app-menu__label">Tahun Ajaran</span>
                 </a>
-            </li> -->
+            </li>
             <li>
                 <a class="app-menu__item" href="<?php echo base_url('tata_usaha'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Tata Usaha</span></a>
             </li>

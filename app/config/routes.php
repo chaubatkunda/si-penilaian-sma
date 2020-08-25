@@ -114,6 +114,12 @@ $route['edit_tata_usaha/(:num)']            = 'tu/edit/$1';
 $route['detail_tata_usaha/(:num)']          = 'tu/detail/$1';
 $route['hapus_tata_usaha/(:num)']           = 'tu/hapus/$1';
 
+// Tahun Ajaran
+$route['tahun_ajaran']      = 'tahun_ajaran';
+$route['add_tahun_ajaran']      = 'tahun_ajaran/add';
+$route['edit_tahun_ajaran/(:num)']      = 'tahun_ajaran/edit/$1';
+$route['delete_tahun_ajaran/(:num)']      = 'tahun_ajaran/delete/$1';
+
 
 // Print Out
 $route['cetak_guru']    = 'print_out/guru';

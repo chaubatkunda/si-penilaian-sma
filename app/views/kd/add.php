@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="tile">
                 <!-- <h3 class="tile-title">Register</h3> -->
                 <?php echo $this->session->flashdata('warning'); ?>
@@ -37,15 +37,8 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">Kompetensi Dasar</label>
                             <div class="col-md-8">
-                                <textarea name="kd" id="" class="form-control"></textarea>
+                                <textarea name="kd" class="form-control"></textarea>
                                 <small class="text-danger"><?php echo form_error('kd'); ?></small>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Keterangan</label>
-                            <div class="col-md-8">
-                                <textarea name="ket" id="" class="form-control"></textarea>
-                                <small class="text-danger"><?php echo form_error('ket'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">

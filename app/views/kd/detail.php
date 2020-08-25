@@ -39,7 +39,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></td>
+                                <td><?php echo $k->kd; ?></td>
                                 <td><?php echo $k->sub_kd; ?></td>
                                 <?php if ($this->fungsi->user_login()->level == 1) : ?>
                                     <td>

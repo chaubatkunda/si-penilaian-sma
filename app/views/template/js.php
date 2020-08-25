@@ -63,7 +63,7 @@
     $('#demoSelectm').select2();
 </script>
 <script>
-    $(function(){
+    $(function() {
         $("#hapus-siswa").on('click', function(e) {
             e.preventDefault();
             const href = $(this).attr("href");
@@ -139,4 +139,7 @@
             // console.log(tes);
         });
     });
+</script>
+<script>
+    CKEDITOR.replace('editor');
 </script>
