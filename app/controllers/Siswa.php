@@ -60,7 +60,8 @@ class Siswa extends CI_Controller
                     'tempat_lahir'  => $this->input->post('tempat_lhr', true),
                     'tgl_lahir'     => $det,
                     'alamat'        => $this->input->post('alamat', true),
-                    'foto'          => $this->upload->data('file_name')
+                    'foto'          => $this->upload->data('file_name'),
+                    'chek_siswa'    => 1
                 ];
                 $this->siswa->insert_siswa($data);
                 if ($this->db->affected_rows() > 0) {

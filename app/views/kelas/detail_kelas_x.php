@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <?php if ($this->fungsi->user_login()->level == 1) : ?>
-                <a href="<?php echo base_url('add_detail_kelas/' . $kode); ?>" class="btn btn-primary mb-3">Tambah
+                <a href="<?php echo base_url('add_kelas/' . $kode); ?>" class="btn btn-primary mb-3">Tambah
                     <i class="fa fa-plus"></i>
                 </a>
                 <a href="<?php echo base_url('kelas'); ?>" class="btn btn-danger mb-3">Kembali
@@ -36,7 +36,7 @@
                                     <td><?php echo $k->nis; ?></td>
                                     <td><?php echo $k->nama; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('hapus-detail-kelas/' . $k->id . "?kode=" . $k->kode_kelas); ?>" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="<?php echo base_url('hapus-detail-kelas/' . $k->id . "?kode=" . $k->kode_kelas . "?&siswa=" . $k->nis); ?>" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

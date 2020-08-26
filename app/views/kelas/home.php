@@ -30,7 +30,7 @@
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('detail_kelas/' . $kls->kode_kelas); ?>"><?php echo $kls->kode_kelas; ?></a>
+                                        <a href="<?php echo base_url('kelas/' . $kls->kode_kelas); ?>"><?php echo $kls->kode_kelas; ?></a>
                                     </td>
                                     <td><?php echo $kls->nama_kelas; ?></td>
                                     <td>

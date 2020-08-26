@@ -15,7 +15,7 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">Siswa</label>
                             <div class="col-md-8">
-                                <select name="siswa" class="form-control">
+                                <select name="siswa" class="form-control kelas-siswa">
                                     <option value="">--Pilih--</option>
                                     <?php foreach ($siswa as $s) : ?>
                                         <option value="<?php echo $s->nis; ?>"><?php echo $s->nama; ?></option>
@@ -29,7 +29,7 @@
                             <div class="col-md-8 tile-footer">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-paper-plane-o"></i> Simpan</button>
-                                <a href="<?php echo base_url('detail_kelas/' . $kode); ?>" class="btn btn-danger">
+                                <a href="<?php echo base_url('kelas/' . $kode); ?>" class="btn btn-danger">
                                     <i class="fa fa-ban"></i> Batal
                                 </a>
                             </div>
