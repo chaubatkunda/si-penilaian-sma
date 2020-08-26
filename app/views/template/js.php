@@ -140,6 +140,6 @@
         });
     });
 </script>
-<script>
+<!-- <script>
     CKEDITOR.replace('editor');
-</script>
+</script> -->

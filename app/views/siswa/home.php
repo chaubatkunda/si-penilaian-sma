@@ -4,8 +4,8 @@
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
             <?php if ($this->fungsi->user_login()->level == 1) : ?>
                 <a href="<?php echo base_url('add-siswa'); ?>" class="btn btn-primary mb-3">Tambah
                     <i class="fa fa-plus"></i>
@@ -24,7 +24,6 @@
                                 <th>No</th>
                                 <th>NISN</th>
                                 <th>Nama</th>
-                                <th>Kelas</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -39,7 +38,6 @@
                                     <td>
                                         <a href="<?php echo base_url('detsiswa/') . $sw->id; ?>"><?php echo $sw->nama; ?></a>
                                     </td>
-                                    <td><?php echo $sw->nama_kelas; ?></td>
                                     <td>
                                         <a href="<?php echo base_url('detsiswa/') . $sw->id; ?>" class="btn btn-outline-secondary btn-sm">
                                             <i class="fa fa-eye"></i>

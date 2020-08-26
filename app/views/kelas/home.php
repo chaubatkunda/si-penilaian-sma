@@ -9,8 +9,8 @@
         <div class="col-md-12">
             <?php if ($this->fungsi->user_login()->level == 1) : ?>
                 <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-primary mb-3">Tambah
-                    <i class="fa fa-plus"></i>
                 </a>
+
             <?php endif; ?>
             <div class="tile">
                 <div class="tile-body">
@@ -20,7 +20,6 @@
                                 <th>No</th>
                                 <th>Kode Kelas</th>
                                 <th>Kelas</th>
-                                <th>Jumlah Siswa </th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -30,21 +29,13 @@
                             foreach ($kelas as $kls) : ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <td><?php echo $kls->kode_kelas; ?></td>
+                                    <td>
+                                        <a href="<?php echo base_url('detail_kelas/' . $kls->kode_kelas); ?>"><?php echo $kls->kode_kelas; ?></a>
+                                    </td>
                                     <td><?php echo $kls->nama_kelas; ?></td>
                                     <td>
-                                        <?php
-                                        $id_kls = $kls->kode_kelas;
-                                        $query = $this->db->get_where('t_siswa', ['kelas_id' => $id_kls])->num_rows();
-                                        // print_r($query);
-                                        ?>
-                                        <span class="badge badge-dark"><?php echo $query; ?></span>
-                                    </td>
-                                    <td>
-                                        <?php if ($query > 0) : ?>
-                                            <?php if ($this->fungsi->user_login()->level == 1) : ?>
-                                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                            <?php endif; ?>
+                                        <?php if ($this->fungsi->user_login()->level == 1) : ?>
+                                            <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         <?php else : ?>
                                             <?php if ($this->fungsi->user_login()->level == 1) : ?>
                                                 <a href="<?php echo base_url('hapus-kelas/' . $kls->id_kelas); ?>" class="btn btn-danger btn-sm" id="hapus-siswa"><i class="fa fa-trash"></i></a>

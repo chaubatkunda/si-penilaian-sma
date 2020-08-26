@@ -45,18 +45,7 @@
                                 <input class="form-control" name="tgl_lahir" id="demoDate" type="text" placeholder="Select Tanggal" autocomplete="off" />
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Kelas</label>
-                            <div class="col-md-8">
-                                <select name="kls" class="form-control" id="demoSelect">
-                                    <option value="">--Pilih--</option>
-                                    <?php foreach ($kelas as $kls) : ?>
-                                        <option value="<?php echo $kls->kode_kelas; ?>"><?php echo $kls->nama_kelas; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <small class="text-danger"><?php echo form_error('kls'); ?></small>
-                            </div>
-                        </div>
+
                         <div class="form-group row">
                             <label class="control-label col-md-3">Foto</label>
                             <div class="col-md-8">

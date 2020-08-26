@@ -30,10 +30,6 @@
                         <td><?php echo $siswa->alamat; ?></td>
                     </tr>
                     <tr>
-                        <th>Kelas</th>
-                        <td><?php echo $siswa->nama_kelas; ?></td>
-                    </tr>
-                    <tr>
                         <th>Foto</th>
                         <td>
                             <img src="<?php echo base_url('assets/foto/siswa/') . $siswa->foto; ?>" width="110">

@@ -46,20 +46,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Kelas</label>
-                            <div class="col-md-8">
-                                <select name="kls" class="form-control" id="demoSelect">
-                                    <?php foreach ($kelas as $kls) : ?>
-                                        <?php if ($kls->kode_kelas == $siswa->id_kelas) : ?>
-                                            <option value="<?php echo $kls->kode_kelas; ?>" selected><?php echo $kls->nama_kelas; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?php echo $kls->kode_kelas; ?>"><?php echo $kls->nama_kelas; ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="control-label col-md-3">Foto</label>
                             <div class="col-md-8">
                                 <input class="form-control" name="foto" type="file">

@@ -5,7 +5,7 @@ class Tahun_ajaran_model extends CI_Model
 {
     public function getAllTahunAjaran()
     {
-        $this->db->order_by('thn_ajaran', 'asc');
+        $this->db->order_by('thn_ajaran', 'desc');
         return $this->db->get('t_thn_ajaran')->result();
     }
     public function getAllTahunAjaranById($id)

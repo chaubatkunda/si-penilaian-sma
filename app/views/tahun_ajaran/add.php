@@ -32,7 +32,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-paper-plane-o"></i> Simpan
                                 </button>
-                                <a href="<?php echo base_url('siswa'); ?>" class="btn btn-danger">
+                                <a href="<?php echo base_url('tahun_ajaran'); ?>" class="btn btn-danger">
                                     <i class="fa fa-ban"></i> Batal
                                 </a>
                             </div>

@@ -75,9 +75,13 @@ $route['edit-guru/(:num)']      = 'guru/edit/$1';
 $route['hapus-guru/(:num)']     = 'guru/hapus/$1';
 
 // !Kelas
-$route['kelas']                  = 'guru/kelas';
-$route['add-kelas']              = 'guru/addkelas';
-$route['hapus-kelas/(:num)']     = 'guru/hapuskelas/$1';
+$route['kelas']                  = 'kelas';
+$route['add-kelas']              = 'kelas/addkelas';
+$route['hapus-kelas/(:num)']     = 'kelas/hapuskelas/$1';
+
+$route['add_detail_kelas/(:any)']       = 'kelas/adddetailkelas/$1';
+$route['detail_kelas/(:any)']    = 'kelas/detail_kelas/$1';
+$route['hapus-detail-kelas/(:num)']    = 'kelas/hapus_detail_kelas/$1';
 
 // !Kd
 $route['kompetensi.dasar']          = 'kd';

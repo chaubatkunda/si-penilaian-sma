@@ -32,13 +32,13 @@ class Siswa extends CI_Controller
     {
         $data = array(
             'title' => 'Tambah Siswa',
-            'kelas' => $this->admin->getAllKelas(),
+            // 'kelas' => $this->admin->getAllKelas(),
             'isi'   => 'siswa/add'
         );
 
         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
-        $this->form_validation->set_rules('kls', 'Kelas', 'required|trim');
+        // $this->form_validation->set_rules('kls', 'Kelas', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
@@ -54,7 +54,7 @@ class Siswa extends CI_Controller
             } else {
                 $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
                 $data = [
-                    'kelas_id'        => $this->input->post('kls', true),
+                    // 'kelas_id'        => $this->input->post('kls', true),
                     'nis'          => $this->input->post('nisn', true),
                     'nama'          => $this->input->post('nama_siswa', true),
                     'tempat_lahir'  => $this->input->post('tempat_lhr', true),
@@ -100,7 +100,7 @@ class Siswa extends CI_Controller
             if (!$this->upload->do_upload('foto')) {
                 $det = date('Y-m-d', strtotime($this->input->post('tgl_lahir', true)));
                 $datas = [
-                    'kelas_id'      => $this->input->post('kls', true),
+                    // 'kelas_id'      => $this->input->post('kls', true),
                     'nis'           => $this->input->post('nisn', true),
                     'nama'          => $this->input->post('nama_siswa', true),
                     'tempat_lahir'  => $this->input->post('tempat_lhr', true),
