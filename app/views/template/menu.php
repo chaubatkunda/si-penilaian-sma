@@ -92,6 +92,12 @@
                 </a>
             </li>
             <li>
+                <a class="app-menu__item" href="<?php echo base_url('daftar_nilai'); ?>">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Daftar Nilai</span>
+                </a>
+            </li>
+            <li>
                 <a class="app-menu__item" href="<?php echo base_url('tata_usaha'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Tata Usaha</span></a>
             </li>
             <li>

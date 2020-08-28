@@ -144,5 +144,6 @@ $autoload['model'] = array(
     'Tu_model'          => 'tu',
     'Printout_model'    => 'cetak',
     'Tahun_ajaran_model'    => 'tahun',
-    'Kelas_model'       => 'kelas'
+    'Kelas_model'           => 'kelas',
+    'Daftar_nilai_model'    => 'daftar'
 );

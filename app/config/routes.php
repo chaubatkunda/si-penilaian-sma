@@ -94,6 +94,8 @@ $route['tambah-detai-kd/(:any)']    = 'kd/detailkd/$1';
 // !Nilai
 $route['nilai']             = 'nilai';
 $route['guru/nilai']        = 'nilai/guru_nilai';
+$route['nilai/kelas(:any)']       = 'nilai/kelas/$1';
+
 $route['guru/nilai/siswa/(:any)']     = 'nilai/detail_siswa/$1';
 $route['guru/nilai_siswa/(:any)']     = 'nilai/nilai_siswa/$1';
 

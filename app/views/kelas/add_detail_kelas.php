@@ -1,7 +1,7 @@
 <main class="app-content">
   <div class="app-title">
     <div>
-      <h1><i class="fa fa-plus"></i> <?php echo $title; ?></h1>
+      <h1><i class="fa fa-home"></i> <?php echo $title; ?></h1>
       <!-- <p>Sample forms</p> -->
     </div>
   </div>
@@ -25,6 +25,18 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="control-label col-md-3">Siswa</label>
+              <div class="col-md-8">
+                <select name="tahun" id="" class="form-control">
+                  <option value="">Tahun Ajaran</option>
+                  <?php foreach ($tahun as $t) : ?>
+                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . " / " . $t->ket_thn_ajaran; ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <small class="text-danger"><?php echo form_error('tahun'); ?></small>
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="control-label col-md-3"></label>
               <div class="col-md-8 tile-footer">
                 <button type="submit" class="btn btn-primary">
@@ -36,6 +48,13 @@
             </div>
           </form>
         </div>
+        <!-- <div class="tile-footer">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-3">
+                            <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                        </div>
+                    </div>
+                </div> -->
       </div>
     </div>
   </div>

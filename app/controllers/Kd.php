@@ -95,7 +95,7 @@ class Kd extends CI_Controller
         $this->form_validation->set_rules('guru', 'Nama Guru', 'trim|required');
         $this->form_validation->set_rules('mp', 'Mata Pelajaran', 'trim|required');
         $this->form_validation->set_rules('kd', 'Kompetensi Dasar', 'trim|required');
-        $this->form_validation->set_rules('ket', 'Kompetensi Dasar', 'trim|required');
+        // $this->form_validation->set_rules('ket', 'Kompetensi Dasar', 'trim|required');
         $this->form_validation->set_rules('kds', 'Kompetensi Dasar', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
@@ -104,8 +104,8 @@ class Kd extends CI_Controller
                 'guru_id' => $this->input->post('guru', true),
                 'mapel_id' => $this->input->post('mp', true),
                 'kd' => $this->input->post('kd', true),
-                'sub_kd' => $this->input->post('kds', true),
-                'ket_kd' => $this->input->post('ket', true)
+                'sub_kd' => $this->input->post('kds', true)
+                // 'ket_kd' => $this->input->post('ket', true)
             ];
             $this->kd->insert_kd($data);
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">

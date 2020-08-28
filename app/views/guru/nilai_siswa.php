@@ -10,8 +10,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="tile">
-                <form action="<?php echo base_url('nilai/simpanNilai'); ?>" method="post">
+                <form action="<?php echo base_url('nilai/simpanNilai/' . $kelas); ?>" method="post">
                     <div class="tile-body">
+                        <div class="form-group">
+                            <label for="">Tahun Ajaran</label>
+                            <select name="tahun" id="" class="form-control">
+                                <option value="">Tahun Ajaran</option>
+                                <?php foreach ($tahun as $t) : ?>
+                                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . "/ <i>$t->ket_thn_ajaran</i>"; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                         <ul class="list-group">
                             <li class="list-group-item active"><?php echo $title; ?></li>
                             <?php foreach ($kd as $k) : ?>
@@ -22,7 +31,7 @@
                                             <input type="hidden" name="siswa[]" value="<?php echo $siswa; ?>">
                                             <input type="hidden" name="mapel[]" value="<?php echo $mapel; ?>">
                                             <input type="hidden" name="kelas[]" value="<?php echo $kelas; ?>">
-                                            <b><?php echo $k->kd . "&nbsp" . $k->ket_kd; ?></b>
+                                            <b><?php echo $k->kd; ?></b>
                                             <br>
                                             <span><i><?php echo $k->sub_kd; ?></i></span>
                                         </li>

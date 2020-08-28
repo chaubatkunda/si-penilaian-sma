@@ -45,87 +45,56 @@ class Kelas extends CI_Controller
     }
     public function detail_kelas($id)
     {
-        if ($id == 'X01' || $id == 'X02') {
-            $view_kelas = 'kelas/detail_kelas_x';
-            $kelas = $this->kelas->detailKelasX($id);
-        } elseif ($id == 'XI01' || $id == 'XI02') {
-            $kelas = $this->kelas->detailKelasXI($id);
-            $view_kelas = 'kelas/detail_kelas_xi';
-        } elseif ($id == 'XII01' || $id == 'XII02') {
-            $kelas = $this->kelas->detailKelasXII($id);
-            $view_kelas = 'kelas/detail_kelas_xii';
+        $tahun = $this->input->post('tahun', true);
+        if ($tahun) {
+            $kelas = $this->kelas->detailKelas($id, $tahun);
+        } else {
+            $kelas = [];
         }
         $data = array(
-            'title' => 'Detail Kelas ' . $id,
+            'title' => 'Kelas ' . $id,
             'kelas' => $kelas,
+            'tahun' => $this->tahun->getAllTahunAjaran(),
             'kode'  => $id,
-            'isi'   => $view_kelas
+            'isi'   => 'kelas/detail_kelas'
         );
         $this->load->view('template/wrap', $data, false);
     }
     public function adddetailkelas($id)
     {
-        if ($id == 'X01' || $id == 'X02') {
-            $siswa = $this->kelas->getAllSiswaBaru();
-            $view_kelas = 'kelas/add_detail_kelas_x';
-        } elseif ($id == 'XI01' || $id == 'XI01') {
-            $siswa = $this->kelas->getAllSiswaSebelas();
-            $view_kelas = 'kelas/add_detail_kelas_xi';
-        } elseif ($id == 'XII01' || $id == 'XII01') {
-            $siswa = $this->kelas->getAllSiswaDuaBelas();
-            $view_kelas = 'kelas/add_detail_kelas_xii';
-        }
+        // if ($id == 'X01' || $id == 'X02') {
+        //     $siswa = $this->kelas->getAllSiswaBaru();
+        //     $view_kelas = 'kelas/add_detail_kelas_x';
+        // } elseif ($id == 'XI01' || $id == 'XI02') {
+        //     $siswa = $this->kelas->getAllSiswaSebelas();
+        //     $view_kelas = 'kelas/add_detail_kelas_xi';
+        // } elseif ($id == 'XII01' || $id == 'XII02') {
+        //     $siswa = $this->kelas->getAllSiswaDuaBelas();
+        //     $view_kelas = 'kelas/add_detail_kelas_xii';
+        // }
 
         $data = array(
-            'title' => 'Detail Kelas ' . $id,
+            'title' => 'Kelas ' . $id,
             'kode' => $id,
-            'siswa' => $siswa,
-            'isi'   => $view_kelas
+            'siswa' => $this->kelas->getAllSiswa(),
+            'tahun'     => $this->tahun->getAllTahunAjaran(),
+            'isi'   => 'kelas/add_detail_kelas'
         );
         $this->form_validation->set_rules('siswa', 'Siswa', 'trim|required');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            if ($id == 'X01' || $id == 'X02') {
-                $kode_siswa = $this->input->post('siswa', true);
-                $data = [
-                    'kelas_id'  => $id,
-                    'siswa_id'  => $kode_siswa,
-                    'siswa_chek'    => 1
-                ];
-                $this->kelas->insert_detail_kelasx($data);
-                $this->kelas->updateSiswaBaru($kode_siswa);
-                $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+            $data = [
+                'kelas_id'  => $id,
+                'siswa_id'  => $this->input->post('siswa', true),
+                'tahun_ajaran_id'  => $this->input->post('tahun', true)
+            ];
+            $this->kelas->insert_detail_kelas($data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
                         Berhasil Menghapus Data
                         </div>');
-                redirect('kelas/' . $id);
-            } elseif ($id == 'XI01' || $id == 'XI01') {
-                $kode_siswa = $this->input->post('siswa', true);
-                $data = [
-                    'kelas_id'  => $id,
-                    'siswa_id'  => $kode_siswa,
-                    'siswa_chek'    => 1
-                ];
-                $this->kelas->insert_detail_kelasxi($data);
-                $this->kelas->updateSiswaKelasX($kode_siswa);
-                $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
-                        Berhasil Menghapus Data
-                        </div>');
-                redirect('kelas/' . $id);
-            } elseif ($id == 'XII01' || $id == 'XII01') {
-                $kode_siswa = $this->input->post('siswa', true);
-                $data = [
-                    'kelas_id'  => $id,
-                    'siswa_id'  => $kode_siswa,
-                    'siswa_chek'    => 1
-                ];
-                $this->kelas->insert_detail_kelasxii($data);
-                $this->kelas->updateSiswaKelasXI($kode_siswa);
-                $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
-                        Berhasil Menghapus Data
-                        </div>');
-                redirect('kelas/' . $id);
-            }
+            redirect('kelas/' . $id);
         }
     }
 
@@ -138,12 +107,12 @@ class Kelas extends CI_Controller
             'chek_siswa'    => 1
         ];
         $this->db->update('t_siswa', $data, ['nis' => $siswa]);
-        $this->db->delete('t_detail_kelas', ['id' => $id]);
+        $this->db->delete('t_detail_kelas_x', ['id' => $id]);
 
 
         $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
                     Berhasil Menghapus Data
                     </div>');
-        redirect('detail_kelas/' . $kode);
+        redirect('kelas/' . $kode);
     }
 }

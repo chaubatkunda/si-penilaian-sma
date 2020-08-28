@@ -40,7 +40,8 @@ class Waka_model extends CI_Model
     public function guruPelajaranDet()
     {
         $pelajaran = $this->fungsi->user_login()->id_guru;
-
+        // var_dump($pelajaran);
+        // die;
         $this->db->select('*');
         $this->db->from('t_detail_mapel');
         $this->db->join('t_mapel', 't_mapel.kode_mapel = t_detail_mapel.mapel_id');

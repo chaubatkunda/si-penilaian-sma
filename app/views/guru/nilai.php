@@ -2,7 +2,6 @@
     <div class="app-title">
         <div>
             <h1><i class="fa fa-th-list"></i> <?php echo $title; ?></h1>
-            <!-- <p>Table to display analytical data effectively</p> -->
         </div>
     </div>
     <div class="row">
@@ -27,7 +26,7 @@
                                     <td><?php echo $no++; ?></td>
                                     <td>
                                         <?php if ($this->fungsi->user_login()->level == 2) : ?>
-                                            <a href="<?php echo base_url('guru/nilai/siswa/' . $n->kode_kelas . "?mapel=" . $n->kode_mapel); ?>"><?php echo $n->nama_mapel; ?></a>
+                                            <a href="<?php echo base_url('nilai/kelas/' . $n->kode_kelas . "?mapel=" . $n->kode_mapel); ?>"><?php echo $n->nama_mapel; ?></a>
                                         <?php else : ?>
                                             <?php echo $n->nama_mapel; ?>
                                         <?php endif; ?>
