@@ -74,22 +74,7 @@ class Nilai extends CI_Controller
         $kelas = $this->input->get('kelas', true);
         $kode = $this->input->get('mapel', true);
         $kd        = $this->kd->getAllKdByIdd($kode);
-        // if ($id == 'X01' || $id == 'X02') {
-        //     $kelas = $this->kelas->detailKelasX($id);
-        //     $nilai = $this->nilai->nilaiKelasX($id);
 
-        //     $view_kelas = 'guru/nilai_kelas_x';
-        // } elseif ($id == 'XI01' || $id == 'XI02') {
-        //     $kelas = $this->kelas->detailKelasXI($id);
-        //     $nilai = $this->nilai->nilaiKelasXI($id);
-
-        //     $view_kelas = 'guru/nilai_kelas_xi';
-        // } elseif ($id == 'XII01' || $id == 'XII02') {
-        //     $kelas = $this->kelas->detailKelasXII($id);
-
-        //     $nilai = " ";
-        //     $view_kelas = 'guru/nilai_kelas_xii';
-        // }
         $tahun = $this->input->post('tahun', true);
         if ($tahun) {
             $kelasn = $this->nilai->detailKelas($id, $tahun);

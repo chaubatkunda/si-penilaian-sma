@@ -24,13 +24,11 @@ class Tahun_ajaran extends CI_Controller
             'isi'       => 'tahun_ajaran/add'
         );
         $this->form_validation->set_rules('thn_ajaran', 'Tahun Ajaran', 'required|trim');
-        $this->form_validation->set_rules('Ket_thn', 'Keterangan', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
             $data = [
-                'thn_ajaran'        => $this->input->post('thn_ajaran', true),
-                'ket_thn_ajaran'    => $this->input->post('Ket_thn', true)
+                'thn_ajaran'        => $this->input->post('thn_ajaran', true)
             ];
             $this->tahun->insert_tahun($data);
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
@@ -69,5 +67,41 @@ class Tahun_ajaran extends CI_Controller
                     Berhasil Menghapus Data
                     </div>');
         redirect('tahun_ajaran');
+    }
+
+    // Detail
+    public function detail($id)
+    {
+        $tahun = $this->tahun->getAllTahunAjaranById($id);
+        $data = array(
+            'title'     => 'Tahun Ajaran ' . $tahun->thn_ajaran,
+            'tahun'     => $tahun,
+            'detail'    => $this->tahun->getAllDetail($id),
+            'isi'       => 'tahun_ajaran/home_detail'
+        );
+        $this->load->view('template/wrap', $data, false);
+    }
+    public function add_detail($id)
+    {
+        $tahun = $this->tahun->getAllTahunAjaranById($id);
+        $data = array(
+            'title'     => 'Tahun Ajaran ' . $tahun->thn_ajaran,
+            'tahun'     => $tahun,
+            'isi'       => 'tahun_ajaran/add_detail'
+        );
+        $this->form_validation->set_rules('Ket_thn', 'Keterangan', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $data = [
+                'thn_ajaran_id'        => $id,
+                'ket_thn_ajaran'    => $this->input->post('Ket_thn', true)
+            ];
+            $this->tahun->insert_detail_tahun($data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menambahkan Data
+                    </div>');
+            redirect('tahun_ajaran/detail/' . $id);
+        }
     }
 }

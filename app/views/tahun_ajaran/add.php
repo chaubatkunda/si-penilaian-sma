@@ -19,14 +19,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Keterangan</label>
-                            <div class="col-md-8">
-                                <textarea class="form-control" name="Ket_thn" rows="4" placeholder="Keterangan"></textarea>
-                                <small class="text-danger"><?php echo form_error('Ket_thn'); ?></small>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label class="control-label col-md-3"></label>
                             <div class="col-md-8 tile-footer">
                                 <button type="submit" class="btn btn-primary">

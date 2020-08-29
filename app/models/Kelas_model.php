@@ -10,61 +10,23 @@ class Kelas_model extends CI_Model
     }
     public function getAllSiswa()
     {
+        $this->db->where('chek_siswa', 1);
         return $this->db->get('t_siswa')->result();
     }
-    // public function getAllSiswaSebelas()
-    // {
-    //     // return $this->db->get_where('t_siswa', ['chek_siswa' => 1])->result();
 
-    //     $this->db->select('*');
-    //     $this->db->from('t_detail_kelas_x');
-    //     $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas_x.siswa_id');
-    //     $this->db->where('siswa_chek', 1);
-    //     return $this->db->get()->result();
-    // }
-    // public function getAllSiswaDuaBelas()
-    // {
-    //     // return $this->db->get_where('t_siswa', ['chek_siswa' => 1])->result();
-    //     $this->db->select('*');
-    //     $this->db->from('t_detail_kelas_xi');
-    //     $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas_xi.siswa_id');
-    //     $this->db->where('siswa_chek', 1);
-    //     return $this->db->get()->result();
-    // }
-
-    public function detailKelas($id, $tahun)
+    public function detailKelas($id)
     {
         $this->db->select('*');
         $this->db->from('t_detail_kelas');
-        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas.kelas_id');
+        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas.kelas_id', 'right');
         $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas.siswa_id');
         $this->db->join('t_thn_ajaran', 't_thn_ajaran.id = t_detail_kelas.tahun_ajaran_id');
         $this->db->where('kelas_id', $id);
-        $this->db->where('tahun_ajaran_id', $tahun);
+        $this->db->where('t_detail_kelas.chek_siswa', 1);
+        // $this->db->where('tahun_ajaran_id', $tahun);
         return $this->db->get()->result();
     }
-    // public function detailKelasXI($id)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('t_detail_kelas_xi');
-    //     $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas_xi.kelas_id');
-    //     $this->db->join('t_siswa', 't_siswa.nis= t_detail_kelas_xi.siswa_id');
-    //     $this->db->where('kelas_id', $id);
-    //     $this->db->where('siswa_chek', 1);
-    //     return $this->db->get()->result();
-    //     // return $this->db->get_where('');
-    // }
-    // public function detailKelasXII($id)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('t_detail_kelas_xii');
-    //     $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas_xii.kelas_id');
-    //     $this->db->join('t_siswa', 't_siswa.nis= t_detail_kelas_xii.siswa_id');
-    //     $this->db->where('kelas_id', $id);
-    //     $this->db->where('siswa_chek', 1);
-    //     return $this->db->get()->result();
-    //     // return $this->db->get_where('');
-    // }
+
     public function simpanKelas()
     {
         $pil = $this->input->post('pilih_kelas', true);
@@ -92,36 +54,44 @@ class Kelas_model extends CI_Model
     {
         return $this->db->insert('t_detail_kelas', $data);
     }
-    public function updateSiswaBaru($kode_siswa)
+
+
+    public function delete_detail_kelas($id)
     {
-        $data = [
-            'chek_siswa'    => 0
-        ];
-        return $this->db->update('t_siswa', $data, ['nis' => $kode_siswa]);
+        return $this->db->delete('t_detail_kelas', ['id_detail' => $id]);
     }
 
-    public function insert_detail_kelasxi($data)
+    // Kelas Kelas
+    public function update_naik($id)
     {
-        return $this->db->insert('t_detail_kelas_xi', $data);
+        $data = ['chek_siswa' => 0];
+        return $this->db->update('t_detail_kelas', $data, ['id_detail' => $id]);
+    }
+    public function naikKelas($id)
+    {
+        $this->db->select('*');
+        $this->db->from('t_detail_kelas');
+        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas.kelas_id');
+        $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas.siswa_id');
+        $this->db->where('id_detail', $id);
+        return $this->db->get()->row();
     }
 
-    public function updateSiswaKelasX($kode_siswa)
+    public function tahunAjaran($kode)
     {
-        $data = [
-            'siswa_chek'    => 0
-        ];
-        return $this->db->update('t_detail_kelas_x', $data, ['siswa_id' => $kode_siswa]);
+        $this->db->select('*');
+        $this->db->from('t_thn_ajaran');
+        $this->db->join('t_detail_thn_ajaran', 't_thn_ajaran.id = t_detail_thn_ajaran.thn_ajaran_id');
+        $this->db->where('t_thn_ajaran.id > ', $kode);
+        return $this->db->get()->result();
     }
-    public function insert_detail_kelasxii($data)
+    public function kelas($id)
     {
-        return $this->db->insert('t_detail_kelas_xii', $data);
-    }
-
-    public function updateSiswaKelasXI($kode_siswa)
-    {
-        $data = [
-            'siswa_chek'    => 0
-        ];
-        return $this->db->update('t_detail_kelas_xi', $data, ['siswa_id' => $kode_siswa]);
+        $this->db->select('*');
+        $this->db->from('t_detail_kelas');
+        $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas.kelas_id');
+        $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas.siswa_id');
+        $this->db->where('id_kelas >', $id);
+        return $this->db->get()->result();
     }
 }

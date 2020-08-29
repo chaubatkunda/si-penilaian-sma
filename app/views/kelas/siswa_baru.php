@@ -11,7 +11,6 @@
         <!-- <h3 class="tile-title">Register</h3> -->
         <div class="tile-body">
           <form method="post" action="" enctype="multipart/form-data" class="form-horizontal">
-
             <div class="form-group row">
               <label class="control-label col-md-4">Siswa</label>
               <div class="col-md-6">

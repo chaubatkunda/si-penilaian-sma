@@ -81,7 +81,7 @@ $route['hapus-kelas/(:num)']     = 'kelas/hapuskelas/$1';
 
 $route['add_kelas/(:any)']       = 'kelas/adddetailkelas/$1';
 $route['kelas/(:any)']    = 'kelas/detail_kelas/$1';
-$route['hapus-detail-kelas/(:num)']    = 'kelas/hapus_detail_kelas/$1';
+$route['hapus-detail-kelas/(:any)']    = 'kelas/hapus_detail_kelas/$1';
 
 // !Kd
 $route['kompetensi.dasar']          = 'kd';
