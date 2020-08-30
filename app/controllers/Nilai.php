@@ -57,12 +57,15 @@ class Nilai extends CI_Controller
     {
         $nis = $this->input->get('siswa', true);
         $kelas = $this->input->get('kelas', true);
+        $ajaran = $this->input->get('ajaran_kode', true);
+
         $data = array(
             'title'     => 'Penilaian Siswa',
             'mapel'     => $id,
             'siswa'     => $nis,
             'kelas'     => $kelas,
-            'tahun'     => $this->tahun->getAllTahunAjaran(),
+            'tahun'     => $ajaran,
+
             'kd'         => $this->kd->getAllKdById($id),
             'isi'       => 'guru/nilai_siswa'
         );
@@ -71,35 +74,49 @@ class Nilai extends CI_Controller
     public function kelas($id)
     {
         // $nis = $this->input->get('siswa', true);
-        $kelas = $this->input->get('kelas', true);
+        // $kelas = $this->input->get('kelas', true);
         $kode = $this->input->get('mapel', true);
         $kd        = $this->kd->getAllKdByIdd($kode);
 
-        $tahun = $this->input->post('tahun', true);
-        if ($tahun) {
-            $kelasn = $this->nilai->detailKelas($id, $tahun);
-        } else {
-            $kelasn = [];
-        }
+        // $tahun = $this->input->post('tahun', true);
+        // if ($tahun) {
+        //     $kelasn = $this->nilai->detailKelas($id, $tahun);
+        // } else {
+        //     $kelasn = [];
+        // }
 
         $data = array(
-            'title' => 'Nilai Kelas ' . $id,
+            'title'     => 'Nilai Kelas ' . $id,
             // 'kelas' => $kelas,
-            'nilai' => $kelasn,
-            'kode'  => $id,
-            'mapel' => $kode,
-            'tahun' => $this->tahun->getAllTahunAjaran(),
-            'ajaran'    => $tahun,
-            'kd'    => $kd,
-            'isi'   => 'guru/nilai_kelas'
+            'nilai'     => $this->nilai->detailKelas($id),
+            'kode'      => $id,
+            'mapel'     => $kode,
+            // 'tahun'     => $this->tahun->getAllTahunAjaran(),
+            'kd'        => $kd,
+            'isi'       => 'guru/nilai_kelas'
         );
         // var_dump($data['mapel']);
         // die;
         $this->load->view('template/wrap', $data, false);
     }
-    public function simpanNilai($id)
+    public function tambah_nilai($id)
     {
-        $this->nilai->insert_nilai($id);
-        redirect('guru/nilai');
+        // $this->nilai->insert_nilai($id);
+        // redirect('guru/nilai');
+        $siswa = $this->input->get('siswa', true);
+        $mapel = $this->input->get('mapel', true);
+        $kelas = $this->input->get('kelas', true);
+        $ajaran = $this->input->get('ajaran', true);
+        // var_dump($kelas);
+        // die;
+        $data = array(
+            'title'     => 'Tambah Nilai',
+            'kd'        => $this->nilai->getDetailKd($id),
+            'siswa'     => $this->nilai->getKelasSiswa($siswa, $kelas),
+            'ajaran'    => $this->nilai->detailTahunAjaran($ajaran),
+            'mapel'     => $this->nilai->getDetailMapel($mapel),
+            'isi'       => 'guru/add_nilai'
+        );
+        $this->load->view('template/wrap', $data, false);
     }
 }

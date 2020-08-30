@@ -55,13 +55,32 @@ class Kelas_model extends CI_Model
         return $this->db->insert('t_detail_kelas', $data);
     }
 
-
     public function delete_detail_kelas($id)
     {
         return $this->db->delete('t_detail_kelas', ['id_detail' => $id]);
     }
-
+    public function tahunAjaranBaru()
+    {
+        $this->db->select('*');
+        $this->db->from('t_thn_ajaran');
+        $this->db->join('t_detail_thn_ajaran', 't_thn_ajaran.id = t_detail_thn_ajaran.thn_ajaran_id');
+        // $this->db->where('t_thn_ajaran.id ');
+        return $this->db->get()->result();
+    }
     // Kelas Kelas
+    public function getAllKelasLama($id_kelas)
+    {
+        $this->db->select('*');
+        $this->db->from('t_kelas');
+        // $this->db->join('t_detail_kelas', 't_detail_kelas.kelas_id = t_kelas.kode_kelas');
+        $this->db->where('id_kelas >', $id_kelas);
+        return $this->db->get()->result();
+    }
+    public function update_siswaBaru($siswa)
+    {
+        $data = ['chek_siswa' => 0];
+        return $this->db->update('t_siswa', $data, ['nis' => $siswa]);
+    }
     public function update_naik($id)
     {
         $data = ['chek_siswa' => 0];
@@ -81,8 +100,8 @@ class Kelas_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('t_thn_ajaran');
-        $this->db->join('t_detail_thn_ajaran', 't_thn_ajaran.id = t_detail_thn_ajaran.thn_ajaran_id');
-        $this->db->where('t_thn_ajaran.id > ', $kode);
+        // $this->db->join('t_detail_thn_ajaran', 't_thn_ajaran.id = t_detail_thn_ajaran.thn_ajaran_id');
+        $this->db->where('id > ', $kode);
         return $this->db->get()->result();
     }
     public function kelas($id)

@@ -14,9 +14,13 @@
             <div class="form-group row">
               <label class="control-label col-md-4">Siswa</label>
               <div class="col-md-6">
-                <select name="siswa" class="form-control" readonly>
-                  <option value="<?php echo $siswa->nis; ?>"><?php echo $siswa->nama; ?></option>
+                <select name="siswa" class="form-control">
+                  <option value="">Siswa</option>
+                  <?php foreach ($siswa as $s) : ?>
+                    <option value="<?php echo $s->nis; ?>"><?php echo $s->nama; ?></option>
+                  <?php endforeach; ?>
                 </select>
+                <small class="text-danger"><?php echo form_error('siswa'); ?></small>
               </div>
             </div>
             <div class="form-group row">
@@ -37,7 +41,7 @@
                 <select name="tahun" class="form-control">
                   <option value="">Tahun Ajaran</option>
                   <?php foreach ($thn_ajaran as $t) : ?>
-                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . " " . $t->ket_thn_ajaran; ?></option>
+                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran; ?></option>
                   <?php endforeach; ?>
                 </select>
                 <small class="text-danger"><?php echo form_error('tahun'); ?></small>

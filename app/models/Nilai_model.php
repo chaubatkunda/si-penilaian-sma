@@ -37,16 +37,14 @@ class Nilai_model extends CI_Model
                 'kd_id'     => $kd[$i],
                 'nilai'     => $nilai[$i]
             ];
-
             $this->db->insert('t_nilai', $data);
-
             $this->db->delete('t_nilai', ['nilai' => 0]);
             // var_dump("Benar");
             // die;
         }
     }
 
-    public function detailKelas($id, $tahun)
+    public function detailKelas($id)
     {
         // $this->db->select('*');
         // $this->db->from('t_detail_kelas');
@@ -64,7 +62,8 @@ class Nilai_model extends CI_Model
         $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas.siswa_id');
         $this->db->join('t_thn_ajaran', 't_thn_ajaran.id = t_detail_kelas.tahun_ajaran_id');
         $this->db->where('kelas_id', $id);
-        $this->db->where('tahun_ajaran_id', $tahun);
+        $this->db->where('t_detail_kelas.chek_siswa', 1);
+        // $this->db->where('tahun_ajaran_id', $tahun);
         return $this->db->get()->result();
 
         // $this->db->select('*');
@@ -78,24 +77,26 @@ class Nilai_model extends CI_Model
         // return $this->db->get()->result();
     }
 
-    // public function nilaiKelasX($id)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('t_detail_kelas_x');
-    //     $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas_x.kelas_id', 'right');
-    //     // $this->db->join('t_mapel', 't_mapel.kode_mapel = t_nilai_kls_x.mapel_id');
-    //     $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas_x.siswa_id');
-    //     $this->db->where('kelas_id', $id);
-    //     $this->db->where('siswa_chek', 1);
-    //     return $this->db->get()->result();
-    // }
-    // public function nilaiKelasXI($id)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('t_detail_kelas_xi');
-    //     $this->db->join('t_kelas', 't_kelas.kode_kelas = t_detail_kelas_xi.kelas_id', 'right');
-    //     $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas_xi.siswa_id', 'right');
-    //     $this->db->where('kelas_id', $id);
-    //     return $this->db->get()->result();
-    // }
+    public function detailTahunAjaran($ajaran)
+    {
+        $this->db->select('*');
+        $this->db->from('t_thn_ajaran');
+        $this->db->join('t_detail_thn_ajaran', 't_detail_thn_ajaran.thn_ajaran_id = t_thn_ajaran.id');
+        $this->db->where('id', $ajaran);
+        return $this->db->get()->result();
+    }
+
+
+
+    // Add Nilai
+    public function getDetailKd($id)
+    {
+        return $this->db->get_where('t_kd', ['id_kd' => $id])->row();
+    }
+    public function getKelasSiswa($siswa, $kelas)
+    {
+    }
+    public function getDetailMapel($mapel)
+    {
+    }
 }

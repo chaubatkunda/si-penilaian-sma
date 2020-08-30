@@ -60,26 +60,31 @@ class Kelas extends CI_Controller
     {
         $kode = $this->input->get('kode', true);
         $siswa = $this->kelas->naikKelas($id);
+        $id_kelas = $siswa->id_kelas;
+        // var_dump($siswa->id_kelas);
+        // die;
         $data = array(
-            'title' => 'Kelas ' . $siswa->kelas_id,
-            'kode' => $siswa->kelas_id,
-            'siswa' => $siswa,
-            'kelas' => $this->kelas->getAllKelas(),
+            'title'         => 'Kelas ' . $siswa->nama_kelas,
+            'kode'          => $siswa->kelas_id,
+            'siswa'         => $siswa,
+            'kelas'         => $this->kelas->getAllKelasLama($id_kelas + 1),
             'thn_ajaran'    => $this->kelas->tahunAjaran($kode),
-            'isi'   => 'kelas/add_detail_kelas'
+            'isi'           => 'kelas/add_detail_kelas'
         );
-
+        // var_dump($data['kelas']);
+        // die;
 
         $this->form_validation->set_rules('siswa', 'Siswa', 'trim|required');
         $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
-        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required|is_unique[t_detail_kelas.tahun_ajaran_id]');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
             $data = [
-                'kelas_id'  => $id,
-                'siswa_id'  => $this->input->post('siswa', true),
-                'tahun_ajaran_id'  => $this->input->post('tahun', true)
+                'kelas_id'          => $this->input->post('kelas', true),
+                'siswa_id'          => $this->input->post('siswa', true),
+                'tahun_ajaran_id'   => $this->input->post('tahun', true),
+                'chek_siswa'        => 1
             ];
             $this->kelas->insert_detail_kelas($data);
             $this->kelas->update_naik($id);
@@ -104,10 +109,33 @@ class Kelas extends CI_Controller
     public function siswa_baru($id)
     {
         $data = array(
-            'title' => 'Data Kelas',
+            'title' => 'Data Kelas ' . $id,
+            'kode'  => $id,
+            'siswa' => $this->kelas->getAllSiswa(),
+            'thn_ajaran' => $this->tahun->getAllTahunAjaran(),
             'kelas' => $this->kelas->getAllKelas(),
             'isi'   => 'kelas/siswa_baru'
         );
-        $this->load->view('template/wrap', $data, false);
+        $this->form_validation->set_rules('siswa', 'Siswa', 'trim|required');
+        $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $siswa = $this->input->post('siswa', true);
+            $data = [
+                'kelas_id'          => $this->input->post('kelas', true),
+                'siswa_id'          => $siswa,
+                'tahun_ajaran_id'   => $this->input->post('tahun', true),
+                'chek_siswa'        => 1
+            ];
+            $this->kelas->update_siswaBaru($siswa);
+            $this->kelas->insert_detail_kelas($data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menghapus Data
+                    </div>');
+            redirect('kelas/' . $id);
+        }
     }
 }

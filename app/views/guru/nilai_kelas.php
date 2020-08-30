@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6">
           <form action="" method="post">
             <div class="input-group mb-3">
@@ -23,7 +23,7 @@
             </div>
           </form>
         </div>
-      </div>
+      </div> -->
       <div class="tile">
         <div class="tile-body">
           <table class="table table-hover table-bordered" id="sampleTable">
@@ -45,10 +45,12 @@
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $n->nis; ?></td>
                   <td><?php echo $n->nama; ?></td>
-                  <td><?php echo $n->thn_ajaran . " / " . $n->ket_thn_ajaran; ?></td>
+                  <td>
+                    <?php echo $n->thn_ajaran; ?>
+                  </td>
                   <td>
                     <?php
-                    $query = $this->db->query("SELECT AVG(nilai) as rata2 FROM t_nilai WHERE siswa_id = '$n->nis' AND mapel_id = '$mapel' AND thn_ajaran_id = '$ajaran' ")->result();
+                    $query = $this->db->query("SELECT AVG(nilai) as rata2 FROM t_nilai WHERE siswa_id = '$n->nis' AND mapel_id = '$mapel'")->result();
                     foreach ($query as $q) : ?>
                       <span class="badge badge-primary">
                         <?php echo round($q->rata2); ?>
@@ -59,8 +61,8 @@
                     <!-- <a href="<?php echo base_url('guru/nilai_siswa/' . $kd->mapel_id); ?>" class="btn btn-outline-primary btn-sm">
                       <i class="fa fa-eye"></i>
                     </a> -->
-                    <a href="<?php echo base_url('guru/nilai_siswa/' . $kd->mapel_id . "?siswa=" . $n->nis .  "&kelas=" . $n->kelas_id); ?>" class="btn btn-outline-primary btn-sm">
-                      <i class="fa fa-eye"></i>
+                    <a href="<?php echo base_url('guru/nilai_siswa/' . $kd->mapel_id . "?siswa=" . $n->nis .  "&kelas=" . $n->kelas_id . "&&ajaran_kode=" . $n->id); ?>" class="btn btn-outline-primary btn-sm">
+                      <i class="fa fa-pencil"></i>
                     </a>
                   </td>
                 </tr>

@@ -38,7 +38,7 @@
                 <select name="tahun" class="form-control">
                   <option value="">Tahun Ajaran</option>
                   <?php foreach ($thn_ajaran as $t) : ?>
-                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . " " . $t->ket_thn_ajaran; ?></option>
+                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran; ?></option>
                   <?php endforeach; ?>
                 </select>
                 <small class="text-danger"><?php echo form_error('tahun'); ?></small>
