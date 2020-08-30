@@ -113,10 +113,72 @@ class Nilai extends CI_Controller
             'title'     => 'Tambah Nilai',
             'kd'        => $this->nilai->getDetailKd($id),
             'siswa'     => $this->nilai->getKelasSiswa($siswa, $kelas),
-            'ajaran'    => $this->nilai->detailTahunAjaran($ajaran),
+            'tahun'    => $this->nilai->detailTahunAjaran($ajaran),
             'mapel'     => $this->nilai->getDetailMapel($mapel),
             'isi'       => 'guru/add_nilai'
         );
-        $this->load->view('template/wrap', $data, false);
+        $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required|numeric');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $data = [
+                'kelas_id'          => $kelas,
+                'mapel_id'          => $mapel,
+                'siswa_id'          => $siswa,
+                'thn_ajaran_id'     => $this->input->post('tahun', true),
+                'kd_id'             => $id,
+                'nilai'             => $this->input->post('nilai', true)
+            ];
+
+            $this->nilai->simpanNilai($data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menambahkan Nilai
+                    </div>');
+            redirect('guru/nilai_siswa/' . $mapel . "?siswa=" . $siswa . "&kelas=" . $kelas . "&&ajaran_kode=" . $ajaran);
+        }
+    }
+    public function edit_nilai($id)
+    {
+        // $this->nilai->insert_nilai($id);
+        // redirect('guru/nilai');
+        $siswa = $this->input->get('siswa', true);
+        $mapel = $this->input->get('mapel', true);
+        $kelas = $this->input->get('kelas', true);
+        $ajaran = $this->input->get('ajaran', true);
+        $id_nilai = $this->input->post('id_nilai', true);
+        // var_dump($kelas);
+        // die;
+        $data = array(
+            'title'     => 'Edit Nilai',
+            'kd'        => $this->nilai->getDetailKd($id),
+            'siswa'     => $this->nilai->getKelasSiswa($siswa, $kelas),
+            'tahun'    => $this->nilai->detailTahunAjaran($ajaran),
+            'mapel'     => $this->nilai->getDetailMapel($mapel),
+            'nilai'     => $this->nilai->getNilaiById($id, $siswa),
+            'isi'       => 'guru/edit_nilai'
+        );
+        // var_dump($data['nilai']);
+        // die;
+        $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required|numeric');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $data = [
+                'kelas_id'          => $kelas,
+                'mapel_id'          => $mapel,
+                'siswa_id'          => $siswa,
+                'thn_ajaran_id'     => $this->input->post('tahun', true),
+                'kd_id'             => $id,
+                'nilai'             => $this->input->post('nilai', true)
+            ];
+
+            $this->nilai->updateNilai($id_nilai, $data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menambahkan Nilai
+                    </div>');
+            redirect('guru/nilai_siswa/' . $mapel . "?siswa=" . $siswa . "&kelas=" . $kelas . "&&ajaran_kode=" . $ajaran);
+        }
     }
 }

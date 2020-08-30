@@ -14,11 +14,14 @@
             <div class="form-group">
               <label for="">Tahun Ajaran</label>
               <select name="tahun" class="form-control">
-                <option value="">Tahun Ajaran</option>
                 <?php foreach ($tahun as $t) : ?>
-                  <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . "/ <i>$t->ket_thn_ajaran</i>"; ?></option>
-                  <small class="text-danger"><?php echo form_error('tahun'); ?></small>
+                  <?php if ($t->id == $nilai->thn_ajaran_id) : ?>
+                    <option value="<?php echo $t->id; ?>" selected><?php echo $t->thn_ajaran . "/ <i>$t->ket_thn_ajaran</i>"; ?></option>
+                  <?php else : ?>
+                    <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . "/ <i>$t->ket_thn_ajaran</i>"; ?></option>
+                  <?php endif; ?>
                 <?php endforeach; ?>
+                <small class="text-danger"><?php echo form_error('tahun'); ?></small>
               </select>
             </div>
             <ul class="list-group">
@@ -34,7 +37,8 @@
                 <div class="col-md-4">
                   <li class="list-group-item mt-2">
                     <div class="from-group row">
-                      <input type="text" name="nilai" class="form-control col-md-12" autofocus autocomplete="off">
+                      <input type="text" name="nilai" class="form-control col-md-12" autofocus autocomplete="off" value="<?php echo $nilai->nilai; ?>">
+                      <input type="hidden" name="id_nilai" class="form-control col-md-12" autofocus autocomplete="off" value="<?php echo $nilai->id_nilai; ?>">
                       <small class="text-danger"><?php echo form_error('nilai'); ?></small>
                     </div>
                   </li>

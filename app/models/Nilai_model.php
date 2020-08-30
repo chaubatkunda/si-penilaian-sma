@@ -93,10 +93,30 @@ class Nilai_model extends CI_Model
     {
         return $this->db->get_where('t_kd', ['id_kd' => $id])->row();
     }
+    public function getNilaiById($id, $siswa)
+    {
+        return $this->db->get_where(
+            't_nilai',
+            [
+                'kd_id' => $id,
+                'siswa_id' => $siswa
+            ]
+        )->row();
+    }
+
     public function getKelasSiswa($siswa, $kelas)
     {
     }
     public function getDetailMapel($mapel)
     {
+    }
+
+    public function simpanNilai($data)
+    {
+        return $this->db->insert('t_nilai', $data);
+    }
+    public function updateNilai($id_nilai, $data)
+    {
+        return $this->db->update('t_nilai', $data, ['id_nilai' => $id_nilai]);
     }
 }

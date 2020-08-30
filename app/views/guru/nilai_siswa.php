@@ -41,7 +41,7 @@
                                         <a href="<?php echo base_url('nilai/tambah_nilai/' . $k->id_kd . "?siswa=" . $siswa . "&mapel=" . $mapel . "&&kelas=" . $kelas . "&&&ajaran=" . $tahun); ?>" class="btn btn-primary btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
-                                        <a href="" class="btn btn-success btn-sm">
+                                        <a href="<?php echo base_url('nilai/edit_nilai/' . $k->id_kd . "?siswa=" . $siswa . "&mapel=" . $mapel . "&&kelas=" . $kelas . "&&&ajaran=" . $tahun); ?>" class="btn btn-success btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                     </li>
