@@ -42,6 +42,7 @@ class Print_out extends CI_Controller
         $data = $this->load->view('print_out/print_siswa', [
             'title' => $title,
             'siswa' => $this->cetak->getAllKategoryKelas($id),
+            'kelas' => $this->cetak->getKelasById($id)
         ], TRUE);
         $mpdf->WriteHTML($data);
         // $mpdf->AutoPrint(true);

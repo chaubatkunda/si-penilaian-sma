@@ -7,11 +7,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <?php if ($this->fungsi->user_login()->level == 1) : ?>
-        <a href="<?php echo base_url('add-kelas'); ?>" class="btn btn-primary mb-3">Tambah
-        </a>
 
-      <?php endif; ?>
       <div class="tile">
         <div class="tile-body">
           <table class="table table-hover table-bordered" id="sampleTable">
@@ -29,11 +25,11 @@
                 <tr>
                   <td><?php echo $no++; ?></td>
                   <td>
-                    <a href="<?php echo base_url('daftar_nilai/kelas/' . $kls->kode_kelas); ?>"><?php echo $kls->kode_kelas; ?></a>
+                    <a href="<?php echo base_url('daftar_nilai/mapel/' . $kls->id_kelas . "?kode=" . $kls->kode_kelas); ?>"><?php echo $kls->kode_kelas; ?></a>
                   </td>
                   <td><?php echo $kls->nama_kelas; ?></td>
                 </tr>
-              <?php endforeach;; ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

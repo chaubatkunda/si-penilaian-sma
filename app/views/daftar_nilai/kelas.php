@@ -7,8 +7,34 @@
   </div>
   <div class="row">
     <div class="col-md-12">
+      <a href="<?php echo base_url('daftar_nilai/mapel/' . $mapel_kode . "?kode=" . $kode); ?>" class="btn btn-danger mb-2">Kembali</a>
       <div class="row">
         <div class="col-md-6">
+          <ul class="list-group mb-2">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-md-4">
+                  Kode Mata Pelajaran
+                </div>
+                <div class="col-md-6">
+                  <strong>
+                    <?php echo $mapel->kode_mapel; ?>
+                  </strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  Mata Pelajaran
+                </div>
+                <div class="col-md-6">
+                  <strong>
+                    <?php echo $mapel->nama_mapel; ?>
+                  </strong>
+                </div>
+              </div>
+              <br>
+            </li>
+          </ul>
           <!-- <div class="input-group mb-3">
             <select name="" id="" class="form-control">
               <option value="">Tahun Ajaran</option>
@@ -44,7 +70,7 @@
                   <td><?php echo $n->nama; ?></td>
                   <td>
                     <?php
-                    $query = $this->db->query("SELECT  AVG(nilai) as rata2, thn_ajaran_id, thn_ajaran FROM t_nilai_kls_x JOIN t_thn_ajaran ON t_nilai_kls_x.thn_ajaran_id = t_thn_ajaran.id  WHERE siswa_id = '$n->nis' GROUP BY (thn_ajaran_id)")->result();
+                    $query = $this->db->query("SELECT  AVG(nilai) as rata2, thn_ajaran_id, thn_ajaran FROM t_nilai JOIN t_thn_ajaran ON t_nilai.thn_ajaran_id = t_thn_ajaran.id  WHERE siswa_id = '$n->nis' GROUP BY (thn_ajaran_id)")->result();
                     foreach ($query as $q) : ?>
                       <span class="badge badge-primary">
                         <?php echo round($q->rata2); ?>
@@ -53,7 +79,7 @@
                   </td>
                   <td>
                     <?php
-                    $query = $this->db->query("SELECT  AVG(nilai) as rata2, thn_ajaran_id, thn_ajaran FROM t_nilai_kls_x JOIN t_thn_ajaran ON t_nilai_kls_x.thn_ajaran_id = t_thn_ajaran.id  WHERE siswa_id = '$n->nis' GROUP BY (thn_ajaran_id) ORDER BY thn_ajaran DESC")->result();
+                    $query = $this->db->query("SELECT  AVG(nilai) as rata2, thn_ajaran_id, thn_ajaran FROM t_nilai JOIN t_thn_ajaran ON t_nilai.thn_ajaran_id = t_thn_ajaran.id  WHERE siswa_id = '$n->nis' GROUP BY (thn_ajaran_id) ORDER BY thn_ajaran DESC")->result();
                     foreach ($query as $q) : ?>
                       <?php echo $q->thn_ajaran; ?>
                     <?php endforeach; ?>

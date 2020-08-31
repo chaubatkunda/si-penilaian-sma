@@ -12,7 +12,8 @@
     <div class="cetak-header">
         <div class="cetak-title">
             <h4>
-                data siswa <br>
+                data siswa
+                kelas <?php echo $kelas->nama_kelas; ?><br>
                 sma bahrul maghfiroh
             </h4>
         </div>
@@ -104,7 +105,6 @@
                                 <th>Nama</th>
                                 <th>Tempat Lahir</th>
                                 <th>Tanggal Lahir</th>
-                                <th>Kelas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,7 +118,6 @@
                                     <td><?php echo $sw->nama; ?></td>
                                     <td><?php echo $sw->tempat_lahir; ?></td>
                                     <td><?php echo indoDate($sw->tgl_lahir); ?></td>
-                                    <td><?php echo $sw->nama_kelas; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

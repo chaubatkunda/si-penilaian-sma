@@ -20,26 +20,40 @@ class Daftar_nilai extends CI_Controller
     );
     $this->load->view('template/wrap', $data, false);
   }
-  public function kelas($id)
+  public function nilai($id)
   {
-    if ($id == 'X01' || $id == 'X02') {
-      $view_kelas = 'daftar_nilai/kelas_x';
-      $nilai = $this->daftar->getAllNilaiKelasX($id);
-    } elseif ($id == 'XI01' || $id == 'XI02') {
-      $nilai = $this->daftar->getAllNilaiKelasXI($id);
-      $view_kelas = 'daftar_nilai/kelas_xi';
-    } elseif ($id == 'XII01' || $id == 'XII02') {
-      $nilai = $this->daftar->getAllNilaiKelasXII($id);
-      $view_kelas = 'daftar_nilai/kelas_xii';
-    }
-
+    $kode = $this->input->get('kode', true);
+    $mapel = $this->input->get('mapel', true);
     $data = array(
       'title'     => 'Nilai',
-      'nilai'     => $nilai,
-      // 'tahun'     => $this->tahun->getAllTahunAjaran(),
+      'nilai'     => $this->daftar->getAllNilaiKelas($kode, $id),
+      'mapel'     => $this->mpelajaran->getAllMapelById($id),
       // 'kelas'       => $kelas,
-      'isi'       => $view_kelas
+      'kode'      => $kode,
+      'mapel_kode'   => $mapel,
+      // 'nilai'     => $this->daftar->getAllNilai($id, $kode),
+      'isi'       => 'daftar_nilai/kelas'
     );
     $this->load->view('template/wrap', $data, false);
   }
+
+  public function mapel($id)
+  {
+    $kode = $this->input->get('kode', true);
+
+    $data = array(
+      'title'     => 'Mata Pelajaran',
+      'mapel'     => $this->daftar->getMapel($id),
+      'kode'    => $kode,
+
+      'isi'       => 'daftar_nilai/mapel'
+    );
+
+    $this->load->view('template/wrap', $data, false);
+  }
+
+  // public function nilai()
+  // {
+  //   //
+  // }
 }
