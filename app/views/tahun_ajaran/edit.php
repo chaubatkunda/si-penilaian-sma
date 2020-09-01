@@ -18,13 +18,6 @@
                                 <small class="text-danger"><?php echo form_error('thn_ajaran'); ?></small>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">Keterangan</label>
-                            <div class="col-md-8">
-                                <textarea class="form-control" name="Ket_thn" rows="4" placeholder="Keterangan"><?php echo $tahun->ket_thn_ajaran; ?></textarea>
-                                <small class="text-danger"><?php echo form_error('Ket_thn'); ?></small>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label class="control-label col-md-3"></label>
@@ -32,7 +25,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-paper-plane-o"></i> Simpan
                                 </button>
-                                <a href="<?php echo base_url('siswa'); ?>" class="btn btn-danger">
+                                <a href="<?php echo base_url('tahun_ajaran'); ?>" class="btn btn-danger">
                                     <i class="fa fa-ban"></i> Batal
                                 </a>
                             </div>

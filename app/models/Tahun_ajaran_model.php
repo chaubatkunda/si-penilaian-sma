@@ -34,6 +34,18 @@ class Tahun_ajaran_model extends CI_Model
         $this->db->where('id', $id);
         return $this->db->get()->result();
     }
+    public function update_detail_tahun($id, $data)
+    {
+        return $this->db->update('t_detail_thn_ajaran', $data, ['id_thn_det' => $id]);
+    }
+    public function getAllDetailByID($id)
+    {
+        $this->db->select('*');
+        $this->db->from('t_thn_ajaran');
+        $this->db->join('t_detail_thn_ajaran', 't_detail_thn_ajaran.thn_ajaran_id = t_thn_ajaran.id');
+        $this->db->where('id', $id);
+        return $this->db->get()->row();
+    }
 
     public function insert_detail_tahun($data)
     {

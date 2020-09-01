@@ -125,6 +125,8 @@ $route['tahun_ajaran']      = 'tahun_ajaran';
 $route['add_tahun_ajaran']      = 'tahun_ajaran/add';
 $route['edit_tahun_ajaran/(:num)']      = 'tahun_ajaran/edit/$1';
 $route['delete_tahun_ajaran/(:num)']      = 'tahun_ajaran/delete/$1';
+$route['tahun_ajaran/edit_detail/(:num)']      = 'tahun_ajaran/edit_detail/$1';
+$route['tahun_ajaran/hapus_detail/(:num)']      = 'tahun_ajaran/hapus_detail/$1';
 
 
 // Print Out

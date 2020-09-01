@@ -41,8 +41,8 @@
                   <td><?php echo $d->thn_ajaran; ?></td>
                   <td><?php echo $d->ket_thn_ajaran; ?></td>
                   <td>
-                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="<?php echo base_url('tahun_ajaran/edit_detail/' . $d->id_thn_det); ?>" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="<?php echo base_url('tahun_ajaran/hapus_detail/' . $d->id_thn_det . "?kode=" . $d->id); ?>" class="btn btn-danger btn-sm">Hapus</a>
                   </td>
                 </tr>
               <?php endforeach; ?>

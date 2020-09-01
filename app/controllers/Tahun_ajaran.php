@@ -45,13 +45,13 @@ class Tahun_ajaran extends CI_Controller
             'isi'       => 'tahun_ajaran/edit'
         );
         $this->form_validation->set_rules('thn_ajaran', 'Tahun Ajaran', 'required|trim');
-        $this->form_validation->set_rules('Ket_thn', 'Keterangan', 'required|trim');
+        // $this->form_validation->set_rules('Ket_thn', 'Keterangan', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
             $data = [
-                'thn_ajaran'        => $this->input->post('thn_ajaran', true),
-                'ket_thn_ajaran'    => $this->input->post('Ket_thn', true)
+                'thn_ajaran'        => $this->input->post('thn_ajaran', true)
+                // 'ket_thn_ajaran'    => $this->input->post('Ket_thn', true)
             ];
             $this->tahun->update_tahun($id, $data);
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
@@ -103,5 +103,39 @@ class Tahun_ajaran extends CI_Controller
                     </div>');
             redirect('tahun_ajaran/detail/' . $id);
         }
+    }
+    public function edit_detail($id)
+    {
+        $tahun = $this->tahun->getAllTahunAjaranById($id);
+
+        $data = array(
+            'title'     => 'Edit Ajaran ' . $tahun->thn_ajaran,
+            'tahun'     => $tahun,
+            'detail'    => $this->tahun->getAllDetailByID($id),
+            'isi'       => 'tahun_ajaran/edit_detail'
+        );
+        $this->form_validation->set_rules('Ket_thn', 'Keterangan', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/wrap', $data, false);
+        } else {
+            $data = [
+                'thn_ajaran_id'        => $id,
+                'ket_thn_ajaran'    => $this->input->post('Ket_thn', true)
+            ];
+            $this->tahun->update_detail_tahun($id, $data);
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menambahkan Data
+                    </div>');
+            redirect('tahun_ajaran/detail/' . $id);
+        }
+    }
+    public function hapus_detail($id)
+    {
+        $kode = $this->input->get('kode', true);
+        $this->db->delete('t_detail_thn_ajaran', ['id_thn_det' => $id]);
+        $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                    Berhasil Menghapus Data
+                    </div>');
+        redirect('tahun_ajaran/detail/' . $kode);
     }
 }
