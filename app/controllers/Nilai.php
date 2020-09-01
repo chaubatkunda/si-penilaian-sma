@@ -101,8 +101,6 @@ class Nilai extends CI_Controller
     }
     public function tambah_nilai($id)
     {
-        // $this->nilai->insert_nilai($id);
-        // redirect('guru/nilai');
         $siswa = $this->input->get('siswa', true);
         $mapel = $this->input->get('mapel', true);
         $kelas = $this->input->get('kelas', true);
@@ -115,6 +113,8 @@ class Nilai extends CI_Controller
             'siswa'     => $this->nilai->getKelasSiswa($siswa, $kelas),
             'tahun'    => $this->nilai->detailTahunAjaran($ajaran),
             'mapel'     => $this->nilai->getDetailMapel($mapel),
+            'kelas'     => $kelas,
+            'mapel'     => $mapel,
             'isi'       => 'guru/add_nilai'
         );
         $this->form_validation->set_rules('nilai', 'Nilai', 'trim|required|numeric');

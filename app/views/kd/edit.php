@@ -19,16 +19,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Keterangan</label>
-                            <div class="col-md-8">
-                                <textarea name="ket" id="" class="form-control"><?php echo $kd->sub_kd; ?></textarea>
-                                <small class="text-danger"><?php echo form_error('ket'); ?></small>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="control-label col-md-3">Materi Pembelajaran</label>
                             <div class="col-md-8">
-                                <textarea name="kds" id="" class="form-control"><?php echo $kd->ket_kd; ?></textarea>
+                                <textarea name="kds" id="" class="form-control"><?php echo $kd->sub_kd; ?></textarea>
                                 <small class="text-danger"><?php echo form_error('kds'); ?></small>
                             </div>
                         </div>

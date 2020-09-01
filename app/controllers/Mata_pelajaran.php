@@ -28,7 +28,14 @@ class Mata_pelajaran extends CI_Controller
         );
         $this->form_validation->set_rules('guru', 'Guru', 'trim|required');
         // $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
-        $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required');
+        $this->form_validation->set_rules(
+            'kodemp',
+            'Kode Pelajaran',
+            'trim|required|is_unique[t_mapel.kode_mapel]',
+            [
+                'is_unique' => 'Kode sudah dipakai'
+            ]
+        );
         $this->form_validation->set_rules('namamp', 'Mata Pelajaran', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);

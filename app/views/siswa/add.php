@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             <label class="control-label col-md-3">NISN</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="nisn" placeholder="NISN" autocomplete="off">
+                                <input class="form-control" type="text" name="nisn" placeholder="NISN" autocomplete="off" value="<?php echo set_value('nisn'); ?>">
                                 <small class="text-danger"><?php echo form_error('nisn'); ?></small>
                             </div>
                         </div>

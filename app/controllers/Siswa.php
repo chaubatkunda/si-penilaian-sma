@@ -36,7 +36,12 @@ class Siswa extends CI_Controller
             'isi'   => 'siswa/add'
         );
 
-        $this->form_validation->set_rules('nisn', 'NISN', 'required|trim');
+        $this->form_validation->set_rules(
+            'nisn',
+            'NISN',
+            'required|trim|is_unique[t_siswa.nis]',
+            ['is_unique' => 'NISN udah digunakan']
+        );
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim');
         // $this->form_validation->set_rules('kls', 'Kelas', 'required|trim');
 

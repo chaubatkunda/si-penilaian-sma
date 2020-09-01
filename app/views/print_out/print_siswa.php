@@ -12,8 +12,7 @@
     <div class="cetak-header">
         <div class="cetak-title">
             <h4>
-                data siswa
-                kelas <?php echo $kelas->nama_kelas; ?><br>
+                data siswa <br>
                 sma bahrul maghfiroh
             </h4>
         </div>

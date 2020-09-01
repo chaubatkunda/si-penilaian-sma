@@ -60,14 +60,12 @@ class Kelas extends CI_Controller
     {
         $kode = $this->input->get('kode', true);
         $siswa = $this->kelas->naikKelas($id);
-        $id_kelas = $siswa->id_kelas;
-        // var_dump($siswa->id_kelas);
-        // die;
+        // $id_kelas = $siswa->id_kelas;
         $data = array(
             'title'         => 'Kelas ' . $siswa->nama_kelas,
             'kode'          => $siswa->kelas_id,
             'siswa'         => $siswa,
-            'kelas'         => $this->kelas->getAllKelasLama($id_kelas + 1),
+            'kelas'         => $this->kelas->getAllKelasLama(),
             'thn_ajaran'    => $this->kelas->tahunAjaran($kode),
             'isi'           => 'kelas/add_detail_kelas'
         );
@@ -76,7 +74,8 @@ class Kelas extends CI_Controller
 
         $this->form_validation->set_rules('siswa', 'Siswa', 'trim|required');
         $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
-        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required|is_unique[t_detail_kelas.tahun_ajaran_id]');
+        $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required');
+
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
@@ -133,7 +132,7 @@ class Kelas extends CI_Controller
             $this->kelas->update_siswaBaru($siswa);
             $this->kelas->insert_detail_kelas($data);
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
-                    Berhasil Menghapus Data
+                    Berhasil Menambahkan Data
                     </div>');
             redirect('kelas/' . $id);
         }

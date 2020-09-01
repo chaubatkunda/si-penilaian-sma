@@ -68,12 +68,12 @@ class Kelas_model extends CI_Model
         return $this->db->get()->result();
     }
     // Kelas Kelas
-    public function getAllKelasLama($id_kelas)
+    public function getAllKelasLama()
     {
         $this->db->select('*');
         $this->db->from('t_kelas');
         // $this->db->join('t_detail_kelas', 't_detail_kelas.kelas_id = t_kelas.kode_kelas');
-        $this->db->where('id_kelas >', $id_kelas);
+        // $this->db->where('id_kelas >', $id_kelas);
         return $this->db->get()->result();
     }
     public function update_siswaBaru($siswa)

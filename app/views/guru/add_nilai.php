@@ -42,38 +42,6 @@
                 </div>
               </div>
             </ul>
-            <!-- <div class="form-group row">
-              <label class="control-label col-md-3">NIP</label>
-              <div class="col-md-8">
-                <input class="form-control" type="text" name="kode_guru" placeholder="NIP" value="<?php echo set_value('kode_guru'); ?>">
-                <small class="text-danger"><?php echo form_error('kode_guru'); ?></small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="control-label col-md-3">Name</label>
-              <div class="col-md-8">
-                <input class="form-control" name="nama_guru" type="text" placeholder="Nama Guru">
-                <small class="text-danger"><?php echo form_error('nama_guru'); ?></small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="control-label col-md-3">No Tlp/Hp</label>
-              <div class="col-md-8">
-                <input class="form-control" name="no_tlp" type="text" placeholder="No Tlp/Hp">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="control-label col-md-3">Jabatan</label>
-              <div class="col-md-8">
-                <input class="form-control" name="" type="text" value="Guru" readonly>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="control-label col-md-3">Alamat</label>
-              <div class="col-md-8">
-                <textarea class="form-control" name="alamat" rows="4" placeholder="Alamat"></textarea>
-              </div>
-            </div> -->
 
             <div class="form-group row">
               <label class="control-label col-md-3"></label>
@@ -81,7 +49,7 @@
                 <button type="submit" class="btn btn-primary">
                   <i class="fa fa-paper-plane-o"></i> Simpan
                 </button>
-                <a href="<?php echo base_url('guru'); ?>" class="btn btn-danger">
+                <a href="<?php echo base_url('nilai/kelas/' . $kelas . "?mapel=" . $mapel); ?>" class="btn btn-danger">
                   <i class="fa fa-ban"></i> Batal
                 </a>
               </div>

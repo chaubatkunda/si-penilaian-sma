@@ -70,7 +70,6 @@ class Kd extends CI_Controller
         // var_dump($data['kd']);
         // die;
         $this->form_validation->set_rules('kd', 'Kompetensi Dasar', 'trim|required');
-        $this->form_validation->set_rules('ket', 'Kompetensi Dasar', 'trim|required');
         $this->form_validation->set_rules('kds', 'Kompetensi Dasar', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
@@ -78,8 +77,7 @@ class Kd extends CI_Controller
             $idkode = $this->input->get('kode', true);
             $data = [
                 'kd' => $this->input->post('kd', true),
-                'sub_kd' => $this->input->post('kds', true),
-                'ket_kd' => $this->input->post('ket', true)
+                'sub_kd' => $this->input->post('kds', true)
             ];
             $this->kd->update_kd($id, $data);
             redirect('detail-kd/' . $idkode);
