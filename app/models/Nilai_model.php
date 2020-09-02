@@ -103,6 +103,16 @@ class Nilai_model extends CI_Model
             ]
         )->row();
     }
+    public function chekGetNilaiById($id, $siswa)
+    {
+        return $this->db->get_where(
+            't_nilai',
+            [
+                'kd_id' => $id,
+                'siswa_id' => $siswa
+            ]
+        )->row();
+    }
 
     public function getKelasSiswa($siswa, $kelas)
     {

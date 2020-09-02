@@ -85,7 +85,7 @@
                 <button type="submit" class="btn btn-primary">
                   <i class="fa fa-paper-plane-o"></i> Simpan
                 </button>
-                <a href="<?php echo base_url('guru'); ?>" class="btn btn-danger">
+                <a href="<?php echo base_url('nilai/kelas/' . $kelas . "?mapel=" . $map); ?>" class="btn btn-danger">
                   <i class="fa fa-ban"></i> Batal
                 </a>
               </div>

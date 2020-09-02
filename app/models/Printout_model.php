@@ -26,6 +26,7 @@ class Printout_model extends CI_Model
         $this->db->join('t_detail_kelas', 't_detail_kelas.kelas_id = t_kelas.kode_kelas');
         $this->db->join('t_siswa', 't_siswa.nis = t_detail_kelas.siswa_id');
         $this->db->where('kelas_id', $id);
+        $this->db->where('t_detail_kelas.chek_siswa', 1);
         return $this->db->get()->result();
         // return $this->db->get_where('t_siswa', ['kelas_id' => $id])->result();
     }

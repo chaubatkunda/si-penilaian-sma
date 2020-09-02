@@ -26,24 +26,38 @@
                             <div class="row">
                                 <div class="col-md-6 mt-2">
                                     <li class="list-group-item">
-                                        <!-- <input type="hidden" name="kd[]" value="<?php echo $k->id_kd; ?>">
-                                            <input type="hidden" name="siswa[]" value="<?php echo $siswa; ?>">
-                                            <input type="hidden" name="mapel[]" value="<?php echo $mapel; ?>">
-                                            <input type="hidden" name="kelas[]" value="<?php echo $kelas; ?>"> -->
                                         <b><?php echo $k->kd; ?></b>
                                         <br>
                                         <span><i><?php echo $k->sub_kd; ?></i></span>
                                     </li>
                                 </div>
-                                <div class="col-md-6 mt-2">
+                                <div class="col-md-2 mt-2 text-center">
                                     <li class="list-group-item">
-                                        <!-- <input type="text" name="nilai[]" class="form-control"> -->
-                                        <a href="<?php echo base_url('nilai/tambah_nilai/' . $k->id_kd . "?siswa=" . $siswa . "&mapel=" . $mapel . "&&kelas=" . $kelas . "&&&ajaran=" . $tahun); ?>" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                        <a href="<?php echo base_url('nilai/edit_nilai/' . $k->id_kd . "?siswa=" . $siswa . "&mapel=" . $mapel . "&&kelas=" . $kelas . "&&&ajaran=" . $tahun); ?>" class="btn btn-success btn-sm">
-                                            <i class="fa fa-pencil"></i>
-                                        </a>
+                                        <?php
+                                        $sql = $this->db->query("SELECT * FROM t_nilai WHERE kd_id = '$k->id_kd' AND siswa_id = '$siswa'")->row();
+                                        $query = $this->db->query("SELECT * FROM t_nilai WHERE kd_id = '$k->id_kd' AND siswa_id = '$siswa'")->num_rows();
+                                        // die;
+                                        ?>
+                                        <strong class="badge badge-primary">
+                                            <?php if ($query > 0) : ?>
+                                                <?php echo $sql->nilai; ?>
+                                            <?php else : ?>
+                                                0
+                                            <?php endif; ?>
+                                        </strong>
+                                    </li>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <li class="list-group-item">
+                                        <?php if ($query > 0) : ?>
+                                            <a href="<?php echo base_url('nilai/edit_nilai/' . $k->id_kd . "?siswa=" . $siswa . "&mapel=" . $mapel . "&&kelas=" . $kelas . "&&&ajaran=" . $tahun); ?>" class="btn btn-success btn-sm">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        <?php else : ?>
+                                            <a href="<?php echo base_url('nilai/tambah_nilai/' . $k->id_kd . "?siswa=" . $siswa . "&mapel=" . $mapel . "&&kelas=" . $kelas . "&&&ajaran=" . $tahun); ?>" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </li>
                                 </div>
                             </div>

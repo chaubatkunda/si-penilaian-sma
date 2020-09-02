@@ -65,8 +65,8 @@ class Nilai extends CI_Controller
             'siswa'     => $nis,
             'kelas'     => $kelas,
             'tahun'     => $ajaran,
-
             'kd'         => $this->kd->getAllKdById($id),
+            // 'chek_nilai'    => $this->nilai->chekGetNilaiById($)
             'isi'       => 'guru/nilai_siswa'
         );
         $this->load->view('template/wrap', $data, false);
@@ -78,12 +78,6 @@ class Nilai extends CI_Controller
         $kode = $this->input->get('mapel', true);
         $kd        = $this->kd->getAllKdByIdd($kode);
 
-        // $tahun = $this->input->post('tahun', true);
-        // if ($tahun) {
-        //     $kelasn = $this->nilai->detailKelas($id, $tahun);
-        // } else {
-        //     $kelasn = [];
-        // }
 
         $data = array(
             'title'     => 'Nilai Kelas ' . $id,
@@ -156,6 +150,8 @@ class Nilai extends CI_Controller
             'tahun'    => $this->nilai->detailTahunAjaran($ajaran),
             'mapel'     => $this->nilai->getDetailMapel($mapel),
             'nilai'     => $this->nilai->getNilaiById($id, $siswa),
+            'kelas'     => $kelas,
+            'map'       => $mapel,
             'isi'       => 'guru/edit_nilai'
         );
         // var_dump($data['nilai']);

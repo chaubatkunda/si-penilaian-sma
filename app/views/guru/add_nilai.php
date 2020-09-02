@@ -17,9 +17,9 @@
                 <option value="">Tahun Ajaran</option>
                 <?php foreach ($tahun as $t) : ?>
                   <option value="<?php echo $t->id; ?>"><?php echo $t->thn_ajaran . "/ <i>$t->ket_thn_ajaran</i>"; ?></option>
-                  <small class="text-danger"><?php echo form_error('tahun'); ?></small>
                 <?php endforeach; ?>
               </select>
+              <small class="text-danger"><?php echo form_error('tahun'); ?></small>
             </div>
             <ul class="list-group">
               <li class="list-group-item active"><?php echo $title; ?></li>
