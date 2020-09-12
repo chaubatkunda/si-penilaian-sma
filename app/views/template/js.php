@@ -98,11 +98,6 @@
                     guru: guru
                 },
                 success: function(data) {
-                    // for (let i = 0; i < data.length; i++) {
-                    //     const element = data[i].nama_guru;
-                    //     console.log(element);
-                    // }
-                    // console.log(data.nama_guru);
                     $("#nama_guru").val(data.nama_guru);
 
                 }
@@ -128,6 +123,8 @@
 
                 }
             });
+
+
             // console.log(kelas);
         });
     });
@@ -135,6 +132,27 @@
 <script>
     // Tampil Menu
     $(document).ready(function() {
+        $(".kodemp").on('change', function() {
+            const kode = $(this).val();
+            $.ajax({
+                type: 'post',
+                url: "<?php echo base_url('mata_pelajaran/ajax_kodeMapel') ?>",
+                dataType: "json",
+                data: {
+                    'kode': kode
+                },
+                success: function(data) {
+                    if (kode) {
+                        $(".namamp").val(data.nama_mapel);
+                        console.log(data.nama_mapel);
+                    } else {
+                        $(".namamp").val(" ");
+                    }
+                }
+            });
+        });
+
+
         $(document).on('change', '.kelas', function() {
             var id = $(this).val();
             var Sid = $(this).attr('id');

@@ -11,7 +11,7 @@
                 <div class="tile-body">
                     <form method="post" action="" class="form-horizontal">
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Guru</label>
+                            <label class="control-label col-md-4">Guru</label>
                             <div class="col-md-8">
                                 <select name="guru" id="" class="form-control">
                                     <option value="">--Pilih--</option>
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Kelas</label>
+                            <label class="control-label col-md-4">Kelas</label>
                             <div class="col-md-8">
                                 <select name="kelas_sub[]" id="kelas" class="form-control kelas" id="0">
                                     <option value="">--Pilih--</option>
@@ -31,27 +31,43 @@
                                         <option value="<?php echo $k->id_kelas; ?>"><?php echo $k->nama_kelas; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <!-- <small class="text-danger"><?php echo form_error('kelas'); ?></small> -->
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3"></label>
+                            <label class="control-label col-md-4"></label>
                             <div class="col-md-8" id="kelas_dropdown">
 
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Kode Mapel</label>
+                            <label class="control-label col-md-4">Kode Mapel</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="kodemp" value="<?php echo set_value('kodemp'); ?>" placeholder="Kode Mapel">
+                                <select name="kodemp" class="form-control kodemp">
+                                    <option value="">Kode Mata Pelajaran</option>
+                                    <?php foreach ($mapel as $m) : ?>
+                                        <option value="<?php echo $m->kode_mapel; ?>"><?php echo $m->kode_mapel . "/" . $m->nama_mapel; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                                 <small class="text-danger"><?php echo form_error('kodemp'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="control-label col-md-3">Mata Pelajaran</label>
+                            <label class="control-label col-md-4">Mata Pelajaran</label>
                             <div class="col-md-8">
-                                <input class="form-control" name="namamp" type="text" value="<?php echo set_value('namamp'); ?>" placeholder="Mata Pelajaran">
+                                <input class="form-control namamp" name="namamp" type="text" value="<?php echo set_value('namamp'); ?>" placeholder="Mata Pelajaran" readonly>
                                 <small class="text-danger"><?php echo form_error('namamp'); ?></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-md-4">Tahun Ajaran</label>
+                            <div class="col-md-8">
+                                <select name="thn" class="form-control">
+                                    <option value="">Tahun Ajaran</option>
+                                    <?php foreach ($thn as $t) : ?>
+                                        <option value="<?php echo $t->id_thn_det; ?>"><?php echo $t->thn_ajaran . " " .   $t->ket_thn_ajaran; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <small class="text-danger"><?php echo form_error('kodemp'); ?></small>
                             </div>
                         </div>
                         <div class="form-group row">

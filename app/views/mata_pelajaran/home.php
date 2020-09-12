@@ -37,7 +37,7 @@
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <?php if ($this->fungsi->user_login()->level == 3) : ?>
-                                            <a href="<?php echo base_url('edit.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-success btn-sm">
+                                            <a href="<?php echo base_url('edit.mapel/' . $m->kode_mapel); ?>" class="btn btn-outline-success btn-sm">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                             <a href="<?php echo base_url('hapus.mapel/' . $m->id_mapel); ?>" class="btn btn-outline-danger btn-sm" id="hapus-siswa">

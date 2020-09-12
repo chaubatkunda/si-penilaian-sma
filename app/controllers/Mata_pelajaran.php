@@ -24,6 +24,8 @@ class Mata_pelajaran extends CI_Controller
             'title'     => 'Tambah Mata Pelajaran',
             'kelas'     => $this->db->get('t_kelas')->result(),
             'guru'      => $this->guru->getAllGuru(),
+            'mapel'     => $this->mpelajaran->getAllMapel(),
+            'thn'       => $this->mpelajaran->getAllThnAjaran(),
             'isi'       => 'mata_pelajaran/add'
         );
         $this->form_validation->set_rules('guru', 'Guru', 'trim|required');
@@ -31,10 +33,7 @@ class Mata_pelajaran extends CI_Controller
         $this->form_validation->set_rules(
             'kodemp',
             'Kode Pelajaran',
-            'trim|required|is_unique[t_mapel.kode_mapel]',
-            [
-                'is_unique' => 'Kode sudah dipakai'
-            ]
+            'trim|required'
         );
         $this->form_validation->set_rules('namamp', 'Mata Pelajaran', 'trim|required');
         if ($this->form_validation->run() == false) {
@@ -43,7 +42,7 @@ class Mata_pelajaran extends CI_Controller
             $this->mpelajaran->insert_data();
             // $this->mpelajaran->insert_detmapel();
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
-               Data Berhasil Ditambahkan
+                Data Berhasil Ditambahkan
                 </div>');
             redirect('mata.pelajaran');
         }
@@ -52,22 +51,36 @@ class Mata_pelajaran extends CI_Controller
     {
         $data = array(
             'title'     => 'Edit Mata Pelajaran',
-            'mapel'     => $this->mpelajaran->getAllMapelByKode($id),
-            'kelas'     => $this->admin->getAllKelas(),
-            'mapeld'    => $this->mpelajaran->getAllMapel(),
+            'kelas'     => $this->db->get('t_kelas')->result(),
             'guru'      => $this->guru->getAllGuru(),
+            'mapel'     => $this->mpelajaran->getAllMapel(),
+            'mapele'     => $this->mpelajaran->getAllMapelByKodeGuru($id),
+            'thn'       => $this->mpelajaran->getAllThnAjaran(),
             'isi'       => 'mata_pelajaran/edit'
         );
-        $this->form_validation->set_rules('kodemp', 'Kode Pelajaran', 'trim|required');
+        $guruid = $data['mapele']->guru_id;
+        // var_dump($data['mapele']);
+        // die;
+        $this->form_validation->set_rules('guru', 'Guru', 'trim|required');
+        // $this->form_validation->set_rules('kelas', 'Kelas', 'trim|required');
+        $this->form_validation->set_rules(
+            'kodemp',
+            'Kode Pelajaran',
+            'trim|required'
+        );
         $this->form_validation->set_rules('namamp', 'Mata Pelajaran', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->load->view('template/wrap', $data, false);
         } else {
-            $datam = [
-                'kode_mapel'    => $this->input->post('kodemp', true),
-                'nama_mapel'    => $this->input->post('namamp', true)
+            $data = [
+                'mapel_id'  => $this->input->post('kodemp', true),
+                'thn_ajaran_id' => $this->input->post('thn', true)
             ];
-            $this->mpelajaran->update_data($id, $datam);
+            $this->mpelajaran->update_data($guruid, $data);
+            // $this->mpelajaran->insert_detmapel();
+            $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
+                Data Berhasil Ditambahkan
+                </div>');
             redirect('mata.pelajaran');
         }
     }
@@ -90,7 +103,13 @@ class Mata_pelajaran extends CI_Controller
         $this->load->view('template/wrap', $data, false);
     }
 
+    public function ajax_kodeMapel()
+    {
+        $kode = $this->input->post('kode', true);
 
+        $data = $this->mpelajaran->ajaxKodeMapel($kode);
+        echo json_encode($data);
+    }
 
     public function ajax_kelas()
     {
