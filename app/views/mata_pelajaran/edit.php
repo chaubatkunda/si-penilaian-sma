@@ -13,9 +13,9 @@
                         <div class="form-group row">
                             <label class="control-label col-md-4">Guru</label>
                             <div class="col-md-8">
-                                <select name="guru" id="" class="form-control" readonly>
+                                <select name="guru" class="form-control">
                                     <?php foreach ($guru as $g) : ?>
-                                        <?php if ($mapele->id_guru == $g->id_guru) : ?>
+                                        <?php if ($mapele->guru_id == $g->id_guru) : ?>
                                             <option value="<?php echo $g->id_guru; ?>" selected><?php echo $g->nama_guru; ?></option>
                                         <?php else : ?>
                                             <option value="<?php echo $g->id_guru; ?>"><?php echo $g->nama_guru; ?></option>

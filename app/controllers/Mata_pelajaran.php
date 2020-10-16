@@ -73,11 +73,11 @@ class Mata_pelajaran extends CI_Controller
             $this->load->view('template/wrap', $data, false);
         } else {
             $data = [
+                'guru_id'  => $this->input->post('guru', true),
                 'mapel_id'  => $this->input->post('kodemp', true),
                 'thn_ajaran_id' => $this->input->post('thn', true)
             ];
             $this->mpelajaran->update_data($guruid, $data);
-            // $this->mpelajaran->insert_detmapel();
             $this->session->set_flashdata('warning', '<div class="alert alert-success" role="alert">
                 Data Berhasil Ditambahkan
                 </div>');
