@@ -13,6 +13,7 @@
                         <tr>
                             <th>Tahun Ajaran</th>
                             <th>Mata Pelajaran</th>
+                            <th>Kode Mata Pelajaran</th>
                             <th>Kelas</th>
                         </tr>
                     </thead>
@@ -20,6 +21,7 @@
                         <?php foreach ($guru as $g) : ?>
                             <tr>
                                 <td><?php echo $g->thn_ajaran; ?></td>
+                                <td><?php echo $g->nama_mapel; ?></td>
                                 <td><?php echo $g->mapel_id; ?></td>
                                 <td><?php echo $g->nama_kelas; ?></td>
                             </tr>

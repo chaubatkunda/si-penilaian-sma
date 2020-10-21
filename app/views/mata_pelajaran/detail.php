@@ -37,12 +37,6 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <?php if ($this->fungsi->user_login()->level == 3) : ?>
-                                <a href="<?php echo base_url('edit.mapel/' . $mapel->id_mapel); ?>" class="btn btn-success" title="Edit Siswa">
-                                    Edit
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                            <?php endif; ?>
                             <a href="<?php echo base_url('mata.pelajaran'); ?>" class="btn btn-danger">
                                 Kembali
                                 <i class="fa fa-arrow-circle-left"></i>
